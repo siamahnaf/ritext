@@ -20,3 +20,13 @@
 ### Patch Changes
 
 - Added new features
+
+---
+
+### ritext
+
+## 1.0.10
+
+### Patch Changes
+
+- Added new features
