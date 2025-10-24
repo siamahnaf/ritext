@@ -1,3 +1,3 @@
-# Project name
+# Ritext
 
-The main docs live in [`package/README.md`](package/README.md).
+The main docs live in [`package/ritext/README.md`](package/ritext/README.md).
