@@ -1,8 +1,8 @@
 {
   "name": "ritext",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "description": "Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by Tiptap. It offers a customizable UI and functional layer that lets you design your own editor controls and toolbars with clean, composable React components—no heavy UI, no extra dependencies beyond Tiptap.",
-  "homepage": "https://react-color-pick-docs.vercel.app/",
+  "homepage": "https://ritext.vercel.app/",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -11,8 +11,7 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-    "publish-packages": "turbo run build && changeset version && changeset publish"
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
   "author": {
     "name": "Siam Ahnaf",
@@ -45,11 +44,10 @@
   ],
   "repository": {
     "type": "git",
-    "directory": "https://github.com/siamahnaf/react-color-pick",
-    "url": "https://github.com/siamahnaf/react-color-pick"
+    "directory": "https://github.com/siamahnaf/ritext",
+    "url": "https://github.com/siamahnaf/ritext"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.7",
     "@tailwindcss/postcss": "^4.1.16",
     "@types/node": "^24",
     "@types/react": "^19",
