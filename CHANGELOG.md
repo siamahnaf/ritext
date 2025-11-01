@@ -50,3 +50,23 @@
 ### Patch Changes
 
 - Added italic, underline and strike extension
+
+---
+
+### ritext
+
+## 1.0.13
+
+### Patch Changes
+
+- Added subscript and superscript extensions
+
+---
+
+### ritext
+
+## 1.0.14
+
+### Patch Changes
+
+- Added subscript and superscript

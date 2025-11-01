@@ -19,8 +19,9 @@ Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by 
 - [x] Italic
 - [x] Underline
 - [x] Strike
-- [ ] Subscript
-- [ ] Superscript
+- [x] Subscript
+- [x] Superscript
+- [ ] SubAndSuperScript
 - [ ] Format Painter
 - [ ] Clear Format
 - [ ] Font Family
