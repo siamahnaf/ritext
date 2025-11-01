@@ -1,14 +1,6 @@
-import * as React from "react";
+import { IconProps } from "../types/icon.type";
 
-type BoldIconProps = React.SVGProps<SVGSVGElement> & {
-    size?: number | string;
-};
-
-const BoldIcon: React.FC<BoldIconProps> = ({
-    size = 17,
-    className,
-    ...props
-}) => (
+const BoldIcon = ({ size = 17, className, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

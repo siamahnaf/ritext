@@ -4,9 +4,10 @@ import { twMerge } from "tailwind-merge";
 
 interface Props {
     className?: string;
+    buttonClassName?: string;
 }
 
-const Toolbar = ({ className }: Props) => {
+const Toolbar = ({ className, buttonClassName }: Props) => {
     const { editor } = useEditor();
     if (!editor) return null;
     const entries = editor.extensionManager.extensions
@@ -17,22 +18,22 @@ const Toolbar = ({ className }: Props) => {
                 (anyExt.options?.ui?.button as undefined | ((args: any) => React.ReactNode));
 
             return renderButton
-                ? { name: anyExt.name as string, renderButton, options: anyExt.options }
+                ? { name: anyExt.name as string, renderButton, options: anyExt.options, buttonClassName: anyExt.buttonClassName }
                 : null;
         })
         .filter(Boolean) as Array<{
             name: string;
-            renderButton: (args: { editor: typeof editor; options: any }) => React.ReactNode;
+            renderButton: (args: { editor: typeof editor; options: any, buttonClassName: string }) => React.ReactNode;
             options: any;
         }>;
 
     if (!entries.length) return null;
 
     return (
-        <div className={twMerge("", className)}>
+        <div className={twMerge("flex gap-x-1.5", className)}>
             {entries.map(({ name, renderButton, options }) => (
                 <React.Fragment key={name}>
-                    {renderButton({ editor, options })}
+                    {renderButton({ editor, options, buttonClassName: buttonClassName || "" })}
                 </React.Fragment>
             ))}
         </div>

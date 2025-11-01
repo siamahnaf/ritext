@@ -1,16 +1,16 @@
-import TiptapBold from "@tiptap/extension-bold";
+import TiptapUnder from "@tiptap/extension-underline";
 import { Mark } from "@tiptap/react";
-import BoldIcon from "../icon/BoldIcon";
+import UnderIcon from "../icon/UnderIcon";
 
 //Components
 import ButtonComponent from "../components/ButtonComponent";
 import { ExtButtonOptions } from "../types/tiptap-ext.type";
 
-export const Bold: Mark<ExtButtonOptions, any> = TiptapBold.extend<ExtButtonOptions>({
+export const Underline: Mark<ExtButtonOptions, any> = TiptapUnder.extend<ExtButtonOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
-            button: ({ editor, options, buttonClassName }) => {
+            button: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent
                         className={options.className}
@@ -20,11 +20,11 @@ export const Bold: Mark<ExtButtonOptions, any> = TiptapBold.extend<ExtButtonOpti
                         tooltip={options.tooltip}
                         tooltipClassName={options.tooltipClassName}
                         tooltipPlacement={options.tooltipPlacement}
-                        _internalIcon={<BoldIcon />}
-                        _extName="bold"
-                        _onToggle={() => editor.chain().focus().toggleBold().run()}
-                        _interShortcut="⌘ + B"
-                        _tooltipContent="Bold"
+                        _internalIcon={<UnderIcon />}
+                        _extName="underline"
+                        _onToggle={() => editor.chain().focus().toggleUnderline().run()}
+                        _interShortcut="⌘ + U"
+                        _tooltipContent="Underline"
                         _buttonClassName={buttonClassName}
                     />
                 )

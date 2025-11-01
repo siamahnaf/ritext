@@ -1,6 +1,6 @@
 {
   "name": "ritext",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by Tiptap. It offers a customizable UI and functional layer that lets you design your own editor controls and toolbars with clean, composable React components—no heavy UI, no extra dependencies beyond Tiptap.",
   "homepage": "https://ritext.vercel.app/",
   "main": "dist/index.js",
@@ -67,7 +67,9 @@
     "@tiptap/extension-document": "^3.7.2",
     "@tiptap/extension-italic": "^3.7.2",
     "@tiptap/extension-paragraph": "^3.7.2",
+    "@tiptap/extension-strike": "^3.10.1",
     "@tiptap/extension-text": "^3.7.2",
+    "@tiptap/extension-underline": "^3.10.1",
     "@tiptap/pm": "^3.7.2",
     "@tiptap/react": "^3.7.2",
     "@tiptap/starter-kit": "^3.7.2",

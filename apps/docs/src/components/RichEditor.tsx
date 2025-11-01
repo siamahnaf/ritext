@@ -1,9 +1,12 @@
 "use client"
-import { Editor, Toolbar, Content, Bold } from "ritext";
+import { Editor, Toolbar, Content, Bold, Italic, Underline, Strike } from "ritext";
 import "ritext/dist/index.css";
 
 const extensions = [
-    Bold.configure()
+    Bold,
+    Italic,
+    Underline,
+    Strike
 ]
 
 const RichEditor = () => {

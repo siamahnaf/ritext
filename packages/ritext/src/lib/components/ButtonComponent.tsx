@@ -1,6 +1,5 @@
 import { ReactNode, CSSProperties } from "react";
 import { twMerge } from "tailwind-merge";
-import BoldIcon from "../icon/BoldIcon";
 import Tooltip from "./_com/Tooltip";
 import { Placement } from "@floating-ui/react";
 import { useEditor } from "../context/editor.context";
@@ -14,34 +13,41 @@ interface Props {
     style?: CSSProperties;
     tooltip?: boolean | string;
     tooltipClassName?: string;
+    _extName: string;
+    _tooltipContent?: string;
+    _internalIcon?: ReactNode;
+    _onToggle?: () => void;
+    _interShortcut?: string;
+    _buttonClassName?: string;
     tooltipPlacement?: Placement;
 }
 
-const BoldComponent = ({ className, activeClassName, icon, style, tooltip = true, tooltipClassName, tooltipPlacement }: Props) => {
+const ButtonComponent = ({ className, activeClassName, icon, style, tooltip = true, tooltipClassName, tooltipPlacement, _extName, _internalIcon, _tooltipContent, _onToggle, _interShortcut, _buttonClassName }: Props) => {
     //Editor
     const { editor } = useEditor();
     const editorState = useEditorState({
         editor,
-        selector: ({ editor }) => ({ isActive: editor?.isActive("bold") || false })
+        selector: ({ editor }) => ({ isActive: editor?.isActive(_extName) || false })
     });
 
     const tooltipContent = (<p>
-        {typeof tooltip === "string" ? tooltip : "Bold"}<br />
-        ⌘ + B
+        {typeof tooltip === "string" ? tooltip : _tooltipContent}<br />
+        {_interShortcut}
     </p>);
 
     const btn = (
         <button
-            onClick={() => editor?.chain().focus().toggleBold().run()}
+            onClick={_onToggle}
             className={twMerge(
                 "p-1.5 rounded-md",
+                _buttonClassName,
                 editorState?.isActive ? "bg-gray-200" : "hover:bg-gray-100",
                 className,
                 editorState?.isActive ? activeClassName : "hover:bg-gray-100"
             )}
             style={style}
         >
-            {icon ?? <BoldIcon />}
+            {icon ?? _internalIcon}
         </button>
     );
 
@@ -58,4 +64,4 @@ const BoldComponent = ({ className, activeClassName, icon, style, tooltip = true
     );
 };
 
-export default BoldComponent;
+export default ButtonComponent;

@@ -6,3 +6,6 @@ export { default as Content } from "./lib/Content";
 
 //Extension
 export { Bold } from "./lib/extensions/Bold";
+export { Italic } from "./lib/extensions/Italic";
+export { Underline } from "./lib/extensions/Underline";
+export { Strike } from "./lib/extensions/Strike";
