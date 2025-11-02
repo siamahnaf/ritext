@@ -1,16 +1,16 @@
-import TiptapBold from "@tiptap/extension-bold";
+import TiptapSuperscript from "@tiptap/extension-superscript";
 import { Mark } from "@tiptap/react";
-import BoldIcon from "../icon/BoldIcon";
+import SupIcon from "../lib/icon/SupIcon";
 
 //Components
-import ButtonComponent from "../components/ButtonComponent";
-import { ExtButtonOptions } from "../types/tiptap-ext.type";
+import ButtonComponent from "../lib/components/ButtonComponent";
+import { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const Bold: Mark<ExtButtonOptions, any> = TiptapBold.extend<ExtButtonOptions>({
+export const Superscript: Mark<ExtButtonOptions, any> = TiptapSuperscript.extend<ExtButtonOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
-            button: ({ editor, options, buttonClassName }) => {
+            button: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent
                         className={options.className}
@@ -20,11 +20,11 @@ export const Bold: Mark<ExtButtonOptions, any> = TiptapBold.extend<ExtButtonOpti
                         tooltip={options.tooltip}
                         tooltipClassName={options.tooltipClassName}
                         tooltipPlacement={options.tooltipPlacement}
-                        _internalIcon={<BoldIcon />}
-                        _extName="bold"
-                        _onToggle={() => editor.chain().focus().toggleBold().run()}
-                        _interShortcut="⌘ + B"
-                        _tooltipContent="Bold"
+                        _internalIcon={<SupIcon />}
+                        _extName="superscript"
+                        _onToggle={() => editor.chain().focus().toggleSuperscript().run()}
+                        _interShortcut="⌘ + ,"
+                        _tooltipContent="Superscript"
                         _buttonClassName={buttonClassName}
                     />
                 )

@@ -1,12 +1,12 @@
-import TiptapStrike from "@tiptap/extension-strike";
+import TiptapSubscript from "@tiptap/extension-subscript";
 import { Mark } from "@tiptap/react";
-import StrikeIcon from "../icon/StrikeIcon";
+import SubIcon from "../lib/icon/SubIcon";
 
 //Components
-import ButtonComponent from "../components/ButtonComponent";
-import { ExtButtonOptions } from "../types/tiptap-ext.type";
+import ButtonComponent from "../lib/components/ButtonComponent";
+import { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const Strike: Mark<ExtButtonOptions, any> = TiptapStrike.extend<ExtButtonOptions>({
+export const Subscript: Mark<ExtButtonOptions, any> = TiptapSubscript.extend<ExtButtonOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
@@ -20,11 +20,11 @@ export const Strike: Mark<ExtButtonOptions, any> = TiptapStrike.extend<ExtButton
                         tooltip={options.tooltip}
                         tooltipClassName={options.tooltipClassName}
                         tooltipPlacement={options.tooltipPlacement}
-                        _internalIcon={<StrikeIcon />}
-                        _extName="strike"
-                        _onToggle={() => editor.chain().focus().toggleStrike().run()}
-                        _interShortcut="⌘ ⇧ S"
-                        _tooltipContent="Strike"
+                        _internalIcon={<SubIcon />}
+                        _extName="subscript"
+                        _onToggle={() => editor.chain().focus().toggleSubscript().run()}
+                        _interShortcut="⌘ + ,"
+                        _tooltipContent="Subscript"
                         _buttonClassName={buttonClassName}
                     />
                 )

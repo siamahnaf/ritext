@@ -1,10 +1,10 @@
 import TiptapUnder from "@tiptap/extension-underline";
 import { Mark } from "@tiptap/react";
-import UnderIcon from "../icon/UnderIcon";
+import UnderIcon from "../lib/icon/UnderIcon";
 
 //Components
-import ButtonComponent from "../components/ButtonComponent";
-import { ExtButtonOptions } from "../types/tiptap-ext.type";
+import ButtonComponent from "../lib/components/ButtonComponent";
+import { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
 export const Underline: Mark<ExtButtonOptions, any> = TiptapUnder.extend<ExtButtonOptions>({
     addOptions() {

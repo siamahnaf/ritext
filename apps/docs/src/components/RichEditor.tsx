@@ -1,6 +1,16 @@
 "use client"
-import { Editor, Toolbar, Content, Bold, Italic, Underline, Strike, Subscript, Superscript } from "ritext";
-import "ritext/dist/index.css";
+import { Editor, Toolbar, Content } from "ritext";
+
+//Extensions
+import { Bold } from "ritext/extension/bold";
+import { Italic } from "ritext/extension/italic";
+import { Underline } from "ritext/extension/underline";
+import { Strike } from "ritext/extension/strike";
+import { Subscript } from "ritext/extension/subscript";
+import { Superscript } from "ritext/extension/superscript";
+
+//CSS
+import "ritext/styles.css";
 
 const extensions = [
     Bold,

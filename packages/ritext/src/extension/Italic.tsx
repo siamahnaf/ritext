@@ -1,12 +1,12 @@
-import TiptapSuperscript from "@tiptap/extension-superscript";
+import TiptapItalic from "@tiptap/extension-italic";
 import { Mark } from "@tiptap/react";
-import SupIcon from "../icon/SupIcon";
+import ItalicIcon from "../lib/icon/ItalicIcon";
 
 //Components
-import ButtonComponent from "../components/ButtonComponent";
-import { ExtButtonOptions } from "../types/tiptap-ext.type";
+import ButtonComponent from "../lib/components/ButtonComponent";
+import { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const Superscript: Mark<ExtButtonOptions, any> = TiptapSuperscript.extend<ExtButtonOptions>({
+export const Italic: Mark<ExtButtonOptions, any> = TiptapItalic.extend<ExtButtonOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
@@ -20,11 +20,11 @@ export const Superscript: Mark<ExtButtonOptions, any> = TiptapSuperscript.extend
                         tooltip={options.tooltip}
                         tooltipClassName={options.tooltipClassName}
                         tooltipPlacement={options.tooltipPlacement}
-                        _internalIcon={<SupIcon />}
-                        _extName="superscript"
-                        _onToggle={() => editor.chain().focus().toggleSuperscript().run()}
-                        _interShortcut="⌘ + ,"
-                        _tooltipContent="Superscript"
+                        _internalIcon={<ItalicIcon />}
+                        _extName="italic"
+                        _onToggle={() => editor.chain().focus().toggleItalic().run()}
+                        _interShortcut="⌘ + I"
+                        _tooltipContent="Italic"
                         _buttonClassName={buttonClassName}
                     />
                 )

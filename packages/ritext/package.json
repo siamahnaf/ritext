@@ -9,9 +9,25 @@
   "files": [
     "dist"
   ],
+  "sideEffects": [
+    "./dist/index.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./extension/*": {
+      "types": "./dist/extension/*.d.ts",
+      "import": "./dist/extension/*.mjs",
+      "require": "./dist/extension/*.cjs"
+    },
+    "./styles.css": "./dist/index.css"
+  },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "author": {
     "name": "Siam Ahnaf",
