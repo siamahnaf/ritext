@@ -10,5 +10,5 @@ export type ExtButtonOptions = {
     tooltip?: boolean | string;
     tooltipClassName?: string;
     tooltipPlacement?: Placement;
-    button: (args: { options: ExtButtonOptions, editor: Editor, buttonClassName: string }) => ReactNode;
+    component: (args: { options: ExtButtonOptions, editor: Editor, buttonClassName: string }) => ReactNode;
 }

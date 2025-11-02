@@ -14,8 +14,7 @@ const Toolbar = ({ className, buttonClassName }: Props) => {
         .map((ext) => {
             const anyExt = ext as any;
             const renderButton =
-                (anyExt.options?.button as undefined | ((args: any) => React.ReactNode)) ||
-                (anyExt.options?.ui?.button as undefined | ((args: any) => React.ReactNode));
+                (anyExt.options?.component as undefined | ((args: any) => React.ReactNode))
 
             return renderButton
                 ? { name: anyExt.name as string, renderButton, options: anyExt.options, buttonClassName: anyExt.buttonClassName }
