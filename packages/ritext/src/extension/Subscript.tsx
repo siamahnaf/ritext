@@ -1,16 +1,16 @@
 import TiptapSubscript from "@tiptap/extension-subscript";
-import { Mark } from "@tiptap/react";
+import type { Mark } from "@tiptap/react";
 import SubIcon from "../lib/icon/SubIcon";
 
 //Components
 import ButtonComponent from "../lib/components/ButtonComponent";
-import { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
+import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const Subscript: Mark<ExtButtonOptions, any> = TiptapSubscript.extend<ExtButtonOptions>({
+export const Subscript: Mark<ExtButtonOptions> = TiptapSubscript.extend<ExtButtonOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
-            button: ({ options, editor, buttonClassName }) => {
+            component: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent
                         className={options.className}

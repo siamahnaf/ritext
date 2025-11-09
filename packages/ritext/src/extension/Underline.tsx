@@ -1,16 +1,16 @@
 import TiptapUnder from "@tiptap/extension-underline";
-import { Mark } from "@tiptap/react";
+import type { Mark } from "@tiptap/react";
 import UnderIcon from "../lib/icon/UnderIcon";
 
 //Components
 import ButtonComponent from "../lib/components/ButtonComponent";
-import { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
+import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const Underline: Mark<ExtButtonOptions, any> = TiptapUnder.extend<ExtButtonOptions>({
+export const Underline: Mark<ExtButtonOptions> = TiptapUnder.extend<ExtButtonOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
-            button: ({ options, editor, buttonClassName }) => {
+            component: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent
                         className={options.className}

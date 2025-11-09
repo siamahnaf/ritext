@@ -1,5 +1,5 @@
-import { useState, Fragment, ReactNode, cloneElement, isValidElement, Ref, RefObject, useId } from "react";
-import { useFloating, offset, flip, shift, autoUpdate, useInteractions, useHover, useDismiss, Placement, FloatingPortal } from "@floating-ui/react";
+import { useState, Fragment, type ReactNode, cloneElement, isValidElement, type Ref, type RefObject, useId } from "react";
+import { useFloating, offset, flip, shift, autoUpdate, useInteractions, useHover, useDismiss, type Placement, FloatingPortal } from "@floating-ui/react";
 import { AnimatePresence, motion } from "motion/react";
 import { twMerge } from "tailwind-merge";
 
@@ -31,7 +31,7 @@ const Tooltip = ({ placement = "top", children, content, className }: Props) => 
     const id = useId();
 
     //Helpers
-    function mergeRefs<T = any>(...refsToMerge: Array<Ref<T> | undefined>) {
+    function mergeRefs<T>(...refsToMerge: Array<Ref<T> | undefined>) {
         return (node: T) => {
             for (const r of refsToMerge) {
                 if (!r) continue;
@@ -68,8 +68,10 @@ const Tooltip = ({ placement = "top", children, content, className }: Props) => 
                         onFocus: () => setOpen(true),
                         onBlur: () => setOpen(false),
                         "aria-describedby": open ? id : undefined,
+                        /* eslint-disable @typescript-eslint/no-explicit-any */
                     }) as any),
-                    ref: mergeRefs((children as any).ref, refs.setReference),
+                    /* eslint-disable @typescript-eslint/no-explicit-any */
+                    ref: mergeRefs((children as any).props.ref, refs.setReference),
                 })
                 : children}
             <FloatingPortal>

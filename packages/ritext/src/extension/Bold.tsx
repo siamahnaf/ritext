@@ -1,16 +1,16 @@
 import TiptapBold from "@tiptap/extension-bold";
-import { Mark } from "@tiptap/react";
+import type { Mark } from "@tiptap/react";
 import BoldIcon from "../lib/icon/BoldIcon";
 
 //Components
 import ButtonComponent from "../lib/components/ButtonComponent";
-import { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
+import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const Bold: Mark<ExtButtonOptions, any> = TiptapBold.extend<ExtButtonOptions>({
+export const Bold: Mark<ExtButtonOptions> = TiptapBold.extend<ExtButtonOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
-            button: ({ editor, options, buttonClassName }) => {
+            component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonComponent
                         className={options.className}

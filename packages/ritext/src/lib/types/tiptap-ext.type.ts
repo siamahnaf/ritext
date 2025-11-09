@@ -1,6 +1,6 @@
-import { ReactNode, CSSProperties } from "react";
-import { Placement } from "@floating-ui/react";
-import { Editor } from "@tiptap/react";
+import type { ReactNode, CSSProperties } from "react";
+import type { Placement } from "@floating-ui/react";
+import type { Editor } from "@tiptap/react";
 
 export type ExtButtonOptions = {
     className?: string;
@@ -11,4 +11,25 @@ export type ExtButtonOptions = {
     tooltipClassName?: string;
     tooltipPlacement?: Placement;
     component: (args: { options: ExtButtonOptions, editor: Editor, buttonClassName: string }) => ReactNode;
+}
+
+export type ExtDropdownOptions = {
+    className?: string;
+    showArrow?: boolean;
+    content?: ReactNode;
+    dropdownClassName?: string;
+    itemClassName?: string;
+    activeClassName?: string;
+    style?: CSSProperties;
+    tooltip?: boolean | string;
+    tooltipClassName?: string;
+    tooltipPlacement?: Placement;
+}
+
+export type ExtDropdownItemProps = {
+    icon?: ReactNode;
+    text: string;
+    keyBind: string;
+    onClick: () => void;
+    id: string;
 }

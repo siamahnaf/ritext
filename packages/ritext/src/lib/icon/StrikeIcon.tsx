@@ -1,4 +1,4 @@
-import { IconProps } from "../types/icon.type";
+import type { IconProps } from "../types/icon.type";
 
 const StrikeIcon = ({ size = 17, className, ...props }: IconProps) => {
     return (

@@ -1,6 +1,6 @@
 import type { IconProps } from "../types/icon.type";
 
-const BoldIcon = ({ size = 17, className, ...props }: IconProps) => (
+const SubAndSupIcon = ({ size = 17, className, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -14,8 +14,10 @@ const BoldIcon = ({ size = 17, className, ...props }: IconProps) => (
         className={className}
         {...props}
     >
-        <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
+        <path d="M12 4v16" />
+        <path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2" />
+        <path d="M9 20h6" />
     </svg>
 );
 
-export default BoldIcon;
+export default SubAndSupIcon;

@@ -1,16 +1,16 @@
 import TiptapSuperscript from "@tiptap/extension-superscript";
-import { Mark } from "@tiptap/react";
+import type { Mark } from "@tiptap/react";
 import SupIcon from "../lib/icon/SupIcon";
 
 //Components
 import ButtonComponent from "../lib/components/ButtonComponent";
-import { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
+import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const Superscript: Mark<ExtButtonOptions, any> = TiptapSuperscript.extend<ExtButtonOptions>({
+export const Superscript: Mark<ExtButtonOptions> = TiptapSuperscript.extend<ExtButtonOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
-            button: ({ options, editor, buttonClassName }) => {
+            component: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent
                         className={options.className}

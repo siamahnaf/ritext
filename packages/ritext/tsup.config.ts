@@ -10,6 +10,7 @@ export default defineConfig({
         "extension/strike": "src/extension/Strike.tsx",
         "extension/subscript": "src/extension/Subscript.tsx",
         "extension/superscript": "src/extension/Superscript.tsx",
+        "extension/subandsuperscript": "src/extension/SubAndSuperscript.tsx",
     },
     format: ["esm", "cjs"],
     dts: true,

@@ -1,7 +1,7 @@
-import { ReactNode, CSSProperties } from "react";
+import type { ReactNode, CSSProperties } from "react";
 import { twMerge } from "tailwind-merge";
 import Tooltip from "./_com/Tooltip";
-import { Placement } from "@floating-ui/react";
+import type { Placement } from "@floating-ui/react";
 import { useEditor } from "../context/editor.context";
 import { useEditorState } from "@tiptap/react";
 
@@ -41,7 +41,7 @@ const ButtonComponent = ({ className, activeClassName, icon, style, tooltip = tr
             className={twMerge(
                 "p-1.5 rounded-md",
                 _buttonClassName,
-                editorState?.isActive ? "bg-gray-200" : "hover:bg-gray-100",
+                editorState?.isActive ? "bg-gray-200/60" : "hover:bg-gray-100",
                 className,
                 editorState?.isActive ? activeClassName : "hover:bg-gray-100"
             )}

@@ -14,34 +14,34 @@ Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by 
 ### This is an testing phase will publish soon.
 
 # Extension Roadmap
-- [x] Starter Kit
-- [x] Bold
-- [x] Italic
-- [x] Underline
-- [x] Strike
-- [x] Subscript
-- [x] Superscript
-- [ ] SubAndSuperScript
-- [ ] Format Painter
-- [ ] Clear Format
-- [ ] Font Family
-- [ ] Heading
-- [ ] Fonts Size
-- [ ] Undo
-- [ ] Redo
-- [ ] Emoji
-- [ ] Color
-- [ ] Highlight
-- [ ] Bullet List
-- [ ] Ordered List
-- [ ] Alignment
-- [ ] Indent
-- [ ] Outdent
-- [ ] Line Height
-- [ ] Task List
-- [ ] Image
-- [ ] Link
-- [ ] Blockquote
+☑ Starter Kit  
+☑ Bold  
+☑ Italic  
+☑ Underline  
+☑ Strike  
+☑ Subscript  
+☑ Superscript  
+☑ SubAndSuperScript  
+☐ Format Painter  
+☐ Clear Format  
+☐ Font Family  
+☐ Heading  
+☐ Fonts Size  
+☐ Undo  
+☐ Redo  
+☐ Emoji  
+☐ Color  
+☐ Highlight  
+☐ Bullet List  
+☐ Ordered List  
+☐ Alignment  
+☐ Indent  
+☐ Outdent  
+☐ Line Height  
+☐ Task List  
+☐ Image  
+☐ Link  
+☐ Blockquote  
 
 # Stay in touch
 

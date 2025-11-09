@@ -1,7 +1,7 @@
-import { createContext, useContext, ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 
 //Types
-import { EditorContextType } from "../types/editor.types";
+import type { EditorContextType } from "../types/editor.types";
 type EditorProviderProps = {
     children: ReactNode;
     value: EditorContextType;

@@ -70,3 +70,13 @@
 ### Patch Changes
 
 - Added subscript and superscript
+
+---
+
+### ritext
+
+## 1.0.15
+
+### Patch Changes
+
+- Added SubAndSuperscript Extensions

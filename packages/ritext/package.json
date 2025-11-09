@@ -1,6 +1,6 @@
 {
   "name": "ritext",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by Tiptap. It offers a customizable UI and functional layer that lets you design your own editor controls and toolbars with clean, composable React components—no heavy UI, no extra dependencies beyond Tiptap.",
   "homepage": "https://ritext.vercel.app/",
   "main": "dist/index.js",
@@ -26,6 +26,8 @@
     "./styles.css": "./dist/index.css"
   },
   "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit",
     "build": "tsup",
     "dev": "tsup --watch"
   },
@@ -64,22 +66,26 @@
     "url": "https://github.com/siamahnaf/ritext"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
     "@tailwindcss/postcss": "^4.1.16",
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "postcss": "^8.5.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwindcss": "^4.1.16",
     "tsup": "^8.5.0",
-    "turbo": "^2.6.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
-    "@tiptap/core": "^3.10.1",
     "@tiptap/extension-bold": "^3.10.1",
     "@tiptap/extension-document": "^3.10.1",
     "@tiptap/extension-italic": "^3.10.1",
