@@ -9,6 +9,8 @@ import { Strike } from "ritext/extension/strike";
 import { Subscript } from "ritext/extension/subscript";
 import { Superscript } from "ritext/extension/superscript";
 import { SubAndSuperscript } from "ritext/extension/subandsuperscript";
+import { ClearFormat } from "ritext/extension/clearformat";
+import { Heading } from "ritext/extension/heading";
 
 //CSS
 import "ritext/styles.css";
@@ -20,7 +22,9 @@ const extensions = [
     Strike,
     Subscript,
     Superscript,
-    SubAndSuperscript
+    SubAndSuperscript,
+    ClearFormat,
+    Heading
 ]
 
 const RichEditor = () => {

@@ -11,6 +11,8 @@ export default defineConfig({
         "extension/subscript": "src/extension/Subscript.tsx",
         "extension/superscript": "src/extension/Superscript.tsx",
         "extension/subandsuperscript": "src/extension/SubAndSuperscript.tsx",
+        "extension/clearformat": "src/extension/ClearFormat.tsx",
+        "extension/heading": "src/extension/Heading.tsx",
     },
     format: ["esm", "cjs"],
     dts: true,

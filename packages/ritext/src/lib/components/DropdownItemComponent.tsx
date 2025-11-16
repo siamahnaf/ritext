@@ -9,10 +9,11 @@ interface Props {
     onSelect?: () => void;
     itemClassName: string;
     activeClassName: string;
+    showKeyShortcutText?: boolean;
     _itemClassName: string;
 }
 
-const DropdownItemComponent = ({ item, onSelect, activeClassName, itemClassName, _itemClassName }: Props) => {
+const DropdownItemComponent = ({ item, onSelect, activeClassName, itemClassName, _itemClassName, showKeyShortcutText = true }: Props) => {
     //Editor
     const { editor } = useEditor();
     const editorState = useEditorState({
@@ -29,8 +30,10 @@ const DropdownItemComponent = ({ item, onSelect, activeClassName, itemClassName,
             editorState?.isActive ? activeClassName : "hover:bg-gray-100"
         )} onClick={onSelect}>
             {item.icon}
-            <span className="flex-1">{item.text}</span>
-            <span className="ml-6 text-gray-400">{item.keyBind}</span>
+            <span className="flex-1 text-base">{item.text}</span>
+            {showKeyShortcutText &&
+                <span className="ml-6 text-gray-400">{item.keyBind}</span>
+            }
         </div>
     );
 };

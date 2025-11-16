@@ -70,14 +70,14 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
                 "aria-controls": open ? listId : undefined,
             })}
             className={twMerge(
-                "p-1.5 rounded-md hover:bg-gray-100 flex gap-x-px",
+                "p-1.5 rounded-md hover:bg-gray-100 items-center flex gap-x-0.5",
                 className
             )}
             style={style}
         >
             <span>{content ?? _internalContent}</span>
             {showArrow &&
-                <ArrowIcon size={14} className="text-gray-500 block mt-0.5" />
+                <ArrowIcon size={14} className="text-gray-500 block" />
             }
         </button>
     );

@@ -46,8 +46,6 @@ const Toolbar = ({ className, buttonClassName, dropdownContainerClassName, dropd
             options: any;
         }>;
 
-    if (!entries.length) return null;
-
     return (
         <div className={twMerge("flex gap-x-1.5", className)}>
             {entries.map(({ name, renderButton, options }) => (

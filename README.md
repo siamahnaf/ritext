@@ -22,10 +22,9 @@ Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by 
 ☑ Subscript  
 ☑ Superscript  
 ☑ SubAndSuperScript  
-☐ Format Painter  
-☐ Clear Format  
-☐ Font Family  
+☑ Clear Format  
 ☐ Heading  
+☐ Font Family  
 ☐ Fonts Size  
 ☐ Undo  
 ☐ Redo  
@@ -42,6 +41,7 @@ Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by 
 ☐ Image  
 ☐ Link  
 ☐ Blockquote  
+☐ Format Painter  
 
 # Stay in touch
 
