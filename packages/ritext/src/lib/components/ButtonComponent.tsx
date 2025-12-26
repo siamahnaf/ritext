@@ -39,7 +39,7 @@ const ButtonComponent = ({ className, activeClassName, icon, style, tooltip = tr
         <button
             onClick={_onToggle}
             className={twMerge(
-                "p-1.5 rounded-md",
+                "py-1.5 px-2.5 rounded-md",
                 _buttonClassName,
                 editorState?.isActive ? "bg-gray-200/60" : "hover:bg-gray-100",
                 className,

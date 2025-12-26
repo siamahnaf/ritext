@@ -23,12 +23,11 @@ Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by 
 ☑ Superscript  
 ☑ SubAndSuperScript  
 ☑ Clear Format  
-☐ Heading  
-☐ Font Family  
-☐ Fonts Size  
-☐ Undo  
-☐ Redo  
-☐ Emoji  
+☑ Heading  
+☑ Font Family  
+☑ Fonts Size  
+☑ Undo  
+☑ Redo  
 ☐ Color  
 ☐ Highlight  
 ☐ Bullet List  

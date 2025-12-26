@@ -47,7 +47,7 @@ const Toolbar = ({ className, buttonClassName, dropdownContainerClassName, dropd
         }>;
 
     return (
-        <div className={twMerge("flex gap-x-1.5", className)}>
+        <div className={twMerge("flex gap-x-1", className)}>
             {entries.map(({ name, renderButton, options }) => (
                 <React.Fragment key={name}>
                     {renderButton({

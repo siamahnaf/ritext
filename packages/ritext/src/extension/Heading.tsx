@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 import type { Node } from "@tiptap/react";
 import TiptapHeading from "@tiptap/extension-heading";
+import TiptapParagraph from "@tiptap/extension-paragraph";
 import type { Editor } from "@tiptap/react";
-import { H1Icon, H2Icon, H3Icon, H4Icon, H5Icon, H6Icon } from "../lib/icon/HeadingIcon";
+import { H1Icon, H2Icon, H3Icon, H4Icon, H5Icon, H6Icon, Pilcrow } from "../lib/icon/HeadingIcon";
 
 //Components
 import DropdownComponent from "../lib/components/DropdownComponent";
@@ -12,7 +13,7 @@ import type { ExtDropdownOptions, ExtDropdownItemProps } from "../lib/types/tipt
 //Interface
 interface ExtHeadingOptions extends ExtDropdownOptions {
     showKeyShortcutText?: boolean;
-    levels?: { enable: boolean, icon?: ReactNode, text?: string, keyShortcuts?: string }[];
+    level?: { enable: boolean, icon?: ReactNode, text?: string, keyShortcuts?: string }[];
     component: (args: {
         options: ExtHeadingOptions,
         editor: Editor,
@@ -40,21 +41,41 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
                 };
 
                 const list: ExtDropdownItemProps[] = [];
-                const levels = options.levels ?? [];
 
-                for (let level = 1; level <= 6; level++) {
-                    const cfg = levels[level - 1];
-                    const enabled = cfg?.enable ?? true;
-                    if (!enabled) continue;
+                const levels = options.level;
+                const shouldShowAll = !Array.isArray(levels) || levels.length === 0;
 
-                    list.push({
-                        icon: (cfg?.icon ?? defaultIcons[level]),
-                        text: (cfg?.text ?? defaultTexts[level]),
-                        keyBind: (cfg?.keyShortcuts ?? defaultKeys[level]),
-                        onClick: () => editor.chain().focus().toggleHeading({ level: level as 1 }).run(),
-                        id: `heading-${level}`,
+                if (shouldShowAll) {
+                    for (let level = 1; level <= 6; level++) {
+                        list.push({
+                            id: crypto.randomUUID(),
+                            icon: defaultIcons[level],
+                            text: defaultTexts[level],
+                            keyBind: defaultKeys[level],
+                            onClick: () =>
+                                editor.chain().focus().toggleHeading({ level: level as 1 | 2 | 3 | 4 | 5 | 6 }).run(),
+                            name: "heading",
+                            ext: level
+                        });
+                    }
+                } else {
+                    // levels is guaranteed non-empty array here
+                    levels.forEach((cfg, index) => {
+                        const level = (index + 1) as 1 | 2 | 3 | 4 | 5 | 6;
+                        if (!cfg?.enable) return;
+
+                        list.push({
+                            id: crypto.randomUUID(),
+                            icon: cfg.icon ?? defaultIcons[level],
+                            text: cfg.text ?? defaultTexts[level],
+                            keyBind: cfg.keyShortcuts ?? defaultKeys[level],
+                            onClick: () => editor.chain().focus().toggleHeading({ level }).run(),
+                            name: "heading",
+                            ext: level
+                        });
                     });
                 }
+
                 return (
                     <DropdownComponent
                         className={options.className}
@@ -69,11 +90,28 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
                         _internalContent="Heading"
                         _dropdownClassName={dropdownContainerClassName}
                     >
+                        <DropdownItemComponent
+                            onSelect={() => editor.chain().setParagraph().run()}
+                            item={{
+                                id: crypto.randomUUID(),
+                                icon: <Pilcrow />,
+                                text: "Paragraph",
+                                keyBind: "⌘⌥ P",
+                                onClick: () => editor.chain().setParagraph().run(),
+                                name: "paragraph"
+                            }}
+                            activeClassName={options.activeClassName || ""}
+                            itemClassName={options.itemClassName || ""}
+                            showKeyShortcutText={options.showKeyShortcutText}
+                            _itemClassName={dropdownItemClassName}
+                        />
+                        <hr className="border-gray-200" />
                         {list.map((item) => (
                             <DropdownItemComponent
-                                key={item.id}
+                                key={`${item.name}${item.ext}`}
                                 onSelect={item.onClick}
                                 item={item}
+                                spClass={["text-3xl", "text-2xl", "text-xl", "text-lg", "text-base", "text-sm"][(Number(item.ext) || 6) - 1]}
                                 activeClassName={options.activeClassName || ""}
                                 itemClassName={options.itemClassName || ""}
                                 showKeyShortcutText={options.showKeyShortcutText}
@@ -81,8 +119,12 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
                             />
                         ))}
                     </DropdownComponent>
-                )
+                );
             }
+
         }
+    },
+    addExtensions() {
+        return [TiptapParagraph];
     }
 });

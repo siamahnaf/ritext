@@ -37,21 +37,23 @@ export const SubAndSuperscript = Extension.create<ExtSubAndSupOptions>({
 
                 if (options.subscript !== false) {
                     list.push({
+                        id: crypto.randomUUID(),
                         icon: options.subscriptIcon ?? <SubIcon />,
                         text: typeof options.subscript === "string" ? options.subscript : "Subscript",
                         onClick: () => editor.chain().focus().toggleSubscript().run(),
                         keyBind: "⌘ .",
-                        id: "subscript",
+                        name: "subscript"
                     });
                 }
 
                 if (options.superscript !== false) {
                     list.push({
+                        id: crypto.randomUUID(),
                         icon: options.superscriptIcon ?? <SupIcon />,
                         text: typeof options.superscript === "string" ? options.superscript : "Superscript",
                         onClick: () => editor.chain().focus().toggleSuperscript().run(),
                         keyBind: "⌘ ,",
-                        id: "superscript",
+                        name: "superscript"
                     });
                 }
                 return (

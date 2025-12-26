@@ -108,7 +108,7 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
                             initial={initialMotion}
                             animate={animateMotion}
                             exit={initialMotion}
-                            className={twMerge("bg-white border border-solid border-gray-200 p-2 space-y-1 rounded-lg shadow-sm shadow-gray-200/40", _dropdownClassName, dropdownClassName)}
+                            className={twMerge("bg-white border border-solid border-gray-200 p-2 space-y-1 rounded-lg shadow-sm shadow-gray-200/40 max-h-125 overflow-auto", _dropdownClassName, dropdownClassName)}
                         >
                             {enhancedChildren}
                         </motion.div>

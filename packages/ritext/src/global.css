@@ -4,4 +4,212 @@
     button {
         @apply cursor-pointer;
     }
+    .ProseMirror p {
+        @apply leading-relaxed mb-1.5 first:mt-0 last:mb-0;
+    }
+
+    .ProseMirror > p {
+        @apply mb-1.5 first:mt-0 last:mb-0;
+    }
+
+    .ProseMirror h1 {
+        @apply text-3xl;
+    }
+
+    .ProseMirror h2 {
+        @apply text-2xl;
+    }
+
+    .ProseMirror h3 {
+        @apply text-xl;
+    }
+
+    .ProseMirror h4 {
+        @apply text-lg;
+    }
+
+    .ProseMirror h5 {
+        @apply text-base;
+    }
+
+    .ProseMirror h6 {
+        @apply text-sm;
+    }
+
+    .ProseMirror h1,
+    .ProseMirror h2,
+    .ProseMirror h3,
+    .ProseMirror h4,
+    .ProseMirror h5,
+    .ProseMirror h6 {
+        @apply font-bold first:mt-0 last:mb-0;
+    }
+
+    .ProseMirror h1,
+    .ProseMirror h2,
+    .ProseMirror h3 {
+        @apply mt-12;
+    }
+
+    .ProseMirror h4,
+    .ProseMirror h5,
+    .ProseMirror h6 {
+        @apply mt-8;
+    }
+
+    .ProseMirror a.link {
+        @apply text-blue-500 font-extrabold dark:text-blue-400;
+    }
+
+    .ProseMirror mark {
+        @apply bg-red-500 rounded-sm [box-decoration-break:clone] text-inherit py-1 px-0 dark:bg-red-400;
+    }
+
+    .ProseMirror img {
+        @apply h-auto max-w-full;
+    }
+
+    /* Indent (base = 2em, max = 7) */
+    .ProseMirror *[data-indent='1'] {
+        text-indent: 2em !important;
+    }
+    .ProseMirror *[data-indent='2'] {
+        text-indent: 4em !important;
+    }
+    .ProseMirror *[data-indent='3'] {
+        text-indent: 6em !important;
+    }
+    .ProseMirror *[data-indent='4'] {
+        text-indent: 8em !important;
+    }
+    .ProseMirror *[data-indent='5'] {
+        text-indent: 10em !important;
+    }
+    .ProseMirror *[data-indent='6'] {
+        text-indent: 12em !important;
+    }
+    .ProseMirror *[data-indent='7'] {
+        text-indent: 14em !important;
+    }
+
+    .ProseMirror iframe {
+        @apply w-full mt-2 rounded-sm h-full border border-gray-200;
+    }
+
+    /* Block Quote */
+    .ProseMirror .blockquote {
+        @apply border-l-4 text-black border-l-neutral-700 py-2 px-4 rounded-lg rounded-tl-none rounded-bl-none;
+        @apply dark:border-l-neutral-300 dark:text-white;
+    }
+
+    .ProseMirror code {
+        @apply caret-white text-white bg-neutral-900 rounded-sm shadow-lg font-mono;
+    }
+
+    .ProseMirror pre {
+        @apply caret-white bg-neutral-700 text-white rounded my-12 p-4 border border-black dark:bg-neutral-900 dark:border-gray-200;
+    }
+
+    .ProseMirror pre code {
+        @apply bg-inherit text-inherit p-0 shadow-none;
+    }
+
+    /* List */
+    .ProseMirror ol {
+        @apply list-decimal;
+    }
+
+    .ProseMirror ul {
+        @apply list-disc;
+    }
+
+    .ProseMirror ul,
+    .ProseMirror ol {
+        @apply py-0 px-8 my-6 first:mt-0 last:mb-0;
+    }
+
+    .ProseMirror ul ul,
+    .ProseMirror ul ol,
+    .ProseMirror ul li,
+    .ProseMirror ol ul,
+    .ProseMirror ol ol,
+    .ProseMirror ol li {
+        @apply my-1;
+    }
+
+    .ProseMirror ul p,
+    .ProseMirror ol p {
+        @apply mt-0 mb-1;
+    }
+
+    .ProseMirror > ul,
+    .ProseMirror > ol {
+        @apply my-8 first:mt-0 last:mb-0;
+    }
+
+    .ProseMirror ul[data-type='taskList'] {
+        @apply list-none p-0;
+    }
+
+    .ProseMirror ul[data-type='taskList'] p {
+        @apply m-0;
+    }
+
+    .ProseMirror ul[data-type='taskList'] li {
+        @apply flex;
+    }
+
+    .ProseMirror ul[data-type='taskList'] li > label {
+        @apply grow-0 shrink-0 flex-auto inline mr-2 select-none;
+    }
+
+    .ProseMirror ul[data-type='taskList'] li > div {
+        @apply flex-auto;
+    }
+
+    .ProseMirror ul[data-type='taskList'] li[data-checked='true'] {
+        @apply line-through;
+    }
+
+    /* Table */
+    .ProseMirror table {
+        border: 1px solid;
+        @apply border-collapse border-black/10 table-fixed box-border overflow-x-auto overflow-y-hidden block;
+        @apply dark:border-white/20;
+    }
+
+    .ProseMirror table td,
+    .ProseMirror table th {
+        border: 1px solid;
+        @apply border border-black/10 min-w-[1em] p-2 box-border relative text-left align-top;
+        @apply dark:border-white/20;
+    }
+
+    .ProseMirror table td:first-of-type:not(a),
+    .ProseMirror table th:first-of-type:not(a) {
+        @apply mt-0;
+    }
+
+    .ProseMirror table td p,
+    .ProseMirror table th p {
+        @apply m-0;
+    }
+
+    .ProseMirror table td p + p,
+    .ProseMirror table th p + p {
+        @apply mt-3;
+    }
+
+    .ProseMirror table th {
+        @apply font-bold text-left;
+    }
+
+    /* Search highlight */
+    .reactjs-tiptap-editor .ProseMirror .search-result {
+        background-color: #ffd90080;
+    }
+
+    .reactjs-tiptap-editor .ProseMirror .search-result-current {
+        background-color: #0dff0080;
+    }
 }

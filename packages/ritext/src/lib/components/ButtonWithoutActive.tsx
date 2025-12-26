@@ -14,20 +14,25 @@ interface Props {
     _internalIcon?: ReactNode;
     _onToggle?: () => void;
     _buttonClassName?: string;
+    _interShortcut?: string;
     tooltipPlacement?: Placement;
+    _disabled?: boolean;
 }
 
-const ButtonWithoutActive = ({ className, icon, style, tooltip = true, tooltipClassName, tooltipPlacement, _internalIcon, _tooltipContent, _onToggle, _buttonClassName }: Props) => {
+const ButtonWithoutActive = ({ className, icon, style, tooltip = true, tooltipClassName, tooltipPlacement, _internalIcon, _tooltipContent, _interShortcut, _onToggle, _buttonClassName, _disabled = false }: Props) => {
 
     const tooltipContent = (<p>
-        {typeof tooltip === "string" ? tooltip : _tooltipContent}<br />
+        {typeof tooltip === "string" ? tooltip : _tooltipContent}{_interShortcut &&
+            <> <br /> {_interShortcut} </>}
     </p>);
 
     const btn = (
         <button
             onClick={_onToggle}
+            disabled={_disabled}
             className={twMerge(
-                "p-1.5 rounded-md hover:bg-gray-100",
+                "py-1.5 px-2.5 rounded-md hover:bg-gray-100",
+                _disabled ? "opacity-20" : "",
                 _buttonClassName,
                 className
             )}

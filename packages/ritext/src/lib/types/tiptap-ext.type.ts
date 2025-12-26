@@ -33,7 +33,10 @@ export type ExtDropdownOptions = {
 export type ExtDropdownItemProps = {
     icon?: ReactNode;
     text: string;
-    keyBind: string;
+    keyBind?: string;
     onClick: () => void;
+    name: string;
+    style?: CSSProperties;
+    ext?: number | string;
     id: string;
 }

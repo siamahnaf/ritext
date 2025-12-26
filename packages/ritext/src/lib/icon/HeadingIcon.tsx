@@ -123,3 +123,22 @@ export const H6Icon = ({ size = 17, className, ...props }: IconProps) => (
         <path d="M20 10c-2 2-3 3.5-3 6" />
     </svg>
 );
+
+export const Pilcrow = ({ size = 17, className, ...props }: IconProps) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+    >
+        <path d="M13 4v16" />
+        <path d="M17 4v16" />
+        <path d="M19 4H9.5a4.5 4.5 0 0 0 0 9H13" />
+    </svg>
+);

@@ -7,18 +7,19 @@ import type { ExtDropdownItemProps } from "../types/tiptap-ext.type";
 interface Props {
     item: ExtDropdownItemProps;
     onSelect?: () => void;
+    spClass?: string;
     itemClassName: string;
     activeClassName: string;
     showKeyShortcutText?: boolean;
     _itemClassName: string;
 }
 
-const DropdownItemComponent = ({ item, onSelect, activeClassName, itemClassName, _itemClassName, showKeyShortcutText = true }: Props) => {
+const DropdownItemComponent = ({ item, onSelect, activeClassName, itemClassName, _itemClassName, showKeyShortcutText = true, spClass }: Props) => {
     //Editor
     const { editor } = useEditor();
     const editorState = useEditorState({
         editor,
-        selector: ({ editor }) => ({ isActive: editor?.isActive(item.id) || false })
+        selector: ({ editor }) => ({ isActive: editor?.isActive(item.name, item.ext ? { level: item.ext } : undefined) || false })
     });
 
     return (
@@ -30,8 +31,8 @@ const DropdownItemComponent = ({ item, onSelect, activeClassName, itemClassName,
             editorState?.isActive ? activeClassName : "hover:bg-gray-100"
         )} onClick={onSelect}>
             {item.icon}
-            <span className="flex-1 text-base">{item.text}</span>
-            {showKeyShortcutText &&
+            <span className={twMerge("flex-1 text-base", spClass)} style={item.style}>{item.text}</span>
+            {showKeyShortcutText && item.keyBind &&
                 <span className="ml-6 text-gray-400">{item.keyBind}</span>
             }
         </div>
