@@ -80,3 +80,83 @@
 ### Patch Changes
 
 - Added SubAndSuperscript Extensions
+
+---
+
+### ritext
+
+## 1.0.16
+
+### Patch Changes
+
+- Added extensions
+
+---
+
+### ritext
+
+## 1.0.17
+
+### Patch Changes
+
+- Added extensions
+
+---
+
+### ritext
+
+## 1.0.18
+
+### Patch Changes
+
+- Added extensions
+
+---
+
+### ritext
+
+## 1.0.19
+
+### Patch Changes
+
+- Added extensions
+
+---
+
+### ritext
+
+## 1.0.20
+
+### Patch Changes
+
+- Added extensions
+
+---
+
+### ritext
+
+## 1.0.21
+
+### Patch Changes
+
+- Added extensions
+
+---
+
+### ritext
+
+## 1.0.22
+
+### Patch Changes
+
+- Added extensions
+
+---
+
+### ritext
+
+## 1.0.23
+
+### Patch Changes
+
+- Added LICENSE
