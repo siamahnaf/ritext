@@ -1,26 +1,12 @@
 import DragHandle from "@tiptap/extension-drag-handle-react";
 import type { Editor } from "@tiptap/react";
-import { useEditorState } from "@tiptap/react";
 import { TextSelection } from "@tiptap/pm/state";
 import { DragVerticalIcon, PlusIcon } from "../icons";
 import Tooltip from "../components/_com/Tooltip";
 
 interface Props { editor: Editor }
 
-const isDocEmpty = (editor: Editor) => {
-    const doc = editor.state.doc;
-    return (
-        doc.childCount === 1 &&
-        doc.firstChild?.isTextblock === true &&
-        doc.firstChild.content.size === 0
-    );
-};
-
 const RiDragHandler = ({ editor }: Props) => {
-    const empty = useEditorState({
-        editor,
-        selector: ({ editor }) => isDocEmpty(editor),
-    });
 
     const insertSlash = () => {
         editor.chain().focus().command(({ tr, state }) => {
@@ -47,10 +33,9 @@ const RiDragHandler = ({ editor }: Props) => {
             return true;
         }).run();
     };
-    if (empty) return null;
 
     return (
-        <DragHandle editor={editor} nested={empty}>
+        <DragHandle editor={editor}>
             <div className="flex gap-x-1.5 mt-1.5 -translate-x-1.5">
                 <Tooltip content="Insert Content">
                     <button
