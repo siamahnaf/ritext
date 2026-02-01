@@ -7,7 +7,11 @@ import ArrowIcon from "../icon/ArrowIcon";
 import { AnimatePresence, motion } from "motion/react";
 
 //Types
-type SelectableChild = ReactElement<{ onSelect?: () => void }>;
+type SelectableChild = ReactElement<{
+    onSelect?: () => void;
+    open?: boolean;
+    onClose?: () => void;
+}>;
 
 //Interface
 interface Props {
@@ -53,14 +57,16 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
     //Enhanced Child
     const enhancedChildren = Children.map(children, (child) => {
         if (!isValidElement(child)) return child;
-        if (!("onSelect" in (child as SelectableChild).props)) return child;
 
         const prevOnSelect = (child as SelectableChild).props.onSelect;
         const combinedOnSelect = () => { prevOnSelect?.(); setOpen(false); };
 
-        return cloneElement(child as SelectableChild, { onSelect: combinedOnSelect });
+        return cloneElement(child as SelectableChild, {
+            onSelect: prevOnSelect ? combinedOnSelect : undefined,
+            open: open,
+            onClose: () => setOpen(false),
+        });
     });
-
 
     const btn = (
         <button
@@ -108,7 +114,7 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
                             initial={initialMotion}
                             animate={animateMotion}
                             exit={initialMotion}
-                            className={twMerge("bg-white border border-solid border-gray-200 p-2 space-y-1 rounded-lg shadow-sm shadow-gray-200/40 max-h-125 overflow-auto", _dropdownClassName, dropdownClassName)}
+                            className={twMerge("bg-white border border-solid border-gray-200 p-2 space-y-1 rounded-lg shadow-sm shadow-gray-200/40 z-99999999 max-h-125 overflow-auto", _dropdownClassName, dropdownClassName)}
                         >
                             {enhancedChildren}
                         </motion.div>

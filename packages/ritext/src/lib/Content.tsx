@@ -11,7 +11,7 @@ const Content = ({ className }: Props) => {
     const { editor } = useEditor();
 
     return (
-        <EditorContent editor={editor} className={twMerge("focus:outline-none [&_.tiptap]:focus:outline-none [&_.tiptap]:min-h-[200px] [&_.tiptap]:p-[10px_20px]", className)} />
+        <EditorContent editor={editor} className={twMerge("focus:outline-none [&_.tiptap]:focus:outline-none [&_.tiptap]:min-h-50 [&_.tiptap]:p-[10px_20px]", className)} />
     );
 };
 

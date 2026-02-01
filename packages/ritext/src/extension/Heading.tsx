@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 import type { Node } from "@tiptap/react";
 import TiptapHeading from "@tiptap/extension-heading";
-import TiptapParagraph from "@tiptap/extension-paragraph";
-import type { Editor } from "@tiptap/react";
+import { type Editor, isMacOS } from "@tiptap/react";
 import { H1Icon, H2Icon, H3Icon, H4Icon, H5Icon, H6Icon, Pilcrow } from "../lib/icon/HeadingIcon";
 
 //Components
@@ -27,6 +26,8 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
         return {
             ...this.parent?.(),
             component: ({ options, editor, dropdownContainerClassName, dropdownItemClassName }) => {
+                const macKey = isMacOS() ? "⌘ ⌥ " : "Ctrl ⌥ ";
+
                 const defaultIcons: Record<number, React.ReactNode> = {
                     1: <H1Icon />, 2: <H2Icon />, 3: <H3Icon />,
                     4: <H4Icon />, 5: <H5Icon />, 6: <H6Icon />,
@@ -36,8 +37,8 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
                     4: "Heading 4", 5: "Heading 5", 6: "Heading 6",
                 };
                 const defaultKeys: Record<number, string> = {
-                    1: "⌘⌥ 1", 2: "⌘⌥ 2", 3: "⌘⌥ 3",
-                    4: "⌘⌥ 4", 5: "⌘⌥ 5", 6: "⌘⌥ 6",
+                    1: `${macKey} 1`, 2: `${macKey} 2`, 3: `${macKey} 3`,
+                    4: `${macKey} 4`, 5: `${macKey} 5`, 6: `${macKey} 6`
                 };
 
                 const list: ExtDropdownItemProps[] = [];
@@ -96,7 +97,7 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
                                 id: crypto.randomUUID(),
                                 icon: <Pilcrow />,
                                 text: "Paragraph",
-                                keyBind: "⌘⌥ P",
+                                keyBind: `${macKey} P`,
                                 onClick: () => editor.chain().setParagraph().run(),
                                 name: "paragraph"
                             }}
@@ -123,8 +124,5 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
             }
 
         }
-    },
-    addExtensions() {
-        return [TiptapParagraph];
     }
 });

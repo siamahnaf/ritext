@@ -35,7 +35,7 @@ function HistoryButtons({
                 tooltipPlacement={options.tooltipPlacement}
                 _internalIcon={<Undo2 />}
                 _onToggle={() => editor.chain().focus().undo().run()}
-                _interShortcut="⌘ + Z"
+                _interShortcut={{ win: "", mac: "⌘ + Z" }}
                 _tooltipContent="Undo"
                 _disabled={!canUndo}
                 _buttonClassName={buttonClassName}
@@ -49,7 +49,7 @@ function HistoryButtons({
                 tooltipPlacement={options.tooltipPlacement}
                 _internalIcon={<Redo2 />}
                 _onToggle={() => editor.chain().focus().redo().run()}
-                _interShortcut="⇧ + ⌘ + Z"
+                _interShortcut={{ win: "Ctrl + Y", mac: "⌘ + Y" }}
                 _tooltipContent="Redo"
                 _disabled={!canRedo}
                 _buttonClassName={buttonClassName}

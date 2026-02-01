@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Extension, type Extensions } from "@tiptap/react";
 import TiptapSubscript from "@tiptap/extension-subscript";
 import TiptapSuperscript from "@tiptap/extension-superscript";
-import type { Editor } from "@tiptap/react";
+import { type Editor, isMacOS } from "@tiptap/react";
 import SubIcon from "../lib/icon/SubIcon";
 import SupIcon from "../lib/icon/SupIcon";
 import SubAndSupIcon from "../lib/icon/SubAndSupIcon";
@@ -41,7 +41,7 @@ export const SubAndSuperscript = Extension.create<ExtSubAndSupOptions>({
                         icon: options.subscriptIcon ?? <SubIcon />,
                         text: typeof options.subscript === "string" ? options.subscript : "Subscript",
                         onClick: () => editor.chain().focus().toggleSubscript().run(),
-                        keyBind: "⌘ .",
+                        keyBind: isMacOS() ? "⌘ + ," : "Ctrl + ,",
                         name: "subscript"
                     });
                 }
@@ -52,7 +52,7 @@ export const SubAndSuperscript = Extension.create<ExtSubAndSupOptions>({
                         icon: options.superscriptIcon ?? <SupIcon />,
                         text: typeof options.superscript === "string" ? options.superscript : "Superscript",
                         onClick: () => editor.chain().focus().toggleSuperscript().run(),
-                        keyBind: "⌘ ,",
+                        keyBind: isMacOS() ? "⌘ + ." : "Ctrl + .",
                         name: "superscript"
                     });
                 }

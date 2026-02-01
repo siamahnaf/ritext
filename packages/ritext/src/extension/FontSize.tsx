@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { Editor } from "@tiptap/react";
 import type { Extension } from "@tiptap/react";
-import { FontSize as TiptapFontSize, type FontSizeOptions as TiptapFontSizeOptions, TextStyle } from "@tiptap/extension-text-style";
+import { FontSize as TiptapFontSize, type FontSizeOptions as TiptapFontSizeOptions } from "@tiptap/extension-text-style";
 
 // Components
 import DropdownComponent from "../lib/components/DropdownComponent";
@@ -96,12 +96,7 @@ export const FontSize: Extension<ExtFontSizeOptions> = TiptapFontSize.extend<Ext
                 );
             },
         };
-    },
-
-    // ✅ guarantees TextStyle exists even if user forgot to add it
-    addExtensions() {
-        return [TextStyle];
-    },
+    }
 });
 
 export const DEFAULT_FONT_SIZE_LIST: FontSizeListItem[] = [

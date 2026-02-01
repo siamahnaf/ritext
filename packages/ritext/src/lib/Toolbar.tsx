@@ -45,9 +45,17 @@ const Toolbar = ({ className, buttonClassName, dropdownContainerClassName, dropd
             /* eslint-disable @typescript-eslint/no-explicit-any */
             options: any;
         }>;
+    const desiredOrder = new Map(
+        editor.options.extensions.map((ext, i) => [ext.name, i])
+    );
+    entries.sort((a, b) => {
+        const ai = desiredOrder.get(a.name) ?? Number.MAX_SAFE_INTEGER;
+        const bi = desiredOrder.get(b.name) ?? Number.MAX_SAFE_INTEGER;
+        return ai - bi;
+    });
 
     return (
-        <div className={twMerge("flex gap-x-1", className)}>
+        <div className={twMerge("flex gap-x-1 flex-wrap", className)}>
             {entries.map(({ name, renderButton, options }) => (
                 <React.Fragment key={name}>
                     {renderButton({

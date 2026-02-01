@@ -23,7 +23,7 @@ export const Superscript: Mark<ExtButtonOptions> = TiptapSuperscript.extend<ExtB
                         _internalIcon={<SupIcon />}
                         _extName="superscript"
                         _onToggle={() => editor.chain().focus().toggleSuperscript().run()}
-                        _interShortcut="⌘ + ,"
+                        _interShortcut={{ win: "Ctrl + .", mac: "⌘ + ." }}
                         _tooltipContent="Superscript"
                         _buttonClassName={buttonClassName}
                     />

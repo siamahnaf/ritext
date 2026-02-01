@@ -10,36 +10,7 @@ Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by 
 
 <a href="https://www.buymeacoffee.com/siamahnaf" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
-### This is an testing phase will publish soon.
-
-# Extension Roadmap
-☑ Starter Kit  
-☑ Bold  
-☑ Italic  
-☑ Underline  
-☑ Strike  
-☑ Subscript  
-☑ Superscript  
-☑ SubAndSuperScript  
-☑ Clear Format  
-☑ Heading  
-☑ Font Family  
-☑ Fonts Size  
-☑ Undo  
-☑ Redo  
-☐ Color  
-☐ Highlight  
-☐ Bullet List  
-☐ Ordered List  
-☐ Alignment  
-☐ Indent  
-☐ Outdent  
-☐ Line Height  
-☐ Task List  
-☐ Image  
-☐ Link  
-☐ Blockquote  
-☐ Format Painter  
+### This is an testing phase will publish soon. 
 
 ## Connect with me
 <div style="display: flex; align-items: center; gap: 3px;">

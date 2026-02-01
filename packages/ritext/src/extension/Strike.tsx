@@ -23,7 +23,7 @@ export const Strike: Mark<ExtButtonOptions> = TiptapStrike.extend<ExtButtonOptio
                         _internalIcon={<StrikeIcon />}
                         _extName="strike"
                         _onToggle={() => editor.chain().focus().toggleStrike().run()}
-                        _interShortcut="⌘ ⇧ S"
+                        _interShortcut={{ win: "Ctrl + ⇧ + S", mac: "⌘ + ⇧ + S" }}
                         _tooltipContent="Strike"
                         _buttonClassName={buttonClassName}
                     />

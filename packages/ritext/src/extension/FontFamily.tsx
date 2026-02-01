@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import type { Editor } from "@tiptap/react";
 import type { Extension } from "@tiptap/react";
-import { FontFamily as TiptapFontFamily, type FontFamilyOptions as TiptapFontFamilyOptions, TextStyle } from "@tiptap/extension-text-style";
+import { FontFamily as TiptapFontFamily, type FontFamilyOptions as TiptapFontFamilyOptions } from "@tiptap/extension-text-style";
 
 // Components
 import DropdownComponent from "../lib/components/DropdownComponent";
@@ -94,9 +94,6 @@ export const FontFamily: Extension<ExtFontFamilyOptions> = TiptapFontFamily.exte
                 );
             },
         };
-    },
-    addExtensions() {
-        return [TextStyle];
     }
 });
 

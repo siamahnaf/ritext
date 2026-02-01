@@ -23,7 +23,7 @@ export const Underline: Mark<ExtButtonOptions> = TiptapUnder.extend<ExtButtonOpt
                         _internalIcon={<UnderIcon />}
                         _extName="underline"
                         _onToggle={() => editor.chain().focus().toggleUnderline().run()}
-                        _interShortcut="⌘ + U"
+                        _interShortcut={{ win: "Ctrl + U", mac: "⌘ + U" }}
                         _tooltipContent="Underline"
                         _buttonClassName={buttonClassName}
                     />

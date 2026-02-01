@@ -23,7 +23,7 @@ export const Bold: Mark<ExtButtonOptions> = TiptapBold.extend<ExtButtonOptions>(
                         _internalIcon={<BoldIcon />}
                         _extName="bold"
                         _onToggle={() => editor.chain().focus().toggleBold().run()}
-                        _interShortcut="⌘ + B"
+                        _interShortcut={{ win: "Ctrl + B", mac: "⌘ + B" }}
                         _tooltipContent="Bold"
                         _buttonClassName={buttonClassName}
                     />

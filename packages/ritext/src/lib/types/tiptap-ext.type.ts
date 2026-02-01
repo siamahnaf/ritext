@@ -13,6 +13,8 @@ export type ExtButtonOptions = {
     component: (args: { options: ExtButtonOptions, editor: Editor, buttonClassName: string }) => ReactNode;
 }
 
+export type ExtButtonCustomOptions = Omit<ExtButtonOptions, "component">;
+
 export type ExtWithoutActiveOptions = Omit<ExtButtonOptions, "activeClassName" | "component"> & {
     component: (args: { options: ExtWithoutActiveOptions, editor: Editor, buttonClassName: string }) => ReactNode;
 };

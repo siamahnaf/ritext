@@ -23,7 +23,7 @@ export const Italic: Mark<ExtButtonOptions> = TiptapItalic.extend<ExtButtonOptio
                         _internalIcon={<ItalicIcon />}
                         _extName="italic"
                         _onToggle={() => editor.chain().focus().toggleItalic().run()}
-                        _interShortcut="⌘ + I"
+                        _interShortcut={{ win: "Ctrl + I", mac: "⌘ + I" }}
                         _tooltipContent="Italic"
                         _buttonClassName={buttonClassName}
                     />
