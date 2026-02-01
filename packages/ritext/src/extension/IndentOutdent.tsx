@@ -1,20 +1,19 @@
-import { Fragment, type ReactNode } from "react";
-import type { Editor } from "@tiptap/react";
+import { Fragment } from "react";
 import { Extension } from "@tiptap/react";
-
-// Icons
-import { IndentIcon, OutdentIcon } from "../lib/icon/IndentOutdent";
+import { IndentIcon, OutdentIcon } from "../lib/icons";
 
 // Components
 import ButtonComponent from "../lib/components/ButtonComponent";
-import type { ExtButtonCustomOptions } from "../lib/types/tiptap-ext.type";
+import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-interface ExtIndentOptions extends ExtButtonCustomOptions {
-    indentSize?: number;
-    maxIndent?: number;
-    types?: string[];
-    component: (args: { options: ExtIndentOptions; editor: Editor; buttonClassName: string }) => ReactNode;
-}
+//Types
+type ExtIndentOptions = ExtButtonOptions<
+    {
+        indentSize?: number;
+        maxIndent?: number;
+        types?: string[];
+    }
+>
 declare module "@tiptap/react" {
     interface Commands<ReturnType> {
         indentOutdent: {
@@ -37,10 +36,9 @@ export const IndentOutdent = Extension.create<ExtIndentOptions>({
 
         return {
             ...parent,
-            indentSize: parent?.indentSize ?? 1,
-            maxIndent: parent?.maxIndent ?? 7,
-            types: parent?.types ?? ["paragraph", "heading", "blockquote"],
-
+            indentSize: 1,
+            maxIndent: 7,
+            types: ["paragraph", "heading", "blockquote"],
             component: ({ options, editor, buttonClassName }) => {
                 return (
                     <Fragment>

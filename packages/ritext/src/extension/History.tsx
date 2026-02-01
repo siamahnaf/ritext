@@ -1,11 +1,14 @@
 import { Fragment } from "react";
-import { UndoRedo } from "@tiptap/extensions";
+import { UndoRedo, UndoRedoOptions } from "@tiptap/extensions";
 import type { Extension, Editor } from "@tiptap/react";
 import { useEditorState } from "@tiptap/react";
-import { Undo2, Redo2 } from "../lib/icon/HistoryIcon";
+import { Undo2, Redo2 } from "../lib/icons";
 
 import ButtonWithoutActive from "../lib/components/ButtonWithoutActive";
 import type { ExtWithoutActiveOptions } from "../lib/types/tiptap-ext.type";
+
+type ExtHistoryOptions = ExtWithoutActiveOptions<UndoRedoOptions>;
+type ExtHistoryComponentOptions = Parameters<ExtHistoryOptions["component"]>[0]["options"];
 
 function HistoryButtons({
     editor,
@@ -13,7 +16,7 @@ function HistoryButtons({
     buttonClassName,
 }: {
     editor: Editor;
-    options: ExtWithoutActiveOptions;
+    options: ExtHistoryComponentOptions;
     buttonClassName: string;
 }) {
     const { canUndo, canRedo } = useEditorState({
@@ -58,10 +61,11 @@ function HistoryButtons({
     );
 }
 
-export const History: Extension<ExtWithoutActiveOptions> = UndoRedo.extend<ExtWithoutActiveOptions>({
+export const History: Extension<ExtHistoryOptions> = UndoRedo.extend<ExtHistoryOptions>({
     addOptions() {
+        const parent = this.parent?.();
         return {
-            ...this.parent?.(),
+            ...(parent as UndoRedoOptions ?? {}),
             component: ({ editor, options, buttonClassName }) => (
                 <HistoryButtons editor={editor} options={options} buttonClassName={buttonClassName} />
             ),

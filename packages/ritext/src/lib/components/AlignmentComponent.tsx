@@ -1,6 +1,6 @@
 "use client"
 import { JSX } from "react";
-import { AlignLeft, AlignCenter, AlignRight, AlignJustify } from "../icon/AlignmentIcon";
+import { AlignLeft, AlignCenter, AlignRight, AlignJustify } from "../icons";
 
 //interface
 interface Props {

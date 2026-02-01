@@ -1,5 +1,4 @@
-import { type ReactNode, useEffect, useState } from "react";
-import type { Editor } from "@tiptap/react";
+import { useEffect, useState } from "react";
 import type { Extension } from "@tiptap/react";
 import { Color as TiptapColor, type ColorOptions as TiptapColorOption } from "@tiptap/extension-text-style";
 
@@ -9,10 +8,14 @@ import ColorIconComponent from "../lib/components/ColorIconComponent";
 import ColorComponent from "../lib/components/ColorComponent";
 import type { ExtDropdownOptions } from "../lib/types/tiptap-ext.type";
 
-interface ExtFontFamilyOptions extends ExtDropdownOptions, TiptapColorOption {
-    colorLists?: string[];
-    component: (args: { options: ExtFontFamilyOptions; editor: Editor; dropdownContainerClassName: string }) => ReactNode;
-}
+type ExtColorOptions = ExtDropdownOptions<
+    TiptapColorOption & {
+        colorLists?: string[],
+        showInBubbleMenu?: boolean;
+        bubbleMenuPosition?: number;
+    },
+    { dropdownContainerClassName: string }
+>;
 
 const RECENT_COLORS_KEY = "tiptap_recent_colors";
 const RECENT_COLORS_LIMIT = 10;
@@ -46,13 +49,15 @@ const pushRecentColor = (color: string) => {
 };
 
 
-export const Color: Extension<ExtFontFamilyOptions> = TiptapColor.extend<ExtFontFamilyOptions>({
+export const Color: Extension<ExtColorOptions> = TiptapColor.extend<ExtColorOptions>({
     addOptions() {
         const parent = this.parent?.();
         return {
             ...parent,
-            types: parent?.types ?? ["textStyle"],
+            types: ["textStyle"],
             colorLists: DEFAULT_COLOR_LIST,
+            showInBubbleMenu: true,
+            bubbleMenuPosition: 6,
             component: ({ options, editor, dropdownContainerClassName }) => {
                 const items = options.colorLists ?? DEFAULT_COLOR_LIST;
 

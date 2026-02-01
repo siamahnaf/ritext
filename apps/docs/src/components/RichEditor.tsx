@@ -2,7 +2,7 @@
 import { Editor, Toolbar, Content } from "ritext";
 
 //Extensions
-import { Document, Text, Paragraph, TextStyle, ListItem, ListKeymap } from "ritext/extension/base";
+import { Document, Text, Paragraph, TextStyle, ListItem, ListKeymap, Dropcursor, Gapcursor, Placeholder, TrailingNode } from "ritext/extension/base";
 import { History } from "ritext/extension/history";
 import { Bold } from "ritext/extension/bold";
 import { Italic } from "ritext/extension/italic";
@@ -24,6 +24,11 @@ import { IndentOutdent } from "ritext/extension/indentoutdent";
 import { LineHeight } from "ritext/extension/lineheight";
 import { TaskList } from "ritext/extension/tasklist";
 import { Links } from "ritext/extension/link";
+import { Image } from "ritext/extension/image";
+import { BlockQuote } from "ritext/extension/blockquote";
+import { HorizontalRule } from "ritext/extension/horizontalrule";
+import { Table } from "ritext/extension/table";
+import { Emoji } from "ritext/extension/emoji";
 
 //CSS
 import "ritext/styles.css";
@@ -36,6 +41,14 @@ const extensions = [
     TextStyle,
     ListItem,
     ListKeymap,
+    TrailingNode,
+    Dropcursor.configure({
+        width: 4
+    }),
+    Gapcursor,
+    Placeholder.configure({
+        placeholder: "Type your content here..."
+    }),
 
     //Custom Extensions
     History,
@@ -59,7 +72,12 @@ const extensions = [
     IndentOutdent,
     LineHeight,
     TaskList,
-    Links
+    Links,
+    Image,
+    BlockQuote,
+    HorizontalRule,
+    Table,
+    Emoji
 ]
 
 const RichEditor = () => {

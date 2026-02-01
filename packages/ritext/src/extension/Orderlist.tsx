@@ -1,15 +1,19 @@
-import { OrderedList as TiptapOrderedList } from "@tiptap/extension-list";
+import { OrderedList as TiptapOrderedList, OrderedListOptions } from "@tiptap/extension-list";
 import type { Node } from "@tiptap/react";
-import { OrderListIcon } from "../lib/icon/listIcon";
+import { OrderListIcon } from "../lib/icons";
 
 //Components
 import ButtonComponent from "../lib/components/ButtonComponent";
 import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const OrderedList: Node<ExtButtonOptions> = TiptapOrderedList.extend<ExtButtonOptions>({
+//Types
+type ExtOrderListOptions = ExtButtonOptions<OrderedListOptions>;
+
+export const OrderedList: Node<ExtOrderListOptions> = TiptapOrderedList.extend<ExtOrderListOptions>({
     addOptions() {
+        const parent = this.parent?.();
         return {
-            ...this.parent?.(),
+            ...(parent as OrderedListOptions ?? {}),
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonComponent

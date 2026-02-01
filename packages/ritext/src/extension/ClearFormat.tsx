@@ -1,5 +1,5 @@
 import { Extension } from "@tiptap/react";
-import ClearIcon from "../lib/icon/ClearIcon";
+import { ClearIcon } from "../lib/icons";
 
 //Components
 import ButtonWithoutActive from "../lib/components/ButtonWithoutActive";

@@ -1,15 +1,18 @@
-import { BulletList as TiptapBulletList } from "@tiptap/extension-list";
+import { BulletList as TiptapBulletList, BulletListOptions } from "@tiptap/extension-list";
 import type { Node } from "@tiptap/react";
-import { BulletListIcon } from "../lib/icon/listIcon";
+import { BulletListIcon } from "../lib/icons";
 
 //Components
 import ButtonComponent from "../lib/components/ButtonComponent";
 import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const BulletList: Node<ExtButtonOptions> = TiptapBulletList.extend<ExtButtonOptions>({
+type ExtBulletListOptions = ExtButtonOptions<BulletListOptions>;
+
+export const BulletList: Node<ExtBulletListOptions> = TiptapBulletList.extend<ExtBulletListOptions>({
     addOptions() {
+        const parent = this.parent?.();
         return {
-            ...this.parent?.(),
+            ...(parent as BulletListOptions ?? {}),
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonComponent

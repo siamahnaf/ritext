@@ -1,5 +1,3 @@
-import { type ReactNode } from "react";
-import type { Editor } from "@tiptap/react";
 import type { Extension } from "@tiptap/react";
 import { FontFamily as TiptapFontFamily, type FontFamilyOptions as TiptapFontFamilyOptions } from "@tiptap/extension-text-style";
 
@@ -15,23 +13,23 @@ type FontFamilyListItem =
         value?: string | null;
     };
 
-interface ExtFontFamilyOptions extends ExtDropdownOptions, TiptapFontFamilyOptions {
-    fontFamilyList?: FontFamilyListItem[];
-    component: (args: {
-        options: ExtFontFamilyOptions;
-        editor: Editor;
+type ExtFontFamilyOptions = ExtDropdownOptions<
+    TiptapFontFamilyOptions & {
+        fontFamilyList?: FontFamilyListItem[];
+    },
+    {
         dropdownContainerClassName: string;
         dropdownItemClassName: string;
-    }) => ReactNode;
-}
+    }
+>;
 
 export const FontFamily: Extension<ExtFontFamilyOptions> = TiptapFontFamily.extend<ExtFontFamilyOptions>({
     addOptions() {
         const parent = this.parent?.();
 
         return {
-            ...parent,
-            types: parent?.types ?? ["textStyle"],
+            ...(parent as TiptapFontFamilyOptions ?? {}),
+            types: ["textStyle"],
             fontFamilyList: DEFAULT_FONT_FAMILY_LIST,
             component: ({ options, editor, dropdownContainerClassName, dropdownItemClassName }) => {
                 const items = options.fontFamilyList ?? DEFAULT_FONT_FAMILY_LIST;

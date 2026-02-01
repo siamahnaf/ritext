@@ -1,20 +1,14 @@
-import { type ReactNode } from "react";
-import type { Editor } from "@tiptap/react";
 import { TaskList as TiptapTaskList, type TaskListOptions, TaskItem } from "@tiptap/extension-list";
 import type { Node } from "@tiptap/react";
-import { TaskListIcon } from "../lib/icon/listIcon";
+import { TaskListIcon } from "../lib/icons";
 
 //Components
 import ButtonComponent from "../lib/components/ButtonComponent";
-import type { ExtButtonCustomOptions } from "../lib/types/tiptap-ext.type";
+import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-interface ExtTaskListOptions extends ExtButtonCustomOptions, TaskListOptions {
-    component: (args: {
-        options: ExtTaskListOptions;
-        editor: Editor;
-        buttonClassName: string
-    }) => ReactNode;
-}
+//Types
+type ExtTaskListOptions = ExtButtonOptions<TaskListOptions>;
+
 export const TaskList: Node<ExtTaskListOptions> = TiptapTaskList.extend<ExtTaskListOptions>({
     addOptions() {
         return {

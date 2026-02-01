@@ -8,11 +8,11 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
     "md": "tsx scripts/create-md.ts",
-    "move": "tsx scripts/changelog.ts packages/ritext",
-    "pub": "changeset && pnpm run md && turbo run build --filter=./packages/ritext && changeset version && pnpm run move && changeset publish"
+    "pub:patch": "pnpm run md && turbo run build --filter=./packages/ritext && pnpm -C packages/ritext exec npm version patch --no-git-tag-version && pnpm -C packages/ritext exec npm publish --access public",
+    "pub:minor": "pnpm run md && turbo run build --filter=./packages/ritext && pnpm -C packages/ritext exec npm version minor --no-git-tag-version && pnpm -C packages/ritext exec npm publish --access public",
+    "pub:major": "pnpm run md && turbo run build --filter=./packages/ritext && pnpm -C packages/ritext exec npm version major --no-git-tag-version && pnpm -C packages/ritext exec npm publish --access public"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.8",
     "@types/node": "^25.1.0",
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",

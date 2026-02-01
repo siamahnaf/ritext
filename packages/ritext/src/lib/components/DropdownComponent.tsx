@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import Tooltip from "./_com/Tooltip";
 import type { Placement } from "@floating-ui/react";
 import { useFloating, offset, flip, shift, autoUpdate, useInteractions, useClick, useDismiss, FloatingPortal } from "@floating-ui/react";
-import ArrowIcon from "../icon/ArrowIcon";
+import { ArrowIcon } from "../icons";
 import { AnimatePresence, motion } from "motion/react";
 
 //Types

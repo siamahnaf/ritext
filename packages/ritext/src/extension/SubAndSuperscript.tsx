@@ -2,10 +2,8 @@ import type { ReactNode } from "react";
 import { Extension, type Extensions } from "@tiptap/react";
 import TiptapSubscript from "@tiptap/extension-subscript";
 import TiptapSuperscript from "@tiptap/extension-superscript";
-import { type Editor, isMacOS } from "@tiptap/react";
-import SubIcon from "../lib/icon/SubIcon";
-import SupIcon from "../lib/icon/SupIcon";
-import SubAndSupIcon from "../lib/icon/SubAndSupIcon";
+import { isMacOS } from "@tiptap/react";
+import { SubIcon, SupIcon, SubAndSupIcon } from "../lib/icons";
 
 //Components
 import DropdownComponent from "../lib/components/DropdownComponent";
@@ -13,19 +11,18 @@ import DropdownItemComponent from "../lib/components/DropdownItemComponent";
 import type { ExtDropdownOptions, ExtDropdownItemProps } from "../lib/types/tiptap-ext.type";
 
 //Interface
-interface ExtSubAndSupOptions extends ExtDropdownOptions {
-    subscript?: string | boolean;
-    superscript?: string | boolean;
-    subscriptIcon?: ReactNode;
-    superscriptIcon?: ReactNode;
-    showCommandText?: boolean;
-    component: (args: {
-        options: ExtSubAndSupOptions,
-        editor: Editor,
+type ExtSubAndSupOptions = ExtDropdownOptions<
+    {
+        subscript?: string | boolean;
+        superscript?: string | boolean;
+        subscriptIcon?: ReactNode;
+        superscriptIcon?: ReactNode;
+        showCommandText?: boolean;
+    }, {
         dropdownContainerClassName: string;
         dropdownItemClassName: string;
-    }) => ReactNode;
-}
+    }
+>
 
 export const SubAndSuperscript = Extension.create<ExtSubAndSupOptions>({
     name: "subAndSuperScript",

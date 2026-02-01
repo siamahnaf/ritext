@@ -65,8 +65,8 @@
         @apply bg-red-500 rounded-sm [box-decoration-break:clone] text-inherit py-1 px-0 dark:bg-red-400;
     }
 
-    .ProseMirror img {
-        @apply h-auto max-w-full;
+    .ProseMirror hr {
+        border-color: rgb(216, 216, 216);
     }
 
     /* Indent (base = 2em, max = 7) */
@@ -97,7 +97,7 @@
     }
 
     /* Block Quote */
-    .ProseMirror .blockquote {
+    .ProseMirror blockquote {
         @apply border-l-4 text-black border-l-neutral-700 py-2 px-4 rounded-lg rounded-tl-none rounded-bl-none;
         @apply dark:border-l-neutral-300 dark:text-white;
     }
@@ -147,6 +147,10 @@
         @apply my-8 first:mt-0 last:mb-0;
     }
 
+    .ProseMirror {
+        @apply w-full!;
+    }
+
     .ProseMirror ul[data-type='taskList'] {
         @apply list-none p-0;
     }
@@ -172,17 +176,47 @@
     }
 
     /* Table */
-    .ProseMirror table {
-        border: 1px solid;
-        @apply border-collapse border-black/10 table-fixed box-border overflow-x-auto overflow-y-hidden block;
-        @apply dark:border-white/20;
+    .tableWrapper {
+        overflow: hidden;
     }
 
+    .ProseMirror table {
+        border-collapse: collapse;
+        margin: 0;
+        overflow: hidden;
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    .ProseMirror .selectedCell {
+        background: rgba(156, 163, 175, 0.25);
+    }
+    .ProseMirror .selectedCell::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        outline: 1px solid rgba(156, 163, 175, 0.7);
+    }
+
+   .ProseMirror p.is-empty::before,
+    .ProseMirror h1.is-empty::before,
+    .ProseMirror h2.is-empty::before,
+    .ProseMirror h3.is-empty::before,
+    .ProseMirror h4.is-empty::before,
+    .ProseMirror h5.is-empty::before,
+    .ProseMirror h6.is-empty::before {
+        color: #adb5bd;
+        content: attr(data-placeholder);
+        float: left;
+        height: 0;
+        pointer-events: none;
+    }
+    
     .ProseMirror table td,
     .ProseMirror table th {
         border: 1px solid;
-        @apply border border-black/10 min-w-[1em] p-2 box-border relative text-left align-top;
-        @apply dark:border-white/20;
+        @apply border border-black/10 p-2 box-border relative text-left align-top;
     }
 
     .ProseMirror table td:first-of-type:not(a),
@@ -202,6 +236,20 @@
 
     .ProseMirror table th {
         @apply font-bold text-left;
+    }
+
+    .tiptap table .column-resize-handle {
+        background-color: black;
+        bottom: -2px;
+        pointer-events: none;
+        position: absolute;
+        right: -2px;
+        top: 0;
+        width: 4px;
+    }
+    .tiptap.resize-cursor {
+        cursor: ew-resize;
+        cursor: col-resize;
     }
 
     /* Search highlight */

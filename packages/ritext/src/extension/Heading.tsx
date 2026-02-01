@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import type { Node } from "@tiptap/react";
-import TiptapHeading from "@tiptap/extension-heading";
-import { type Editor, isMacOS } from "@tiptap/react";
-import { H1Icon, H2Icon, H3Icon, H4Icon, H5Icon, H6Icon, Pilcrow } from "../lib/icon/HeadingIcon";
+import { Heading as TiptapHeading, HeadingOptions } from "@tiptap/extension-heading";
+import { isMacOS } from "@tiptap/react";
+import { H1Icon, H2Icon, H3Icon, H4Icon, H5Icon, H6Icon, Pilcrow } from "../lib/icons";
 
 //Components
 import DropdownComponent from "../lib/components/DropdownComponent";
@@ -10,21 +10,25 @@ import DropdownItemComponent from "../lib/components/DropdownItemComponent";
 import type { ExtDropdownOptions, ExtDropdownItemProps } from "../lib/types/tiptap-ext.type";
 
 //Interface
-interface ExtHeadingOptions extends ExtDropdownOptions {
-    showKeyShortcutText?: boolean;
-    level?: { enable: boolean, icon?: ReactNode, text?: string, keyShortcuts?: string }[];
-    component: (args: {
-        options: ExtHeadingOptions,
-        editor: Editor,
+type ExtHeadingOptions = ExtDropdownOptions<
+    HeadingOptions & {
+        showKeyShortcutText?: boolean;
+        level?: { enable: boolean, icon?: ReactNode, text?: string, keyShortcuts?: string }[];
+        showInBubbleMenu?: boolean;
+        bubbleMenuPosition?: number;
+    }, {
         dropdownContainerClassName: string;
         dropdownItemClassName: string;
-    }) => ReactNode;
-}
+    }
+>;
 
 export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingOptions>({
     addOptions() {
+        const parent = this.parent?.()
         return {
-            ...this.parent?.(),
+            ...(parent as HeadingOptions ?? {}),
+            showInBubbleMenu: true,
+            bubbleMenuPosition: 1,
             component: ({ options, editor, dropdownContainerClassName, dropdownItemClassName }) => {
                 const macKey = isMacOS() ? "⌘ ⌥ " : "Ctrl ⌥ ";
 
@@ -87,7 +91,7 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
                         tooltip={options.tooltip}
                         tooltipClassName={options.tooltipClassName}
                         tooltipPlacement={options.tooltipPlacement}
-                        _tooltipContent="Sub & Superscript"
+                        _tooltipContent="Headings"
                         _internalContent="Heading"
                         _dropdownClassName={dropdownContainerClassName}
                     >

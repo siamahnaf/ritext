@@ -1,5 +1,5 @@
 "use client"
-import { ColorIcon, BackgroundIcon } from "../icon/IconColor";
+import { ColorIcon, BackgroundIcon } from "../icons";
 import { useEditor } from "../context/editor.context";
 import { useEditorState } from "@tiptap/react";
 

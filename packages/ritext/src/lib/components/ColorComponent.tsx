@@ -1,8 +1,7 @@
 "use client"
 import { useState, Fragment } from "react";
 import { ColorPicker } from "@siamf/react-color-pick";
-import "@siamf/react-color-pick/dist/index.css";
-import { Palette } from "../icon/IconColor";
+import { Palette } from "../icons";
 
 //Interface
 interface Props {

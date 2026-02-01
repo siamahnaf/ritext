@@ -1,15 +1,25 @@
-import TiptapItalic from "@tiptap/extension-italic";
+import { Italic as TiptapItalic, ItalicOptions } from "@tiptap/extension-italic";
 import type { Mark } from "@tiptap/react";
-import ItalicIcon from "../lib/icon/ItalicIcon";
+import { ItalicIcon } from "../lib/icons";
 
 //Components
 import ButtonComponent from "../lib/components/ButtonComponent";
 import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const Italic: Mark<ExtButtonOptions> = TiptapItalic.extend<ExtButtonOptions>({
+type ExtItalicOptions = ExtButtonOptions<
+    ItalicOptions & {
+        showInBubbleMenu?: boolean;
+        bubbleMenuPosition?: number;
+    }
+>;
+
+export const Italic: Mark<ExtItalicOptions> = TiptapItalic.extend<ExtItalicOptions>({
     addOptions() {
+        const parent = this.parent?.();
         return {
-            ...this.parent?.(),
+            ...(parent as ItalicOptions ?? {}),
+            showInBubbleMenu: true,
+            bubbleMenuPosition: 3,
             component: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent

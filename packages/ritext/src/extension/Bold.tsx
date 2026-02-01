@@ -1,15 +1,23 @@
-import TiptapBold from "@tiptap/extension-bold";
+import { Bold as TiptapBold, BoldOptions } from "@tiptap/extension-bold";
 import type { Mark } from "@tiptap/react";
-import BoldIcon from "../lib/icon/BoldIcon";
+import { BoldIcon } from "../lib/icons";
 
 //Components
 import ButtonComponent from "../lib/components/ButtonComponent";
 import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-export const Bold: Mark<ExtButtonOptions> = TiptapBold.extend<ExtButtonOptions>({
+type ExtBoldOptions = ExtButtonOptions<BoldOptions & {
+    showInBubbleMenu?: boolean;
+    bubbleMenuPosition?: number;
+}>;
+
+export const Bold: Mark<ExtBoldOptions> = TiptapBold.extend<ExtBoldOptions>({
     addOptions() {
+        const parent = this.parent?.();
         return {
-            ...this.parent?.(),
+            ...(parent as BoldOptions ?? {}),
+            showInBubbleMenu: true,
+            bubbleMenuPosition: 2,
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonComponent

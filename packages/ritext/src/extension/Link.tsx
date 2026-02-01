@@ -1,8 +1,8 @@
-import { Fragment, type ReactNode } from "react";
-import { type Editor, mergeAttributes } from "@tiptap/react";
+import { Fragment } from "react";
+import { mergeAttributes } from "@tiptap/react";
 import type { Mark } from "@tiptap/react";
 import { Link as TiptapLink, type LinkOptions } from "@tiptap/extension-link";
-import { LinkIcon } from "../lib/icon/listIcon";
+import { LinkIcon } from "../lib/icons";
 
 // Components
 import DropdownComponent from "../lib/components/DropdownComponent";
@@ -10,13 +10,14 @@ import LinkComponent from "../lib/components/LinkComponent";
 import LinkMenuComponent from "../lib/components/LinkMenuComponent";
 import type { ExtDropdownOptions } from "../lib/types/tiptap-ext.type";
 
-interface ExtLinkOptions extends ExtDropdownOptions, LinkOptions {
-    component: (args: {
-        options: ExtLinkOptions;
-        editor: Editor;
-        dropdownContainerClassName: string
-    }) => ReactNode;
-}
+//Types
+type ExtLinkOptions = ExtDropdownOptions<
+    LinkOptions & {
+        showInBubbleMenu?: boolean;
+        bubbleMenuPosition?: number;
+    },
+    { dropdownContainerClassName: string }
+>
 
 export const Links: Mark<ExtLinkOptions> = TiptapLink.extend<ExtLinkOptions>({
     inclusive: false,
@@ -41,6 +42,8 @@ export const Links: Mark<ExtLinkOptions> = TiptapLink.extend<ExtLinkOptions>({
         return {
             ...(parent as LinkOptions ?? {}),
             openOnClick: false,
+            showInBubbleMenu: true,
+            bubbleMenuPosition: 9,
             component: ({ options, editor, dropdownContainerClassName }) => {
                 return (
                     <Fragment>

@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-import type { Editor } from "@tiptap/react";
 import type { Extension } from "@tiptap/react";
 import { FontSize as TiptapFontSize, type FontSizeOptions as TiptapFontSizeOptions } from "@tiptap/extension-text-style";
 
@@ -15,16 +13,15 @@ type FontSizeListItem =
         value?: string | null;
     };
 
-interface ExtFontSizeOptions extends ExtDropdownOptions, TiptapFontSizeOptions {
-    fontSizeList?: FontSizeListItem[];
-
-    component: (args: {
-        options: ExtFontSizeOptions;
-        editor: Editor;
+type ExtFontSizeOptions = ExtDropdownOptions<
+    TiptapFontSizeOptions & {
+        fontSizeList?: FontSizeListItem[];
+    },
+    {
         dropdownContainerClassName: string;
         dropdownItemClassName: string;
-    }) => ReactNode;
-}
+    }
+>;
 
 export const FontSize: Extension<ExtFontSizeOptions> = TiptapFontSize.extend<ExtFontSizeOptions>({
     addOptions() {
@@ -32,7 +29,7 @@ export const FontSize: Extension<ExtFontSizeOptions> = TiptapFontSize.extend<Ext
 
         return {
             ...parent,
-            types: parent?.types ?? ["textStyle"],
+            types: ["textStyle"],
             fontSizeList: DEFAULT_FONT_SIZE_LIST,
             component: ({ options, editor, dropdownContainerClassName, dropdownItemClassName }) => {
                 const items = options.fontSizeList ?? DEFAULT_FONT_SIZE_LIST;
