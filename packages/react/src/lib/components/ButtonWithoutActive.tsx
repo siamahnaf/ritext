@@ -1,5 +1,5 @@
 import { type ReactNode, type CSSProperties, useMemo } from "react";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "../utils/tw";
 import Tooltip from "./_com/Tooltip";
 import type { Placement } from "@floating-ui/react";
 import { isMacOS } from "@tiptap/react";
@@ -37,8 +37,8 @@ const ButtonWithoutActive = ({ className, icon, style, tooltip = true, tooltipCl
             onClick={_onToggle}
             disabled={_disabled}
             className={twMerge(
-                "py-1.5 px-2.5 rounded-md hover:bg-gray-100",
-                _disabled ? "opacity-20" : "",
+                "ritext:py-1.5 ritext:px-2.5 ritext:rounded-md ritext:hover:bg-gray-100",
+                _disabled ? "ritext:opacity-20" : "",
                 _buttonClassName,
                 className
             )}

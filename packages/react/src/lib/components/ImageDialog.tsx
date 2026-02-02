@@ -5,6 +5,7 @@ import Dialog from "./_com/Dialog";
 
 //Components
 import ImageUploader from "./_com/ImageUploader";
+import ImageUrInserter from "./_com/ImageUrInserter";
 
 //Interface
 import { ImageOptionsTypes } from "../types/image.types";
@@ -23,28 +24,36 @@ const ImageDialog = ({ open, onClose, editor, options }: Props) => {
         <Dialog
             open={open}
             onClose={onClose}
-            className="max-w-100 w-[calc(100vw-4px)]"
+            className="ritext:max-w-100 ritext:w-[calc(100vw-4px)]"
         >
             <Dialog.Header
                 title="Add an image"
                 onClose={onClose}
-                className="px-3 py-3.5"
-                titleClassName="text-lg font-medium"
+                className="ritext:px-3 ritext:py-3.5"
+                titleClassName="ritext:text-lg ritext:font-medium"
             />
-            <Dialog.Body className="px-3 pb-3 pl-3 pr-3">
-                <div className="flex bg-gray-100 p-1 rounded-lg">
-                    <button className={`flex-1 py-2 text-sm text-center px-2 rounded-lg ${type === "upload" ? "bg-white" : ""}`} onClick={() => setType("upload")}>
+            <Dialog.Body className="ritext:px-3 ritext:pb-3 ritext:pl-3 ritext:pr-3">
+                <div className="ritext:flex ritext:bg-gray-100 ritext:p-1 ritext:rounded-lg">
+                    <button className={`ritext:flex-1 ritext:py-2 ritext:text-sm ritext:text-center ritext:px-2 ritext:rounded-lg ${type === "upload" ? "ritext:bg-white" : ""}`} onClick={() => setType("upload")}>
                         Upload
                     </button>
-                    <button className={`flex-1 py-2 text-sm text-center px-2 rounded-lg ${type === "url" ? "bg-white" : ""}`} onClick={() => setType("url")}>
+                    <button className={`ritext:flex-1 ritext:py-2 ritext:text-sm ritext:text-center ritext:px-2 ritext:rounded-lg ${type === "url" ? "ritext:bg-white" : ""}`} onClick={() => setType("url")}>
                         URL
                     </button>
                 </div>
-                <ImageUploader
-                    editor={editor}
-                    options={options}
-                    onClose={onClose}
-                />
+                {type === "upload" &&
+                    <ImageUploader
+                        editor={editor}
+                        options={options}
+                        onClose={onClose}
+                    />
+                }
+                {type === "url" &&
+                    <ImageUrInserter
+                        editor={editor}
+                        onClose={onClose}
+                    />
+                }
             </Dialog.Body>
         </Dialog>
     );

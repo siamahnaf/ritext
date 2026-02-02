@@ -1,6 +1,6 @@
 "use client"
 import { useRef, useLayoutEffect, useState, KeyboardEvent } from "react";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "../../utils/tw";
 
 //Interface
 interface Props {
@@ -70,8 +70,8 @@ const RangeSlider = ({ min = 0, max = 100, step = 1, onChange, value, className 
     }, []);
 
     return (
-        <div className={twMerge("relative flex items-center", className)}>
-            <div ref={trackRef} className="relative w-full rounded-full" style={{ height: `${height}px`, background: trackColor }}>
+        <div className={twMerge("ritext:relative ritext:flex ritext:items-center", className)}>
+            <div ref={trackRef} className="ritext:relative ritext:w-full ritext:rounded-full" style={{ height: `${height}px`, background: trackColor }}>
                 {/* Controller */}
                 <input
                     type="range"
@@ -80,17 +80,17 @@ const RangeSlider = ({ min = 0, max = 100, step = 1, onChange, value, className 
                     step={step}
                     value={value}
                     onChange={(e) => onChange(Number(e.target.value))}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 peer"
+                    className="ritext:absolute ritext:inset-0 ritext:w-full ritext:h-full ritext:opacity-0 ritext:cursor-pointer ritext:z-10 ritext:peer"
                 />
 
                 {/* Track Bar */}
 
-                <div className="absolute h-full rounded-full bg-gray-700" style={{ width: `${percentage}%` }} />
+                <div className="ritext:absolute ritext:h-full ritext:rounded-full ritext:bg-gray-700" style={{ width: `${percentage}%` }} />
 
                 {/* Thumb */}
-                <div className="w-4.5 h-4.5 absolute top-1/2 -translate-1/2 group" style={{ left: getThumbPosition() }}>
-                    <div className="absolute w-full h-full bg-white rounded-full border border-solid border-gray-300 shadow-3xl z-99" />
-                    <div className="absolute bg-gray-200 -top-2.5 -left-2.5 -right-2.5 -bottom-2.5 rounded-full opacity-0 group-peer-active:opacity-100 z-9" />
+                <div className="ritext:w-4.5 ritext:h-4.5 ritext:absolute ritext:top-1/2 ritext:-translate-1/2 ritext:group" style={{ left: getThumbPosition() }}>
+                    <div className="ritext:absolute ritext:w-full ritext:h-full ritext:bg-white ritext:rounded-full ritext:border ritext:border-solid ritext:border-gray-300 ritext:shadow-3xl ritext:z-99" />
+                    <div className="ritext:absolute ritext:bg-gray-200 ritext:-top-2.5 ritext:-left-2.5 ritext:-right-2.5 ritext:-bottom-2.5 ritext:rounded-full ritext:opacity-0 ritext:group-peer-active:opacity-100 ritext:z-9" />
                 </div>
             </div>
             {showInput && (
@@ -101,7 +101,7 @@ const RangeSlider = ({ min = 0, max = 100, step = 1, onChange, value, className 
                     onKeyDown={handleKeyDown}
                     onBlur={handleBlur}
                     onFocus={handleFocus}
-                    className="ml-4 w-12 text-center border border-gray-200 rounded px-1 py-1.5 text-sm focus:outline-none focus:border-gray-400"
+                    className="ritext:ml-4 ritext:w-12 ritext:text-center ritext:border ritext:border-gray-200 ritext:rounded ritext:px-1 ritext:py-1.5 ritext:text-sm ritext:focus:outline-none ritext:focus:border-gray-400"
                     aria-label="Range value"
                 />
             )}

@@ -66,7 +66,7 @@ const BubbleMenu = ({ editor }: Props) => {
 
     return (
         <TiptapBubbleMenu editor={editor} options={{ placement: "top", offset: 10, flip: true }}>
-            <div className="bg-white flex gap-x-1 py-2 px-2 rounded-md border border-gray-200">
+            <div className="ritext:bg-white ritext:flex ritext:gap-x-1 ritext:py-2 ritext:px-2 ritext:rounded-md ritext:border ritext:border-gray-200">
                 {entries.map(({ name, renderButton, options }) => (
                     <Fragment key={name}>
                         {renderButton({

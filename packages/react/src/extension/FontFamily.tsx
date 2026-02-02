@@ -77,7 +77,7 @@ export const FontFamily: Extension<ExtFontFamilyOptions> = TiptapFontFamily.exte
                                 _itemClassName={dropdownItemClassName}
                             />
                         ))}
-                        <hr className="border-gray-200" />
+                        <hr className="ritext:border-gray-200" />
                         {list.slice(1).map((item) => (
                             <DropdownItemComponent
                                 key={item.id}

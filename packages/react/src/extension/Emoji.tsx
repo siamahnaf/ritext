@@ -39,7 +39,7 @@ export const Emoji: Node<ExtLinkOptions> = TiptapEmoji.extend<ExtLinkOptions>({
                             tooltipPlacement={options.tooltipPlacement}
                             _tooltipContent="Emoji"
                             _internalContent={<EmojiIcon />}
-                            _dropdownClassName={"w-75 " + dropdownContainerClassName}
+                            _dropdownClassName={"ritext:w-75 " + dropdownContainerClassName}
                         >
                             <EmojiComponent
                                 editor={editor}

@@ -35,7 +35,7 @@ const RiDragHandler = ({ editor }: Props) => {
 
     return (
         <DragHandle editor={editor}>
-            <div className="flex gap-x-1.5 mt-1.5 -translate-x-1.5">
+            <div className="ritext:flex ritext:gap-x-1.5 ritext:mt-1.5 ritext:-translate-x-1.5">
                 <Tooltip content="Insert Content">
                     <button
                         type="button"

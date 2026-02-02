@@ -1,6 +1,6 @@
 import type { ReactNode, CSSProperties } from "react";
 import { useMemo } from "react";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "../utils/tw";
 import Tooltip from "./_com/Tooltip";
 import type { Placement } from "@floating-ui/react";
 import { useEditor } from "../context/editor.context";
@@ -40,14 +40,14 @@ const ButtonComponent = ({ className, activeClassName, icon, style, tooltip = tr
             {shortcutText ? (
                 <>
                     <br />
-                    <span className="opacity-70">{shortcutText}</span>
+                    <span className="ritext:opacity-70">{shortcutText}</span>
                 </>
             ) : null}
         </p>
     );
 
     const btn = (
-        <button onClick={_onToggle} className={twMerge("py-1.5 px-2.5 rounded-md", _buttonClassName, editorState?.isActive ? "bg-gray-200/60" : "hover:bg-gray-100", className, editorState?.isActive ? activeClassName : "hover:bg-gray-100")} style={style}>
+        <button onClick={_onToggle} className={twMerge("ritext:py-1.5 ritext:px-2.5 ritext:rounded-md", _buttonClassName, editorState?.isActive ? "ritext:bg-gray-200/60" : "ritext:hover:bg-gray-100", className, editorState?.isActive ? activeClassName : "ritext:hover:bg-gray-100")} style={style}>
             {icon ?? _internalIcon}
         </button>
     );

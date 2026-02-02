@@ -88,7 +88,7 @@ export const Color: Extension<ExtColorOptions> = TiptapColor.extend<ExtColorOpti
                             tooltipPlacement={options.tooltipPlacement}
                             _tooltipContent="Color"
                             _internalContent={<ColorIconComponent />}
-                            _dropdownClassName={"w-65 " + dropdownContainerClassName}
+                            _dropdownClassName={"ritext:w-65 " + dropdownContainerClassName}
                         >
                             <ColorComponent
                                 onPick={(e) => onPick(e)}

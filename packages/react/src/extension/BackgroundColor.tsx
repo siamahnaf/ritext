@@ -91,7 +91,7 @@ export const BackgroundColor: Extension<ExtBackgroundOptions> = TiptapBackground
                             tooltipPlacement={options.tooltipPlacement}
                             _tooltipContent="Background Color"
                             _internalContent={<ColorIconComponent type="background" />}
-                            _dropdownClassName={"w-65 " + dropdownContainerClassName}
+                            _dropdownClassName={"ritext:w-65 " + dropdownContainerClassName}
                         >
                             <ColorComponent
                                 onPick={(e) => onPick(e)}

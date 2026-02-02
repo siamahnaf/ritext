@@ -1,39 +1,39 @@
-@import "tailwindcss";
+@import "tailwindcss" prefix(ritext);
 
 @layer utilities {
     button {
-        @apply cursor-pointer;
+        @apply ritext:cursor-pointer;
     }
     .ProseMirror p {
-        @apply leading-relaxed mb-1.5 first:mt-0 last:mb-0;
+        @apply ritext:leading-relaxed ritext:mb-1.5 ritext:first:mt-0 ritext:last:mb-0;
     }
 
     .ProseMirror > p {
-        @apply mb-1.5 first:mt-0 last:mb-0;
+        @apply ritext:mb-1.5 ritext:first:mt-0 ritext:last:mb-0;
     }
 
     .ProseMirror h1 {
-        @apply text-3xl;
+        @apply ritext:text-3xl;
     }
 
     .ProseMirror h2 {
-        @apply text-2xl;
+        @apply ritext:text-2xl;
     }
 
     .ProseMirror h3 {
-        @apply text-xl;
+        @apply ritext:text-xl;
     }
 
     .ProseMirror h4 {
-        @apply text-lg;
+        @apply ritext:text-lg;
     }
 
     .ProseMirror h5 {
-        @apply text-base;
+        @apply ritext:text-base;
     }
 
     .ProseMirror h6 {
-        @apply text-sm;
+        @apply ritext:text-sm;
     }
 
     .ProseMirror h1,
@@ -42,27 +42,27 @@
     .ProseMirror h4,
     .ProseMirror h5,
     .ProseMirror h6 {
-        @apply font-bold first:mt-0 last:mb-0;
+        @apply ritext:font-bold ritext:first:mt-0 ritext:last:mb-0;
     }
 
     .ProseMirror h1,
     .ProseMirror h2,
     .ProseMirror h3 {
-        @apply mt-12;
+        @apply ritext:mt-12;
     }
 
     .ProseMirror h4,
     .ProseMirror h5,
     .ProseMirror h6 {
-        @apply mt-8;
+        @apply ritext:mt-8;
     }
 
     .ProseMirror a.link {
-        @apply text-blue-500 font-extrabold dark:text-blue-400 cursor-pointer;
+        @apply ritext:text-blue-500 ritext:font-extrabold ritext:dark:text-blue-400 ritext:cursor-pointer;
     }
 
     .ProseMirror mark {
-        @apply bg-red-500 rounded-sm [box-decoration-break:clone] text-inherit py-1 px-0 dark:bg-red-400;
+        @apply ritext:bg-red-500 ritext:rounded-sm ritext:[box-decoration-break:clone] ritext:text-inherit ritext:py-1 ritext:px-0 ritext:dark:bg-red-400;
     }
 
     .ProseMirror hr {
@@ -93,39 +93,39 @@
     }
 
     .ProseMirror iframe {
-        @apply w-full mt-2 rounded-sm h-full border border-gray-200;
+        @apply ritext:w-full ritext:mt-2 ritext:rounded-sm ritext:h-full ritext:border ritext:border-gray-200;
     }
 
     /* Block Quote */
     .ProseMirror blockquote {
-        @apply border-l-4 text-black border-l-neutral-700 py-2 px-4 rounded-lg rounded-tl-none rounded-bl-none;
-        @apply dark:border-l-neutral-300 dark:text-white;
+        @apply ritext:border-l-4 ritext:text-black ritext:border-l-neutral-700 ritext:py-2 ritext:px-4 ritext:rounded-lg ritext:rounded-tl-none ritext:rounded-bl-none;
+        @apply ritext:dark:border-l-neutral-300 ritext:dark:text-white;
     }
 
     .ProseMirror code {
-        @apply caret-white text-white bg-neutral-900 rounded-sm shadow-lg font-mono;
+        @apply ritext:caret-white ritext:text-white ritext:bg-neutral-900 ritext:rounded-sm ritext:shadow-lg ritext:font-mono;
     }
 
     .ProseMirror pre {
-        @apply caret-white bg-neutral-700 text-white rounded my-12 p-4 border border-black dark:bg-neutral-900 dark:border-gray-200;
+        @apply ritext:caret-white ritext:bg-neutral-700 ritext:text-white ritext:rounded ritext:my-12 ritext:p-4 ritext:border ritext:border-black ritext:dark:bg-neutral-900 ritext:dark:border-gray-200;
     }
 
     .ProseMirror pre code {
-        @apply bg-inherit text-inherit p-0 shadow-none;
+        @apply ritext:bg-inherit ritext:text-inherit ritext:p-0 ritext:shadow-none;
     }
 
     /* List */
     .ProseMirror ol {
-        @apply list-decimal;
+        @apply ritext:list-decimal;
     }
 
     .ProseMirror ul {
-        @apply list-disc;
+        @apply ritext:list-disc;
     }
 
     .ProseMirror ul,
     .ProseMirror ol {
-        @apply py-0 px-8 my-6 first:mt-0 last:mb-0;
+        @apply ritext:py-0 ritext:px-8 ritext:my-6 ritext:first:mt-0 ritext:last:mb-0;
     }
 
     .ProseMirror ul ul,
@@ -134,45 +134,45 @@
     .ProseMirror ol ul,
     .ProseMirror ol ol,
     .ProseMirror ol li {
-        @apply my-1;
+        @apply ritext:my-1;
     }
 
     .ProseMirror ul p,
     .ProseMirror ol p {
-        @apply mt-0 mb-1;
+        @apply ritext:mt-0 ritext:mb-1;
     }
 
     .ProseMirror > ul,
     .ProseMirror > ol {
-        @apply my-8 first:mt-0 last:mb-0;
+        @apply ritext:my-8 ritext:first:mt-0 ritext:last:mb-0;
     }
 
     .ProseMirror {
-        @apply w-full!;
+        @apply ritext:w-full!;
     }
 
     .ProseMirror ul[data-type='taskList'] {
-        @apply list-none p-0;
+        @apply ritext:list-none ritext:p-0;
     }
 
     .ProseMirror ul[data-type='taskList'] p {
-        @apply m-0;
+        @apply ritext:m-0;
     }
 
     .ProseMirror ul[data-type='taskList'] li {
-        @apply flex;
+        @apply ritext:flex;
     }
 
     .ProseMirror ul[data-type='taskList'] li > label {
-        @apply grow-0 shrink-0 flex-auto inline mr-2 select-none;
+        @apply ritext:grow-0 ritext:shrink-0 ritext:flex-auto ritext:inline ritext:mr-2 ritext:select-none;
     }
 
     .ProseMirror ul[data-type='taskList'] li > div {
-        @apply flex-auto;
+        @apply ritext:flex-auto;
     }
 
     .ProseMirror ul[data-type='taskList'] li[data-checked='true'] {
-        @apply line-through;
+        @apply ritext:line-through;
     }
 
     /* Table */
@@ -216,29 +216,29 @@
     .ProseMirror table td,
     .ProseMirror table th {
         border: 1px solid;
-        @apply border border-black/10 p-2 box-border relative text-left align-top;
+        @apply ritext:border ritext:border-black/10 ritext:p-2 ritext:box-border ritext:relative ritext:text-left ritext:align-top;
     }
 
     .ProseMirror table td:first-of-type:not(a),
     .ProseMirror table th:first-of-type:not(a) {
-        @apply mt-0;
+        @apply ritext:mt-0;
     }
 
     .ProseMirror table td p,
     .ProseMirror table th p {
-        @apply m-0;
+        @apply ritext:m-0;
     }
 
     .ProseMirror table td p + p,
     .ProseMirror table th p + p {
-        @apply mt-3;
+        @apply ritext:mt-3;
     }
 
     .ProseMirror table th {
-        @apply font-bold text-left;
+        @apply ritext:font-bold ritext:text-left;
     }
 
-    .tiptap table .column-resize-handle {
+    .ProseMirror table .column-resize-handle {
         background-color: black;
         bottom: -2px;
         pointer-events: none;
@@ -247,65 +247,56 @@
         top: 0;
         width: 4px;
     }
-    .tiptap.resize-cursor {
+    .ProseMirror.resize-cursor {
         cursor: ew-resize;
         cursor: col-resize;
     }
 
-    /* Search highlight */
-    .reactjs-tiptap-editor .ProseMirror .search-result {
-        background-color: #ffd90080;
-    }
-
-    .reactjs-tiptap-editor .ProseMirror .search-result-current {
-        background-color: #0dff0080;
-    }
-
-    .tiptap :first-child {
+    .ProseMirror :first-child {
         margin-top: 0;
     }
 
     /* List styles */
-    .tiptap ul,
-    .tiptap ol {
+    .ProseMirror ul,
+    .ProseMirror ol {
         padding: 0 1rem;
         margin: 1.25rem 1rem 1.25rem 0.4rem;
     }
 
-    .tiptap ul li p,
-    .tiptap ol li p {
+    .ProseMirror ul li p,
+    .ProseMirror ol li p {
         margin-top: 0.25em;
         margin-bottom: 0.25em;
     }
 
     /* Task list specific styles */
-    .tiptap ul[data-type='taskList'] {
+    .ProseMirror ul[data-type='taskList'] {
         list-style: none;
         margin-left: 0;
         padding: 0;
     }
 
-    .tiptap ul[data-type='taskList'] li {
+    .ProseMirror ul[data-type='taskList'] li {
         align-items: flex-start;
         display: flex;
     }
 
-    .tiptap ul[data-type='taskList'] li > label {
+    .ProseMirror ul[data-type='taskList'] li > label {
         flex: 0 0 auto;
         margin-right: 0.7rem;
         user-select: none;
     }
 
-    .tiptap ul[data-type='taskList'] li > div {
+    .ProseMirror ul[data-type='taskList'] li > div {
         flex: 1 1 auto;
         margin-top: -2px;
     }
 
-    .tiptap ul[data-type='taskList'] input[type='checkbox'] {
+    .ProseMirror ul[data-type='taskList'] input[type='checkbox'] {
         cursor: pointer;
     }
 
-    .tiptap ul[data-type='taskList'] ul[data-type='taskList'] {
+    .ProseMirror ul[data-type='taskList'] ul[data-type='taskList'] {
         margin: 0;
     }
 }

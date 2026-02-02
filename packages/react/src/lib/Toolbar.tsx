@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEditor } from "./context/editor.context";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "../lib/utils/tw";
 
 interface Props {
     className?: string;
@@ -55,7 +55,7 @@ const Toolbar = ({ className, buttonClassName, dropdownContainerClassName, dropd
     });
 
     return (
-        <div className={twMerge("flex gap-x-1 flex-wrap", className)}>
+        <div className={twMerge("ritext:flex ritext:gap-x-1 ritext:flex-wrap", className)}>
             {entries.map(({ name, renderButton, options }) => (
                 <React.Fragment key={name}>
                     {renderButton({

@@ -110,13 +110,13 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
                             showKeyShortcutText={options.showKeyShortcutText}
                             _itemClassName={dropdownItemClassName}
                         />
-                        <hr className="border-gray-200" />
+                        <hr className="ritext:border-gray-200" />
                         {list.map((item) => (
                             <DropdownItemComponent
                                 key={`${item.name}${item.ext}`}
                                 onSelect={item.onClick}
                                 item={item}
-                                spClass={["text-3xl", "text-2xl", "text-xl", "text-lg", "text-base", "text-sm"][(Number(item.ext) || 6) - 1]}
+                                spClass={["ritext:text-3xl", "ritext:text-2xl", "ritext:text-xl", "ritext:text-lg", "ritext:text-base", "ritext:text-sm"][(Number(item.ext) || 6) - 1]}
                                 activeClassName={options.activeClassName || ""}
                                 itemClassName={options.itemClassName || ""}
                                 showKeyShortcutText={options.showKeyShortcutText}

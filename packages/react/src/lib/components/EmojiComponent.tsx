@@ -85,17 +85,17 @@ const EmojiComponent = ({ editor, onClose }: Props) => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search emoji…"
-                className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none"
+                className="ritext:w-full ritext:rounded-lg ritext:border ritext:border-gray-200 ritext:px-3 ritext:py-2 ritext:text-sm ritext:focus:outline-none"
             />
-            <hr className="my-3 border-gray-200" />
+            <hr className="ritext:my-3 ritext:border-gray-200" />
             <div
                 ref={listRef}
-                className="overflow-auto max-h-62.5"
+                className="ritext:overflow-auto ritext:max-h-62.5"
             >
                 {!items.length ? (
-                    <div className="py-8 text-center text-sm text-gray-500">No results</div>
+                    <div className="ritext:py-8 ritext:text-center ritext:text-sm ritext:text-gray-500">No results</div>
                 ) : (
-                    <div className="grid grid-cols-7 gap-1">
+                    <div className="ritext:grid ritext:grid-cols-7 ritext:gap-1">
                         {items.map((item, idx) => {
                             const isSelected = idx === selectedIndex;
                             return (
@@ -108,7 +108,7 @@ const EmojiComponent = ({ editor, onClose }: Props) => {
                                         setHoverName(item.name);
                                         setHoverEmoji(item.emoji || "");
                                     }}
-                                    className={`h-8 w-8 cursor-pointer rounded-lg flex items-center justify-center text-base hover:bg-gray-100 ${isSelected ? "bg-gray-100 ring-2 ring-gray-200" : ""}`}
+                                    className={`ritext:h-8 ritext:w-8 ritext:cursor-pointer ritext:rounded-lg ritext:flex ritext:items-center ritext:justify-center ritext:text-base ritext:hover:bg-gray-100 ${isSelected ? "ritext:bg-gray-100 ritext:ring-2 ritext:ring-gray-200" : ""}`}
                                     title={`:${item.name}:`}
                                 >
                                     <span>{item.emoji}</span>
@@ -118,11 +118,11 @@ const EmojiComponent = ({ editor, onClose }: Props) => {
                     </div>
                 )}
             </div>
-            <div className="border-t border-gray-200 text-xs text-gray-600 flex items-center gap-2 pt-2.5">
-                <span className="text-sm">
+            <div className="ritext:border-t ritext:border-gray-200 ritext:text-xs ritext:text-gray-600 ritext:flex ritext:items-center ritext:gap-2 ritext:pt-2.5">
+                <span className="ritext:text-sm">
                     {hoverEmoji || selected.emoji || "🙂"}
                 </span>
-                <span className="truncate capitalize">
+                <span className="ritext:truncate ritext:capitalize">
                     {(hoverName || selected.name || "").replaceAll("_", " ")}
                 </span>
             </div>

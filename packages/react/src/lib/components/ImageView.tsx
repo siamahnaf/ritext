@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { CSSProperties, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { NodeViewProps } from "@tiptap/react";
 import { NodeViewWrapper } from "@tiptap/react";
 import { useFloating, autoUpdate, offset, flip, shift, useDismiss, useInteractions } from "@floating-ui/react";
@@ -360,7 +360,7 @@ export const ImageView = (props: NodeViewProps) => {
                 {isMenuVisible && (
                     <div
                         ref={setFloatingWrapEl}
-                        style={floatingStyles}
+                        style={floatingStyles as CSSProperties}
                         {...getFloatingProps()}
                     >
                         <motion.div

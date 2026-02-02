@@ -12,14 +12,14 @@ const InputComponent = ({ id, label, containerClassName = "", icon, ...rest }: P
     return (
         <div className={containerClassName}>
             {label &&
-                <label htmlFor={id} className="block mb-1 text-gray-700 text-base font-medium">
+                <label htmlFor={id} className="ritext:block ritext:mb-1 ritext:text-gray-700 ritext:text-base ritext:font-medium">
                     {label}
                 </label>
             }
             <div>
                 <input
                     {...rest}
-                    className="border border-solid border-gray-200 px-2 py-1.5 w-full rounded-md focus:outline-none"
+                    className="ritext:border ritext:border-solid ritext:border-gray-200 ritext:px-2 ritext:py-1.5 ritext:w-full ritext:rounded-md ritext:focus:outline-none"
                 />
                 {icon && <span>
                     {icon}

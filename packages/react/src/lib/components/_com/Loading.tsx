@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "../../utils/tw";
 
 //Interface
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 
 const Loading = ({ size = 25, className }: Props) => {
     return (
-        <svg className={`animate-spin ${twMerge("stroke-primary", className)}`} viewBox="0 0 256 256" style={{ width: size + "px", height: size + "px" }}>
+        <svg className={`ritext:animate-spin ${twMerge("ritext:stroke-primary", className)}`} viewBox="0 0 256 256" style={{ width: size + "px", height: size + "px" }}>
             <line x1="128" y1="32" x2="128" y2="64" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line>
             <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line>
             <line x1="224" y1="128" x2="192" y2="128" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line>

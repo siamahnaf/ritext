@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react";
 import type { Editor } from "@tiptap/react";
 import { autoUpdate, flip, offset, shift, useDismiss, useFloating, useInteractions, FloatingPortal } from "@floating-ui/react";
 import { ColorPicker } from "@siamf/react-color-pick";
@@ -147,60 +147,60 @@ export const TableMenu = ({ editor }: Props) => {
         <FloatingPortal>
             <div
                 ref={refs.setFloating}
-                style={floatingStyles}
-                className={"z-9999999 min-w-65 rounded-xl border border-gray-200 bg-white shadow-lg p-2"}
+                style={floatingStyles as CSSProperties}
+                className={"ritext:z-9999999 ritext:min-w-65 ritext:rounded-xl ritext:border ritext:border-gray-200 ritext:bg-white ritext:shadow-lg ritext:p-2"}
                 {...getFloatingProps({
                     onPointerDownCapture: (e) => {
                         e.stopPropagation();
                     },
                 })}
             >
-                <div className="grid gap-1 text-sm">
-                    <div className="px-2 py-1 text-xs font-semibold text-gray-500">Columns</div>
-                    <button className="rounded-md px-2 py-1 hover:bg-gray-100 text-left" onClick={() => run((ed) => ed.chain().focus().addColumnBefore().run())}>
+                <div className="ritext:grid ritext:gap-1 ritext:text-sm">
+                    <div className="ritext:px-2 ritext:py-1 ritext:text-xs ritext:font-semibold ritext:text-gray-500">Columns</div>
+                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addColumnBefore().run())}>
                         Insert column before
                     </button>
-                    <button className="rounded-md px-2 py-1 hover:bg-gray-100 text-left" onClick={() => run((ed) => ed.chain().focus().addColumnAfter().run())}>
+                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addColumnAfter().run())}>
                         Insert column after
                     </button>
-                    <button className="rounded-md px-2 py-1 hover:bg-gray-100 text-left" onClick={() => run((ed) => ed.chain().focus().deleteColumn().run())}>
+                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().deleteColumn().run())}>
                         Delete column
                     </button>
 
-                    <div className="mt-1 px-2 py-1 text-xs font-semibold text-gray-500">Rows</div>
-                    <button className="rounded-md px-2 py-1 hover:bg-gray-100 text-left" onClick={() => run((ed) => ed.chain().focus().addRowBefore().run())}>
+                    <div className="ritext:mt-1 ritext:px-2 ritext:py-1 ritext:text-xs ritext:font-semibold ritext:text-gray-500">Rows</div>
+                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addRowBefore().run())}>
                         Insert row above
                     </button>
-                    <button className="rounded-md px-2 py-1 hover:bg-gray-100 text-left" onClick={() => run((ed) => ed.chain().focus().addRowAfter().run())}>
+                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addRowAfter().run())}>
                         Insert row below
                     </button>
-                    <button className="rounded-md px-2 py-1 hover:bg-gray-100 text-left" onClick={() => run((ed) => ed.chain().focus().deleteRow().run())}>
+                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().deleteRow().run())}>
                         Delete row
                     </button>
 
-                    <div className="mt-1 px-2 py-1 text-xs font-semibold text-gray-500">Cells</div>
-                    <button className="rounded-md px-2 py-1 hover:bg-gray-100 text-left" onClick={() => run((ed) => ed.chain().focus().mergeCells().run())}>
+                    <div className="ritext:mt-1 ritext:px-2 ritext:py-1 ritext:text-xs ritext:font-semibold ritext:text-gray-500">Cells</div>
+                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().mergeCells().run())}>
                         Merge cells
                     </button>
-                    <button className="rounded-md px-2 py-1 hover:bg-gray-100 text-left" onClick={() => run((ed) => ed.chain().focus().splitCell().run())}>
+                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().splitCell().run())}>
                         Split cell
                     </button>
 
-                    <div className="mt-1 px-2 py-1 text-xs font-semibold text-gray-500">Cell background</div>
-                    <div className="flex items-center gap-2 px-2 py-1">
+                    <div className="ritext:mt-1 ritext:px-2 ritext:py-1 ritext:text-xs ritext:font-semibold ritext:text-gray-500">Cell background</div>
+                    <div className="ritext:flex ritext:items-center ritext:gap-2 ritext:px-2 ritext:py-1">
                         <button
                             ref={pickerFloating.refs.setReference}
                             type="button"
-                            className="h-6 w-8 rounded border border-gray-200 cursor-pointer p-0"
+                            className="ritext:h-6 ritext:w-8 ritext:rounded ritext:border ritext:border-gray-200 ritext:cursor-pointer ritext:p-0"
                             style={{ background: bg }}
                             title="Pick color"
                             onClick={() => setPickerOpen((v) => !v)}
                         />
-                        <button className="flex-1 rounded-md px-2 py-1 hover:bg-gray-100 text-left" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", bg).run())}>
+                        <button className="ritext:flex-1 ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", bg).run())}>
                             Apply background
                         </button>
 
-                        <button className="rounded-md px-2 py-1 hover:bg-gray-100" title="Clear" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", null as any).run())}>
+                        <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100" title="Clear" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", null as any).run())}>
                             ✕
                         </button>
                     </div>
@@ -208,8 +208,8 @@ export const TableMenu = ({ editor }: Props) => {
                         <FloatingPortal>
                             <div
                                 ref={pickerFloating.refs.setFloating}
-                                style={pickerFloating.floatingStyles}
-                                className="z-99999999 rounded-xl border border-gray-200 bg-white shadow-lg p-2"
+                                style={pickerFloating.floatingStyles as CSSProperties}
+                                className="ritext:z-99999999 ritext:rounded-xl ritext:border ritext:border-gray-200 ritext:bg-white ritext:shadow-lg ritext:p-2"
                                 {...pickerInteractions.getFloatingProps({
                                     onPointerDownCapture: (e) => {
                                         e.stopPropagation();
@@ -221,8 +221,8 @@ export const TableMenu = ({ editor }: Props) => {
                         </FloatingPortal>
                     )}
 
-                    <div className="mt-1 border-t border-gray-200 pt-1" />
-                    <button className="rounded-md px-2 py-1 hover:bg-red-50 text-left text-red-600" onClick={() => run((ed) => ed.chain().focus().deleteTable().run())}>
+                    <div className="ritext:mt-1 ritext:border-t ritext:border-gray-200 ritext:pt-1" />
+                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-red-50 ritext:text-left ritext:text-red-600" onClick={() => run((ed) => ed.chain().focus().deleteTable().run())}>
                         Delete table
                     </button>
                 </div>

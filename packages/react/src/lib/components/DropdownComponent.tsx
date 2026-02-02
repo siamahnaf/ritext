@@ -1,5 +1,5 @@
 import { type ReactNode, type CSSProperties, useState, Fragment, useId, Children, isValidElement, cloneElement, type ReactElement } from "react";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "../utils/tw";
 import Tooltip from "./_com/Tooltip";
 import type { Placement } from "@floating-ui/react";
 import { useFloating, offset, flip, shift, autoUpdate, useInteractions, useClick, useDismiss, FloatingPortal } from "@floating-ui/react";
@@ -76,14 +76,14 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
                 "aria-controls": open ? listId : undefined,
             })}
             className={twMerge(
-                "p-1.5 rounded-md hover:bg-gray-100 items-center flex gap-x-0.5",
+                "ritext:p-1.5 ritext:rounded-md ritext:hover:bg-gray-100 ritext:items-center ritext:flex ritext:gap-x-0.5",
                 className
             )}
             style={style}
         >
             <span>{content ?? _internalContent}</span>
             {showArrow &&
-                <ArrowIcon size={14} className="text-gray-500 block" />
+                <ArrowIcon size={14} className="ritext:text-gray-500 ritext:block" />
             }
         </button>
     );
@@ -114,7 +114,7 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
                             initial={initialMotion}
                             animate={animateMotion}
                             exit={initialMotion}
-                            className={twMerge("bg-white border border-solid border-gray-200 p-2 space-y-1 rounded-lg shadow-sm shadow-gray-200/40 z-99999999 max-h-125 overflow-auto", _dropdownClassName, dropdownClassName)}
+                            className={twMerge("ritext:bg-white ritext:border ritext:border-solid ritext:border-gray-200 ritext:p-2 ritext:space-y-1 ritext:rounded-lg ritext:shadow-sm ritext:shadow-gray-200/40 ritext:z-99999999 ritext:max-h-125 ritext:overflow-auto", _dropdownClassName, dropdownClassName)}
                         >
                             {enhancedChildren}
                         </motion.div>

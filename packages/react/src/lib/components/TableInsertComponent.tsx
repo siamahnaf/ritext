@@ -58,15 +58,15 @@ const TableInsertComponent = ({ editor, onClose, open }: Props) => {
     };
 
     return (
-        <div className="w-full p-2">
-            <div className="mb-2 flex items-center justify-between">
-                <span className="text-xs text-gray-600">
+        <div className="ritext:w-full ritext:p-2">
+            <div className="ritext:mb-2 ritext:flex ritext:items-center ritext:justify-between">
+                <span className="ritext:text-xs ritext:text-gray-600">
                     {label}
                 </span>
             </div>
             <div
                 ref={gridRef}
-                className="grid gap-1 cursor-pointer select-none"
+                className="ritext:grid ritext:gap-1 ritext:cursor-pointer ritext:select-none"
                 style={{ gridTemplateColumns: `repeat(${MAX}, minmax(0, 1fr))` }}
                 onMouseMove={(e) => updateFromPointer(e.clientX, e.clientY)}
                 onMouseLeave={() => setHover({ rows: 0, cols: 0 })}
@@ -81,8 +81,8 @@ const TableInsertComponent = ({ editor, onClose, open }: Props) => {
                             key={i}
                             type="button"
                             className={[
-                                "h-5 w-5 rounded-sm border transition",
-                                active ? "border-gray-500 bg-gray-300" : "border-gray-200 bg-white hover:bg-gray-50",
+                                "ritext:h-5 ritext:w-5 ritext:rounded-sm ritext:border ritext:transition",
+                                active ? "ritext:border-gray-500 ritext:bg-gray-300" : "ritext:border-gray-200 ritext:bg-white ritext:hover:bg-gray-50",
                             ].join(" ")}
                             aria-label={`Insert ${r} by ${c} table`}
                             disabled={!canInsert}
@@ -91,7 +91,7 @@ const TableInsertComponent = ({ editor, onClose, open }: Props) => {
                     );
                 })}
             </div>
-            {!canInsert && <p className="mt-2 text-xs text-red-500">Editor is not ready to insert a table.</p>}
+            {!canInsert && <p className="ritext:mt-2 ritext:text-xs ritext:text-red-500">Editor is not ready to insert a table.</p>}
         </div>
     );
 };

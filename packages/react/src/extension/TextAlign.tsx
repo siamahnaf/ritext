@@ -40,7 +40,7 @@ export const TextAlign: Extension<ExtTextAlignmentOptions> = TiptapTextAlign.ext
                         tooltipPlacement={options.tooltipPlacement}
                         _tooltipContent="Text Align"
                         _internalContent={<AlignJustify />}
-                        _dropdownClassName={"w-40 " + dropdownContainerClassName}
+                        _dropdownClassName={"ritext:w-40 " + dropdownContainerClassName}
                     >
                         <AlignmentComponent
                             items={items}

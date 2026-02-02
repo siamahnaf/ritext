@@ -36,7 +36,7 @@ export const LineHeight: Extension<ExtLineHeightOptions> = TiptapLineHeight.exte
                         tooltipPlacement={options.tooltipPlacement}
                         _tooltipContent="Line Height"
                         _internalContent={<FormatLineHeight />}
-                        _dropdownClassName={"w-30 " + dropdownContainerClassName}
+                        _dropdownClassName={"ritext:w-30 " + dropdownContainerClassName}
                     >
                         {list.map((item) => (
                             <LineHeightComponent

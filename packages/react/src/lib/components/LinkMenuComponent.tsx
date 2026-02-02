@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import { useFloating, autoUpdate, offset, flip, shift, useDismiss, useInteractions } from "@floating-ui/react";
 import { useEditor } from "../context/editor.context";
 
@@ -71,7 +71,7 @@ const LinkMenuComponent = () => {
     if (!editor || !pop.open) return null;
 
     return (
-        <div ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()} className="z-99999999 w-66 rounded-xl border border-gray-200 bg-white p-3 shadow-lg">
+        <div ref={refs.setFloating} style={floatingStyles as CSSProperties} {...getFloatingProps()} className="ritext:z-99999999 ritext:w-66 ritext:rounded-xl ritext:border ritext:border-gray-200 ritext:bg-white ritext:p-3 ritext:shadow-lg">
             <InputComponent
                 id="link"
                 label="Link"
@@ -79,7 +79,7 @@ const LinkMenuComponent = () => {
                 onMouseDown={(e) => e.stopPropagation()}
                 onChange={(e) => setPop((s) => (s.open ? { ...s, href: e.target.value } : s))}
                 placeholder="https://yourlink.com"
-                containerClassName="mb-2.5"
+                containerClassName="ritext:mb-2.5"
             />
             <CheckboxComponent
                 id="openNewTab"
@@ -88,14 +88,14 @@ const LinkMenuComponent = () => {
                 label="Open in a new tab?"
                 bottomSpace={false}
             />
-            <div className="mt-3 flex gap-2">
-                <button className="rounded-lg border bg-gray-700 text-white border-gray-700 px-3 py-1 text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={applyLink}>
+            <div className="ritext:mt-3 ritext:flex ritext:gap-2">
+                <button className="ritext:rounded-lg ritext:border ritext:bg-gray-700 ritext:text-white ritext:border-gray-700 ritext:px-3 ritext:py-1 ritext:text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={applyLink}>
                     Apply
                 </button>
-                <button className="rounded-lg border border-gray-200 px-3 py-1 text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={removeLink}>
+                <button className="ritext:rounded-lg ritext:border ritext:border-gray-200 ritext:px-3 ritext:py-1 ritext:text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={removeLink}>
                     Unlink
                 </button>
-                <button className="ml-auto rounded-lg border border-gray-200 px-3 py-1 text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={() => setPop({ open: false })}>
+                <button className="ritext:ml-auto ritext:rounded-lg ritext:border ritext:border-gray-200 ritext:px-3 ritext:py-1 ritext:text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={() => setPop({ open: false })}>
                     Cancel
                 </button>
             </div>

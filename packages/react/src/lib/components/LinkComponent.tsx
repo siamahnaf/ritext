@@ -124,7 +124,7 @@ const LinkComponent = ({ editor, onClose, open }: Props) => {
                 onChange={(e) => setForm(prev => ({ ...prev, link: e.target.value }))}
                 placeholder="https://yourlink.com"
                 ref={linkInputRef}
-                containerClassName="mt-3 mb-2.5"
+                containerClassName="ritext:mt-3 ritext:mb-2.5"
             />
             <CheckboxComponent
                 id="openNewTab"
@@ -133,7 +133,7 @@ const LinkComponent = ({ editor, onClose, open }: Props) => {
                 label="Open in a new tab?"
                 bottomSpace={false}
             />
-            <button type="button" className="bg-gray-800 text-white w-full py-1.5 rounded-lg mt-5" onClick={onApply}>
+            <button type="button" className="ritext:bg-gray-800 ritext:text-white ritext:w-full ritext:py-1.5 ritext:rounded-lg ritext:mt-5" onClick={onApply}>
                 Apply Now
             </button>
         </div>

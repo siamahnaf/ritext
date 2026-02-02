@@ -60,7 +60,7 @@ export const Table: Extension<ExtTableOptions> = TableKit.extend<ExtTableOptions
                         tooltipPlacement={options.tooltipPlacement}
                         _tooltipContent="Table"
                         _internalContent={<TabelIcon />}
-                        _dropdownClassName={"w-70 " + dropdownContainerClassName}
+                        _dropdownClassName={"ritext:w-70 " + dropdownContainerClassName}
                     >
                         <TableInsertComponent editor={editor} />
                     </DropdownComponent>

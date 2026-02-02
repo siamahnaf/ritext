@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { m, AnimatePresence, domAnimation, LazyMotion } from "motion/react";
 import { createPortal } from "react-dom";
 import { CloseIcon } from "../../icons";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "../../utils/tw";
 
 //Interface
 interface Props {
@@ -51,7 +51,7 @@ const Dialog = ({ open, onClose, children, backdropClassName, className }: Props
                 {open &&
                     <>
                         <m.div
-                            className={`bg-black/55 fixed top-0 left-0 w-full h-full flex justify-center items-center z-9999999 ${backdropClassName}`}
+                            className={`ritext:bg-black/55 ritext:fixed ritext:top-0 ritext:left-0 ritext:w-full ritext:h-full ritext:flex ritext:justify-center ritext:items-center ritext:z-9999999 ${backdropClassName}`}
                             initial="unmount"
                             exit="unmount"
                             animate={open ? "mount" : "unmount"}
@@ -60,7 +60,7 @@ const Dialog = ({ open, onClose, children, backdropClassName, className }: Props
                             onClick={onClose}
                         />
                         <m.div
-                            className={twMerge("fixed inset-0 h-max m-auto z-9999999 overflow-auto bg-white rounded-2xl", className)}
+                            className={twMerge("ritext:fixed ritext:inset-0 ritext:h-max ritext:m-auto ritext:z-9999999 ritext:overflow-auto ritext:bg-white ritext:rounded-2xl", className)}
                             initial="unmount"
                             exit="unmount"
                             animate={open ? "mount" : "unmount"}
@@ -88,12 +88,12 @@ interface HeaderProps {
 
 const Header = ({ title, className, titleClassName, buttonClassName, onClose }: HeaderProps) => {
     return (
-        <div className={twMerge("flex items-center gap-4 text-strong", className)}>
-            <h4 className={twMerge("text-xl flex-1 font-semibold", titleClassName)}>
+        <div className={twMerge("ritext:flex ritext:items-center ritext:gap-4 ritext:text-strong", className)}>
+            <h4 className={twMerge("ritext:text-xl ritext:flex-1 ritext:font-semibold", titleClassName)}>
                 {title}
             </h4>
             {onClose &&
-                <button className={twMerge("hover:bg-light p-1 rounded-md transition-all", buttonClassName)} onClick={onClose}>
+                <button className={twMerge("ritext:hover:bg-light ritext:p-1 ritext:rounded-md ritext:transition-all", buttonClassName)} onClick={onClose}>
                     <CloseIcon size={20} />
                 </button>
             }
@@ -110,7 +110,7 @@ interface BodyProps {
 
 const Body = ({ className, children, id }: BodyProps) => {
     return (
-        <div className={twMerge("max-h-[80vh] overflow-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-thumb]:rounded-full", className)} id={id}>
+        <div className={twMerge("ritext:max-h-[80vh] ritext:overflow-auto ritext:[&::-webkit-scrollbar]:w-1.5 ritext:[&::-webkit-scrollbar-track]:bg-transparent ritext:[&::-webkit-scrollbar-thumb]:bg-gray-200 ritext:[&::-webkit-scrollbar-thumb]:rounded-full", className)} id={id}>
             {children}
         </div>
     )

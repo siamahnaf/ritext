@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "../utils/tw";
 import { useEditor } from "../context/editor.context";
 import { useEditorState } from "@tiptap/react";
 
@@ -24,16 +24,16 @@ const DropdownItemComponent = ({ item, onSelect, activeClassName, itemClassName,
 
     return (
         <div className={twMerge(
-            "flex items-center gap-x-2.5 transition-all duration-100 cursor-pointer select-none px-2 py-1.5 rounded-md",
+            "ritext:flex ritext:items-center ritext:gap-x-2.5 ritext:transition-all ritext:duration-100 ritext:cursor-pointer ritext:select-none ritext:px-2 ritext:py-1.5 ritext:rounded-md",
             _itemClassName,
-            editorState?.isActive ? "bg-gray-200/60" : "hover:bg-gray-100",
+            editorState?.isActive ? "ritext:bg-gray-200/60" : "ritext:hover:bg-gray-100",
             itemClassName,
-            editorState?.isActive ? activeClassName : "hover:bg-gray-100"
+            editorState?.isActive ? activeClassName : "ritext:hover:bg-gray-100"
         )} onClick={onSelect}>
             {item.icon}
-            <span className={twMerge("flex-1 text-base", spClass)} style={item.style}>{item.text}</span>
+            <span className={twMerge("ritext:flex-1 ritext:text-base", spClass)} style={item.style}>{item.text}</span>
             {showKeyShortcutText && item.keyBind &&
-                <span className="ml-6 text-gray-400">{item.keyBind}</span>
+                <span className="ritext:ml-6 ritext:text-gray-400">{item.keyBind}</span>
             }
         </div>
     );

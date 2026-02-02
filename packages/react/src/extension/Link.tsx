@@ -58,7 +58,7 @@ export const Links: Mark<ExtLinkOptions> = TiptapLink.extend<ExtLinkOptions>({
                             tooltipPlacement={options.tooltipPlacement}
                             _tooltipContent="Link"
                             _internalContent={<LinkIcon />}
-                            _dropdownClassName={"w-66 " + dropdownContainerClassName}
+                            _dropdownClassName={"ritext:w-66 " + dropdownContainerClassName}
                         >
                             <LinkComponent
                                 editor={editor}

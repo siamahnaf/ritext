@@ -1,7 +1,7 @@
 import { useState, Fragment, type ReactNode, cloneElement, isValidElement, type Ref, type RefObject, useId } from "react";
 import { useFloating, offset, flip, shift, autoUpdate, useInteractions, useHover, useDismiss, type Placement, FloatingPortal } from "@floating-ui/react";
 import { AnimatePresence, motion } from "motion/react";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "../../utils/tw";
 
 //Interface
 interface Props {
@@ -94,7 +94,7 @@ const Tooltip = ({ placement = "top", children, content, className }: Props) => 
                             animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
                             exit={getExit()}
                             transition={{ type: "spring", stiffness: 420, damping: 30, mass: 0.6 }}
-                            className={twMerge("bg-white border border-solid border-gray-200/50 py-1 px-3 rounded-lg text-sm shadow-lg shadow-gray-50 text-center", className)}
+                            className={twMerge("ritext:bg-white ritext:border ritext:border-solid ritext:border-gray-200/50 ritext:py-1 ritext:px-3 ritext:rounded-lg ritext:text-sm ritext:shadow-lg ritext:shadow-gray-50 ritext:text-center", className)}
                         >
                             {content}
                         </motion.div>

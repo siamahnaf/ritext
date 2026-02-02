@@ -1,6 +1,7 @@
 import { EditorContent } from "@tiptap/react";
 import { useEditor } from "./context/editor.context";
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "./utils/tw";
+
 
 //Interface
 interface Props {
@@ -11,7 +12,7 @@ const Content = ({ className }: Props) => {
     const { editor, dragHandler } = useEditor();
 
     return (
-        <EditorContent editor={editor} className={twMerge(`focus:outline-none [&_.tiptap]:focus:outline-none [&_.tiptap]:min-h-50 ${dragHandler ? "[&_.tiptap]:p-[10px_20px_10px_50px]" : "[&_.tiptap]:p-[10px_20px]"}`, className)} />
+        <EditorContent editor={editor} className={twMerge(`ritext:focus:outline-none ritext:[&_.tiptap]:focus:outline-none ritext:[&_.tiptap]:min-h-50 ${dragHandler ? "ritext:[&_.tiptap]:p-[10px_20px_10px_50px]" : "ritext:[&_.tiptap]:p-[10px_20px]"}`, className)} />
     );
 };
 

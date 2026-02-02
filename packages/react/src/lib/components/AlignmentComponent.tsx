@@ -19,9 +19,9 @@ const AlignmentComponent = ({ onSelect, onPick, items }: Props) => {
     }
 
     return (
-        <div className="flex gap-x-1.5">
+        <div className="ritext:flex ritext:gap-x-1.5">
             {items.map((item) => (
-                <button key={item} onClick={() => (onPick(item))} className="flex-1 p-1.5 rounded-md hover:bg-gray-100 text-center">
+                <button key={item} onClick={() => (onPick(item))} className="ritext:flex-1 ritext:p-1.5 ritext:rounded-md ritext:hover:bg-gray-100 ritext:text-center">
                     {iconMap[item]}
                 </button>
             ))}
