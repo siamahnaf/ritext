@@ -1,3 +1,9 @@
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+@theme {
+    --color-one: #ff2768;
+    --color-two: #534494;
+    --color-three: #ffc4d4;
+}
