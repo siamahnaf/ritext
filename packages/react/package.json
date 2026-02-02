@@ -1,0 +1,124 @@
+{
+  "name": "ritext",
+  "version": "1.0.27",
+  "description": "Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by Tiptap. It offers a customizable UI and functional layer that lets you design your own editor controls and toolbars with clean, composable React components—no heavy UI, no extra dependencies beyond Tiptap.",
+  "homepage": "https://ritext.vercel.app/",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/index.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./extension/*": {
+      "types": "./dist/extension/*.d.ts",
+      "import": "./dist/extension/*.mjs",
+      "require": "./dist/extension/*.cjs"
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit",
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "author": {
+    "name": "Siam Ahnaf",
+    "email": "mail@siamahnaf.com",
+    "url": "https://www.siamahnaf.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ritext",
+    "tiptap",
+    "tiptap-react",
+    "react",
+    "rich-text-editor",
+    "wysiwyg",
+    "headless-editor",
+    "text-editor",
+    "tailwindcss",
+    "tailwind",
+    "editor-kit",
+    "editor-toolbar",
+    "editor-controls",
+    "markdown-editor",
+    "content-editor",
+    "react-editor",
+    "headless-ui",
+    "functional-editor",
+    "customizable-editor",
+    "react-components",
+    "frontend-editor"
+  ],
+  "repository": {
+    "type": "git",
+    "directory": "https://github.com/siamahnaf/ritext",
+    "url": "https://github.com/siamahnaf/ritext"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^25",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "postcss": "^8.5.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindcss": "^4.1.18",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.27.17",
+    "@siamf/react-color-pick": "^1.5.4",
+    "@tiptap/extension-blockquote": "^3.14.0",
+    "@tiptap/extension-bold": "^3.14.0",
+    "@tiptap/extension-document": "^3.14.0",
+    "@tiptap/extension-drag-handle": "3.14.0",
+    "@tiptap/extension-drag-handle-react": "3.14.0",
+    "@tiptap/extension-emoji": "^3.14.0",
+    "@tiptap/extension-hard-break": "3.14.0",
+    "@tiptap/extension-heading": "^3.14.0",
+    "@tiptap/extension-horizontal-rule": "^3.14.0",
+    "@tiptap/extension-image": "^3.14.0",
+    "@tiptap/extension-italic": "^3.14.0",
+    "@tiptap/extension-link": "^3.14.0",
+    "@tiptap/extension-list": "^3.14.0",
+    "@tiptap/extension-paragraph": "^3.14.0",
+    "@tiptap/extension-strike": "^3.14.0",
+    "@tiptap/extension-subscript": "^3.14.0",
+    "@tiptap/extension-superscript": "^3.14.0",
+    "@tiptap/extension-table": "^3.14.0",
+    "@tiptap/extension-text": "^3.14.0",
+    "@tiptap/extension-text-align": "^3.14.0",
+    "@tiptap/extension-text-style": "^3.14.0",
+    "@tiptap/extension-underline": "^3.14.0",
+    "@tiptap/extensions": "^3.14.0",
+    "@tiptap/pm": "^3.14.0",
+    "@tiptap/react": "^3.14.0",
+    "@tiptap/starter-kit": "^3.14.0",
+    "motion": "^12.29.2",
+    "react-easy-crop": "^5.5.6",
+    "tailwind-merge": "^3.4.0"
+  },
+  "peerDependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  }
+}

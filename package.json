@@ -8,9 +8,9 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
     "md": "tsx scripts/create-md.ts",
-    "pub:patch": "pnpm run md && turbo run build --filter=./packages/ritext && pnpm -C packages/ritext exec npm version patch --no-git-tag-version && pnpm -C packages/ritext exec npm publish --access public",
-    "pub:minor": "pnpm run md && turbo run build --filter=./packages/ritext && pnpm -C packages/ritext exec npm version minor --no-git-tag-version && pnpm -C packages/ritext exec npm publish --access public",
-    "pub:major": "pnpm run md && turbo run build --filter=./packages/ritext && pnpm -C packages/ritext exec npm version major --no-git-tag-version && pnpm -C packages/ritext exec npm publish --access public"
+    "pub:patch": "pnpm run md && turbo run build --filter=./packages/react && pnpm -C packages/react exec npm version patch --no-git-tag-version && pnpm -C packages/react exec npm publish --access public",
+    "pub:minor": "pnpm run md && turbo run build --filter=./packages/react && pnpm -C packages/react exec npm version minor --no-git-tag-version && pnpm -C packages/react exec npm publish --access public",
+    "pub:major": "pnpm run md && turbo run build --filter=./packages/react && pnpm -C packages/react exec npm version major --no-git-tag-version && pnpm -C packages/react exec npm publish --access public"
   },
   "devDependencies": {
     "@types/node": "^25.1.0",
