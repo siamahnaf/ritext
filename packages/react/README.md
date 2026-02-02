@@ -1,16 +1,71 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/siamahnaf/assets-kit/main/logo/logo-white.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/siamahnaf/assets-kit/main/logo/logo-black.png">
-  <img alt="Siam Ahnaf" src="https://raw.githubusercontent.com/siamahnaf/assets-kit/main/logo/logo-black.png" height="auto" width="240">
-</picture>
-<br/> <br/>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/siamahnaf/assets-kit/main/logo/logo-white.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/siamahnaf/assets-kit/main/logo/logo-black.png">
+    <img alt="Ritext" src="https://raw.githubusercontent.com/siamahnaf/assets-kit/main/logo/logo-black.png" width="240">
+  </picture>
+</p>
 
-# Ritext
-Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS, powered by Tiptap. It offers a customizable UI and functional layer that lets you design your own editor controls and toolbars with clean, composable React components—no heavy UI, no extra dependencies beyond Tiptap.
+<p align="center">
+  <b>Ritext</b> — A modern, composable WYSIWYG rich text editor built with <b>Tailwind CSS</b>, powered by <b>Tiptap</b>.
+  <br />
+  Build your own toolbars & controls with clean React components — no heavy UI layer, no extra dependencies beyond Tiptap.
+</p>
 
-<a href="https://www.buymeacoffee.com/siamahnaf" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+<p align="center">
+  <a href="https://www.npmjs.com/package/ritext"><img alt="npm" src="https://img.shields.io/npm/v/ritext?logo=npm"></a>
+  <a href="https://www.npmjs.com/package/ritext"><img alt="downloads" src="https://img.shields.io/npm/dm/ritext"></a>
+</p>
 
-### This is an testing phase will publish soon. 
+<p align="center">
+  <a href="https://www.buymeacoffee.com/siamahnaf" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="48">
+  </a>
+</p>
+
+---
+
+## ✨ Why Ritext?
+- **Composable UI**: bring your own toolbar/buttons/components
+- **Tiptap-powered**: reliable ProseMirror foundation
+- **Tailwind-friendly**: build modern UI fast
+- **Package-first**: works great in Next.js apps & component libraries
+
+---
+
+## 📚 Docs help needed (Contributions welcome!)
+Ritext is stable and production-ready — but the documentation is still growing.
+
+If you like this project, please help by writing or improving docs:
+- ✅ Installation & setup (Next.js / React)
+- ✅ Basic editor example + toolbar patterns
+- ✅ Extension usage & custom UI components
+- ✅ Theming, styling, and Tailwind tips
+- ✅ Recipes (tables, images, placeholders, slash menu, etc.)
+
+### Good first contribution ideas
+- Add a “Getting Started” page
+- Document one extension (Bold/Italic/Table/Image/etc.)
+- Add small code examples + screenshots/GIFs
+
+**Want to contribute?**
+1. Fork the repo
+2. Create a new branch: `docs/<topic>`
+3. Update or add docs inside `content/` (Markdown)
+4. Open a PR ✨
+
+> If you’re not sure what to write, open an issue and I’ll assign you a docs task.
+
+---
+
+## 🤝 Contributing
+All contributions are welcome — issues, PRs, bug reports, improvements, and docs.
+
+- Create an issue for bugs/feature requests
+- PRs should include a clear description and screenshots if UI-related
+
+---
+
 
 ## Connect with me
 <div style="display: flex; align-items: center; gap: 3px;">

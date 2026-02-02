@@ -4,7 +4,7 @@ import path from "node:path";
 async function main() {
     const root = process.cwd();
     const src = path.join(root, "README.md");
-    const destDir = path.join(root, "packages/ritext");
+    const destDir = path.join(root, "packages/react");
     const dest = path.join(destDir, "README.md");
 
     await fs.mkdir(destDir, { recursive: true });
