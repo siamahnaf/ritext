@@ -46,7 +46,7 @@ const ImageUrInserter = ({ editor, onClose }: Props) => {
                 value={alt}
                 onChange={(e) => setAlt(e.target.value)}
             />
-            <button className="ritext:bg-gray-700 ritext:py-2 ritext:px-6 ritext:rounded-lg ritext:text-white ritext:w-full ritext:mt-4 ritext:relative" onClick={onInsertImage}>
+            <button type="button" className="ritext:bg-gray-700 ritext:py-2 ritext:px-6 ritext:rounded-lg ritext:text-white ritext:w-full ritext:mt-4 ritext:relative" onClick={onInsertImage}>
                 Insert Image
             </button>
         </div>

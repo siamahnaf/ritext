@@ -70,6 +70,7 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
 
     const btn = (
         <button
+            type="button"
             {...getReferenceProps({
                 ref: refs.setReference,
                 type: "button",

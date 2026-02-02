@@ -34,10 +34,10 @@ const ImageDialog = ({ open, onClose, editor, options }: Props) => {
             />
             <Dialog.Body className="ritext:px-3 ritext:pb-3 ritext:pl-3 ritext:pr-3">
                 <div className="ritext:flex ritext:bg-gray-100 ritext:p-1 ritext:rounded-lg">
-                    <button className={`ritext:flex-1 ritext:py-2 ritext:text-sm ritext:text-center ritext:px-2 ritext:rounded-lg ${type === "upload" ? "ritext:bg-white" : ""}`} onClick={() => setType("upload")}>
+                    <button type="button" className={`ritext:flex-1 ritext:py-2 ritext:text-sm ritext:text-center ritext:px-2 ritext:rounded-lg ${type === "upload" ? "ritext:bg-white" : ""}`} onClick={() => setType("upload")}>
                         Upload
                     </button>
-                    <button className={`ritext:flex-1 ritext:py-2 ritext:text-sm ritext:text-center ritext:px-2 ritext:rounded-lg ${type === "url" ? "ritext:bg-white" : ""}`} onClick={() => setType("url")}>
+                    <button type="button" className={`ritext:flex-1 ritext:py-2 ritext:text-sm ritext:text-center ritext:px-2 ritext:rounded-lg ${type === "url" ? "ritext:bg-white" : ""}`} onClick={() => setType("url")}>
                         URL
                     </button>
                 </div>

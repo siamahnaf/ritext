@@ -34,6 +34,7 @@ const ButtonWithoutActive = ({ className, icon, style, tooltip = true, tooltipCl
 
     const btn = (
         <button
+            type="button"
             onClick={_onToggle}
             disabled={_disabled}
             className={twMerge(

@@ -104,10 +104,10 @@ const ImageUploader = ({ editor, options, onClose }: Props) => {
                                         }
                                     </div>
                                     <div className="ritext:flex ritext:gap-x-2 ritext:mt-4">
-                                        <button className="ritext:flex-1 ritext:cursor-pointer  ritext:text-center ritext:bg-white ritext:border ritext:rounded-lg ritext:border-gray-200 ritext:py-2 ritext:text-sm ritext:px-2" onClick={onImageUpload}>
+                                        <button type="button" className="ritext:flex-1 ritext:cursor-pointer  ritext:text-center ritext:bg-white ritext:border ritext:rounded-lg ritext:border-gray-200 ritext:py-2 ritext:text-sm ritext:px-2" onClick={onImageUpload}>
                                             Upload Image
                                         </button>
-                                        <button className="ritext:flex-1 ritext:rounded-lg ritext:text-center ritext:bg-white ritext:cursor-pointer ritext:border ritext:border-gray-200 ritext:py-2 ritext:text-sm ritext:px-2" onClick={() => (onImageUpload(), setOpen(true))}>
+                                        <button type="button" className="ritext:flex-1 ritext:rounded-lg ritext:text-center ritext:bg-white ritext:cursor-pointer ritext:border ritext:border-gray-200 ritext:py-2 ritext:text-sm ritext:px-2" onClick={() => (onImageUpload(), setOpen(true))}>
                                             Upload & Crop
                                         </button>
                                     </div>
@@ -138,7 +138,7 @@ const ImageUploader = ({ editor, options, onClose }: Props) => {
                             value={alt}
                             onChange={(e) => setAlt(e.target.value)}
                         />
-                        <button className="ritext:bg-gray-700 ritext:py-2 ritext:px-6 ritext:rounded-lg ritext:text-white ritext:w-full ritext:mt-3 ritext:relative" onClick={onInsertImage}>
+                        <button type="button" className="ritext:bg-gray-700 ritext:py-2 ritext:px-6 ritext:rounded-lg ritext:text-white ritext:w-full ritext:mt-3 ritext:relative" onClick={onInsertImage}>
                             <span className={`${isUploading && "ritext:opacity-15"}`}>Insert Image</span>
                             {isUploading &&
                                 <Loading className="ritext:absolute ritext:top-1/2 ritext:left-1/2 ritext:-translate-1/2 ritext:stroke-white" size={24} />
@@ -156,7 +156,7 @@ const ImageUploader = ({ editor, options, onClose }: Props) => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <button className="ritext:absolute ritext:top-8 ritext:right-8 ritext:bg-white ritext:z-9999999 ritext:text-black ritext:rounded-md ritext:p-1" onClick={() => (reset(), setImage(null))}>
+                        <button type="button" className="ritext:absolute ritext:top-8 ritext:right-8 ritext:bg-white ritext:z-9999999 ritext:text-black ritext:rounded-md ritext:p-1" onClick={() => (reset(), setImage(null))}>
                             <CloseIcon />
                         </button>
                         <div className="ritext:w-full ritext:flex-1 ritext:relative ritext:h-full">
@@ -200,10 +200,10 @@ const ImageUploader = ({ editor, options, onClose }: Props) => {
                                         <RangeSlider value={rotation} min={0} max={360} step={1} onChange={setRotation} />
                                     </div>
                                 </div>
-                                <button className="ritext:hover:bg-light ritext:px-2 ritext:py-2 ritext:rounded-lg ritext:transition-all" type="button" onClick={() => setFlip(prev => ({ horizontal: prev.horizontal, vertical: !prev.vertical }))}>
+                                <button type="button" className="ritext:hover:bg-light ritext:px-2 ritext:py-2 ritext:rounded-lg ritext:transition-all" onClick={() => setFlip(prev => ({ horizontal: prev.horizontal, vertical: !prev.vertical }))}>
                                     <FlipVertical />
                                 </button>
-                                <button className="ritext:hover:bg-light ritext:px-2 ritext:py-2 ritext:rounded-lg ritext:transition-all" type="button" onClick={() => setFlip(prev => ({ horizontal: !prev.horizontal, vertical: prev.vertical }))}>
+                                <button type="button" className="ritext:hover:bg-light ritext:px-2 ritext:py-2 ritext:rounded-lg ritext:transition-all" onClick={() => setFlip(prev => ({ horizontal: !prev.horizontal, vertical: prev.vertical }))}>
                                     <FlipHorizontal />
                                 </button>
                             </div>

@@ -93,7 +93,7 @@ const Header = ({ title, className, titleClassName, buttonClassName, onClose }: 
                 {title}
             </h4>
             {onClose &&
-                <button className={twMerge("ritext:hover:bg-light ritext:p-1 ritext:rounded-md ritext:transition-all", buttonClassName)} onClick={onClose}>
+                <button type="button" className={twMerge("ritext:hover:bg-light ritext:p-1 ritext:rounded-md ritext:transition-all", buttonClassName)} onClick={onClose}>
                     <CloseIcon size={20} />
                 </button>
             }

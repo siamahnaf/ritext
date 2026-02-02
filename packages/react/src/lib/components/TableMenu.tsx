@@ -157,32 +157,32 @@ export const TableMenu = ({ editor }: Props) => {
             >
                 <div className="ritext:grid ritext:gap-1 ritext:text-sm">
                     <div className="ritext:px-2 ritext:py-1 ritext:text-xs ritext:font-semibold ritext:text-gray-500">Columns</div>
-                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addColumnBefore().run())}>
+                    <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addColumnBefore().run())}>
                         Insert column before
                     </button>
-                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addColumnAfter().run())}>
+                    <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addColumnAfter().run())}>
                         Insert column after
                     </button>
-                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().deleteColumn().run())}>
+                    <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().deleteColumn().run())}>
                         Delete column
                     </button>
 
                     <div className="ritext:mt-1 ritext:px-2 ritext:py-1 ritext:text-xs ritext:font-semibold ritext:text-gray-500">Rows</div>
-                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addRowBefore().run())}>
+                    <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addRowBefore().run())}>
                         Insert row above
                     </button>
-                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addRowAfter().run())}>
+                    <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().addRowAfter().run())}>
                         Insert row below
                     </button>
-                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().deleteRow().run())}>
+                    <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().deleteRow().run())}>
                         Delete row
                     </button>
 
                     <div className="ritext:mt-1 ritext:px-2 ritext:py-1 ritext:text-xs ritext:font-semibold ritext:text-gray-500">Cells</div>
-                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().mergeCells().run())}>
+                    <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().mergeCells().run())}>
                         Merge cells
                     </button>
-                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().splitCell().run())}>
+                    <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().splitCell().run())}>
                         Split cell
                     </button>
 
@@ -196,11 +196,11 @@ export const TableMenu = ({ editor }: Props) => {
                             title="Pick color"
                             onClick={() => setPickerOpen((v) => !v)}
                         />
-                        <button className="ritext:flex-1 ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", bg).run())}>
+                        <button type="button" className="ritext:flex-1 ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100 ritext:text-left" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", bg).run())}>
                             Apply background
                         </button>
 
-                        <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100" title="Clear" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", null as any).run())}>
+                        <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100" title="Clear" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", null as any).run())}>
                             ✕
                         </button>
                     </div>
@@ -222,7 +222,7 @@ export const TableMenu = ({ editor }: Props) => {
                     )}
 
                     <div className="ritext:mt-1 ritext:border-t ritext:border-gray-200 ritext:pt-1" />
-                    <button className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-red-50 ritext:text-left ritext:text-red-600" onClick={() => run((ed) => ed.chain().focus().deleteTable().run())}>
+                    <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-red-50 ritext:text-left ritext:text-red-600" onClick={() => run((ed) => ed.chain().focus().deleteTable().run())}>
                         Delete table
                     </button>
                 </div>

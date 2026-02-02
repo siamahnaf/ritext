@@ -89,13 +89,13 @@ const LinkMenuComponent = () => {
                 bottomSpace={false}
             />
             <div className="ritext:mt-3 ritext:flex ritext:gap-2">
-                <button className="ritext:rounded-lg ritext:border ritext:bg-gray-700 ritext:text-white ritext:border-gray-700 ritext:px-3 ritext:py-1 ritext:text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={applyLink}>
+                <button type="button" className="ritext:rounded-lg ritext:border ritext:bg-gray-700 ritext:text-white ritext:border-gray-700 ritext:px-3 ritext:py-1 ritext:text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={applyLink}>
                     Apply
                 </button>
-                <button className="ritext:rounded-lg ritext:border ritext:border-gray-200 ritext:px-3 ritext:py-1 ritext:text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={removeLink}>
+                <button type="button" className="ritext:rounded-lg ritext:border ritext:border-gray-200 ritext:px-3 ritext:py-1 ritext:text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={removeLink}>
                     Unlink
                 </button>
-                <button className="ritext:ml-auto ritext:rounded-lg ritext:border ritext:border-gray-200 ritext:px-3 ritext:py-1 ritext:text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={() => setPop({ open: false })}>
+                <button type="button" className="ritext:ml-auto ritext:rounded-lg ritext:border ritext:border-gray-200 ritext:px-3 ritext:py-1 ritext:text-sm" onMouseDown={(e) => e.stopPropagation()} onClick={() => setPop({ open: false })}>
                     Cancel
                 </button>
             </div>
