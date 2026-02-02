@@ -1,5 +1,6 @@
 "use client"
-import { Editor, Toolbar, Content } from "ritext";
+import { useState, useRef } from "react";
+import { Editor, Toolbar, Content, EditorRef } from "ritext";
 
 //Extensions
 import { Document, Text, Paragraph, TextStyle, ListItem, ListKeymap, Dropcursor, Gapcursor, Placeholder, TrailingNode } from "ritext/extension/base";
@@ -78,12 +79,46 @@ const extensions = [
 ]
 
 const RichEditor = () => {
+    const [content, setContent] = useState(`
+    <h2>
+  Hi there,
+</h2>
+<p>
+  this is a <em>basic</em> example of <strong>Tiptap</strong>. Sure, there are all kind of basic text styles you'd probably expect from a text editor. But wait until you see the lists:
+</p>
+<ul>
+  <li>
+    That's a bullet list with one …
+  </li>
+  <li>
+    … or two list items.
+  </li>
+</ul>    
+    `);
+
+    const ref = useRef<EditorRef>(null);
+
     return (
-        <Editor extensions={extensions} className="border border-solid border-gray-200 rounded-xl">
-            <Toolbar className="p-2" />
-            <hr className="border-gray-200" />
-            <Content />
-        </Editor>
+        <div>
+            <Editor
+                ref={ref}
+                extensions={extensions}
+                content={content}
+                onContentChange={(e) => setContent(e as string)}
+                className="border border-solid border-gray-200 rounded-xl"
+            >
+                <Toolbar className="p-2" />
+                <hr className="border-gray-200" />
+                <Content />
+            </Editor>
+            <div className="flex gap-x-4 items-center mt-4 ">
+                <h5 className="text-xl font-semibold">Output</h5>
+                <button className="bg-gray-800 text-white px-3 py-1.5 rounded-md" onClick={() => ref.current?.clear()}>
+                    Clear Content
+                </button>
+            </div>
+            <p className="border border-gray-200 p-4 mt-3 rounded-xl">{content}</p>
+        </div>
     );
 };
 
