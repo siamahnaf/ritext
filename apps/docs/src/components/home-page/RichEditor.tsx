@@ -29,6 +29,7 @@ import { BlockQuote } from "ritext/extension/blockquote";
 import { HorizontalRule } from "ritext/extension/horizontalrule";
 import { Table } from "ritext/extension/table";
 import { Emoji } from "ritext/extension/emoji";
+import { HardBreak } from "ritext/extension/hardbreak";
 
 //CSS
 import "ritext/styles.css";
@@ -75,7 +76,8 @@ const extensions = [
     BlockQuote,
     HorizontalRule,
     Table,
-    Emoji
+    Emoji,
+    HardBreak
 ]
 
 const RichEditor = () => {
