@@ -36,7 +36,7 @@ const Editor = ({ children, extensions = [], className, dragHandler = true, show
                 {children}
             </div>
             {value.editor && dragHandler &&
-                <RiDragHandler />
+                <RiDragHandler editor={value.editor} />
             }
             {value.editor && showBubbleMenu &&
                 <BubbleMenu editor={value.editor} />

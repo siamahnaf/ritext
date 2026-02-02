@@ -1,31 +1,12 @@
-"use clint"
-import { useState, useEffect } from "react";
-import { DragHandle } from "@tiptap/extension-drag-handle-react";
+import DragHandle from "@tiptap/extension-drag-handle-react";
+import type { Editor } from "@tiptap/react";
 import { TextSelection } from "@tiptap/pm/state";
 import { DragVerticalIcon, PlusIcon } from "../icons";
 import Tooltip from "../components/_com/Tooltip";
-import { useEditor } from "../context/editor.context";
 
-const RiDragHandler = () => {
-    //State
-    const [ready, setReady] = useState(false);
+interface Props { editor: Editor }
 
-    const { editor } = useEditor();
-
-    //Effect Check
-    useEffect(() => {
-        if (!editor) return;
-
-        let raf = requestAnimationFrame(() => {
-            const ok = !!editor.view?.dom && editor.view.dom.isConnected;
-            setReady(ok);
-        });
-
-        return () => cancelAnimationFrame(raf);
-    }, [editor]);
-
-    if (!editor || !ready) return null;
-
+const RiDragHandler = ({ editor }: Props) => {
     const insertSlash = () => {
         editor.chain().focus().command(({ tr, state }) => {
             const { $from } = state.selection;
@@ -52,16 +33,8 @@ const RiDragHandler = () => {
         }).run();
     };
 
-
     return (
-        <DragHandle
-            editor={editor}
-            computePositionConfig={{
-                placement: "left",
-                strategy: "fixed"
-            }}
-            pluginKey="ri-drag-handle"
-        >
+        <DragHandle editor={editor}>
             <div className="flex gap-x-1.5 mt-1.5 -translate-x-1.5">
                 <Tooltip content="Insert Content">
                     <button
