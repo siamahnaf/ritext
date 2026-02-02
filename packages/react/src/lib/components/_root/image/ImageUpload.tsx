@@ -1,13 +1,13 @@
 "use client";
-import { useRef, useState, useCallback, ChangeEvent, DragEvent } from "react";
-import { ImageAcceptType, ImagePropsTypes, ImageErrorTypes } from "./typings";
+import { useRef, useState, useCallback, type ChangeEvent, type DragEvent } from "react";
+import { ImageAcceptType, type ImagePropsTypes, type ImageErrorTypes } from "./typings";
 
 //Utils
 import { openFileDialog, getImageAccepts, getBase64, getImage, isResolutionValid } from "./utils";
 
 const ImageUpload = ({ inputProps, acceptType, maxFileSize, resolutionWidth, resolutionHeight, resolutionType = "absolute", children, onChange, value, onError }: ImagePropsTypes) => {
     //Validations
-    //@ts-ignore
+    //@ts-expect-error
     if (Array.isArray(acceptType) && acceptType.includes(ImageAcceptType.ALL)) {
         throw new Error("Invalid accept type: ImageAcceptType.All cannot be included in an array.")
     }

@@ -1,4 +1,4 @@
-import { Blockquote as TiptapBlockquote, BlockquoteOptions } from "@tiptap/extension-blockquote";
+import { Blockquote as TiptapBlockquote, type BlockquoteOptions } from "@tiptap/extension-blockquote";
 import type { Node } from "@tiptap/react";
 import { BlockquoteLeft } from "../lib/icons";
 

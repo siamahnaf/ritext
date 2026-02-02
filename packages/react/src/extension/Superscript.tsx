@@ -1,4 +1,4 @@
-import { Superscript as TiptapSuperscript, SuperscriptExtensionOptions } from "@tiptap/extension-superscript";
+import { Superscript as TiptapSuperscript, type SuperscriptExtensionOptions } from "@tiptap/extension-superscript";
 import type { Mark } from "@tiptap/react";
 import { SupIcon } from "../lib/icons";
 

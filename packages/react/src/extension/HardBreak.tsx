@@ -1,4 +1,4 @@
-import { HardBreak as TiptapHardBreak, HardBreakOptions } from "@tiptap/extension-hard-break";
+import { HardBreak as TiptapHardBreak, type HardBreakOptions } from "@tiptap/extension-hard-break";
 import type { Node } from "@tiptap/react";
 import { HardBreakIcon } from "../lib/icons";
 

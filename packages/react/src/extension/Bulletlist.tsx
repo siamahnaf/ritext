@@ -1,4 +1,4 @@
-import { BulletList as TiptapBulletList, BulletListOptions } from "@tiptap/extension-list";
+import { BulletList as TiptapBulletList, type BulletListOptions } from "@tiptap/extension-list";
 import type { Node } from "@tiptap/react";
 import { BulletListIcon } from "../lib/icons";
 

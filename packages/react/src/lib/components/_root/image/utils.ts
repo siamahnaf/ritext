@@ -1,5 +1,5 @@
-import React from "react";
-import { ImageAcceptType, ResolutionType } from "../image/typings";
+import type React from "react";
+import { ImageAcceptType, type ResolutionType } from "../image/typings";
 
 export const openFileDialog = (inputRef: React.RefObject<HTMLInputElement | null>): void => {
     if (inputRef.current) inputRef.current.click();

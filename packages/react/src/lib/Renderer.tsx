@@ -1,5 +1,5 @@
 "use client"
-import { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 
 //Interface
 type Props = ComponentPropsWithoutRef<"div"> & {

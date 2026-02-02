@@ -1,4 +1,4 @@
-import { Underline as TiptapUnder, UnderlineOptions } from "@tiptap/extension-underline";
+import { Underline as TiptapUnder, type UnderlineOptions } from "@tiptap/extension-underline";
 import type { Mark } from "@tiptap/react";
 import { UnderIcon } from "../lib/icons";
 

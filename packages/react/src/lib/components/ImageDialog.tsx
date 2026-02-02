@@ -8,7 +8,7 @@ import ImageUploader from "./_com/ImageUploader";
 import ImageUrInserter from "./_com/ImageUrInserter";
 
 //Interface
-import { ImageOptionsTypes } from "../types/image.types";
+import type { ImageOptionsTypes } from "../types/image.types";
 interface Props {
     open: boolean;
     onClose: () => void;

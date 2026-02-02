@@ -1,5 +1,5 @@
 import type { Extension } from "@tiptap/react";
-import { TextAlignOptions, TextAlign as TiptapTextAlign } from "@tiptap/extension-text-align";
+import { type TextAlignOptions, TextAlign as TiptapTextAlign } from "@tiptap/extension-text-align";
 import { AlignJustify } from "../lib/icons";
 
 // Components
@@ -48,7 +48,6 @@ export const TextAlign: Extension<ExtTextAlignmentOptions> = TiptapTextAlign.ext
                                 console.log(e);
                                 editor.chain().focus().setTextAlign(e).run()
                             }}
-                            onSelect={() => { }}
                         />
                     </DropdownComponent>
                 )

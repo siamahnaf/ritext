@@ -1,4 +1,4 @@
-import { Strike as TiptapStrike, StrikeOptions } from "@tiptap/extension-strike";
+import { Strike as TiptapStrike, type StrikeOptions } from "@tiptap/extension-strike";
 import type { Mark } from "@tiptap/react";
 import { StrikeIcon } from "../lib/icons";
 

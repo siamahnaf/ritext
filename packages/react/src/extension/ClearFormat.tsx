@@ -5,7 +5,9 @@ import { ClearIcon } from "../lib/icons";
 import ButtonWithoutActive from "../lib/components/ButtonWithoutActive";
 import type { ExtWithoutActiveOptions } from "../lib/types/tiptap-ext.type";
 
-export const ClearFormat = Extension.create<ExtWithoutActiveOptions>({
+export type ExtClearFormOptions = ExtWithoutActiveOptions<{}>;
+
+export const ClearFormat = Extension.create<ExtClearFormOptions>({
     name: "ClearFormat",
     addOptions() {
         return {

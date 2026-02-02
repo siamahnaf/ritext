@@ -47,7 +47,7 @@ const ButtonComponent = ({ className, activeClassName, icon, style, tooltip = tr
     );
 
     const btn = (
-        <button type="button" onClick={_onToggle} className={twMerge("ritext:py-1.5 ritext:px-2.5 ritext:rounded-md", _buttonClassName, editorState?.isActive ? "ritext:bg-gray-200/60" : "ritext:hover:bg-gray-100", className, editorState?.isActive ? activeClassName : "ritext:hover:bg-gray-100")} style={style}>
+        <button type="button" onClick={_onToggle} className={twMerge("ritext:py-1.5 ritext:px-2.5 ritext:rounded-md ritext:focus:outline-none", _buttonClassName, editorState?.isActive ? "ritext:bg-gray-200/60" : "ritext:hover:bg-gray-100", className, editorState?.isActive ? activeClassName : "ritext:hover:bg-gray-100")} style={style}>
             {icon ?? _internalIcon}
         </button>
     );

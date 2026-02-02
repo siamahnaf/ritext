@@ -9,7 +9,7 @@ import BubbleMenu from "./internal_com/BubbleMenu";
 import { EditorProvider } from "./context/editor.context";
 
 //Types
-import { EditorProps, EditorRef } from "./types/editor.types";
+import type { EditorProps, EditorRef } from "./types/editor.types";
 
 const Editor = forwardRef<EditorRef, EditorProps>(({ children, extensions = [], className, dragHandler = true, showBubbleMenu = true, content, onContentChange, output }, ref) => {
     //Stable

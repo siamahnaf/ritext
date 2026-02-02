@@ -1,5 +1,5 @@
 "use client"
-import { useRef, useLayoutEffect, useState, KeyboardEvent } from "react";
+import { useRef, useLayoutEffect, useState, type KeyboardEvent } from "react";
 import { twMerge } from "../../utils/tw";
 
 //Interface

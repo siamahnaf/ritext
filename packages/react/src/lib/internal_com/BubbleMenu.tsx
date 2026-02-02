@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { BubbleMenu as TiptapBubbleMenu } from "@tiptap/react/menus";
 import type { Editor } from "@tiptap/react";
+import { NodeSelection } from "@tiptap/pm/state";
 
 type Props = { editor: Editor };
 
@@ -65,7 +66,16 @@ const BubbleMenu = ({ editor }: Props) => {
     if (!entries.length) return null;
 
     return (
-        <TiptapBubbleMenu editor={editor} options={{ placement: "top", offset: 10, flip: true }}>
+        <TiptapBubbleMenu
+            editor={editor}
+            options={{ placement: "top", offset: 10, flip: true }}
+            shouldShow={({ editor, state, from, to }) => {
+                const { selection } = state;
+                if (selection instanceof NodeSelection) return false;
+                if (editor.isActive("image")) return false;
+                return from !== to && editor.isFocused;
+            }}
+        >
             <div className="ritext:bg-white ritext:flex ritext:gap-x-1 ritext:py-2 ritext:px-2 ritext:rounded-md ritext:border ritext:border-gray-200">
                 {entries.map(({ name, renderButton, options }) => (
                     <Fragment key={name}>

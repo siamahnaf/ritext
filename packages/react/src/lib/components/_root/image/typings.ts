@@ -1,4 +1,4 @@
-import { DragEvent } from "react";
+import type { DragEvent } from "react";
 
 export type ImageType = {
     file?: File;
@@ -7,10 +7,15 @@ export type ImageType = {
 
 type TExportTypes = {
     dragProps: {
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         onDrop: (e: DragEvent<any>) => void;
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         onDragEnter: (e: DragEvent<any>) => void;
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         onDragLeave: (e: DragEvent<any>) => void;
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         onDragOver: (e: DragEvent<any>) => void;
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         onDragStart: (e: DragEvent<any>) => void;
     };
     isDragging: boolean;

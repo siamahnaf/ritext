@@ -38,7 +38,7 @@ const ButtonWithoutActive = ({ className, icon, style, tooltip = true, tooltipCl
             onClick={_onToggle}
             disabled={_disabled}
             className={twMerge(
-                "ritext:py-1.5 ritext:px-2.5 ritext:rounded-md ritext:hover:bg-gray-100",
+                "ritext:py-1.5 ritext:px-2.5 ritext:focus:outline-none ritext:rounded-md ritext:hover:bg-gray-100",
                 _disabled ? "ritext:opacity-20" : "",
                 _buttonClassName,
                 className

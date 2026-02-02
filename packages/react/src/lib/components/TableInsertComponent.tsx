@@ -30,7 +30,7 @@ const TableInsertComponent = ({ editor, onClose, open }: Props) => {
         return `${hover.rows} × ${hover.cols}`;
     }, [hover]);
 
-    const canInsert = !!editor && typeof (editor as any)?.chain === "function";
+    const canInsert = !!editor && typeof editor?.chain === "function";
 
     const insert = (rows: number, cols: number) => {
         if (!canInsert || rows < 1 || cols < 1) return;

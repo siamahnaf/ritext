@@ -1,4 +1,4 @@
-import { Italic as TiptapItalic, ItalicOptions } from "@tiptap/extension-italic";
+import { Italic as TiptapItalic, type ItalicOptions } from "@tiptap/extension-italic";
 import type { Mark } from "@tiptap/react";
 import { ItalicIcon } from "../lib/icons";
 

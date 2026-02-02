@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Image as TiptapImage, type ImageOptions, type SetImageOptions } from "@tiptap/extension-image";
-import { Node, mergeAttributes } from "@tiptap/react";
+import { type Node, mergeAttributes } from "@tiptap/react";
 import { ReactNodeViewRenderer } from "@tiptap/react";
 import { ImageUpIcon } from "../lib/icons";
 

@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { UndoRedo, UndoRedoOptions } from "@tiptap/extensions";
+import { UndoRedo, type UndoRedoOptions } from "@tiptap/extensions";
 import type { Extension, Editor } from "@tiptap/react";
 import { useEditorState } from "@tiptap/react";
 import { Undo2, Redo2 } from "../lib/icons";

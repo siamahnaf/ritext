@@ -25,20 +25,22 @@ export type ExtDropdownBaseOptions = {
     tooltipPlacement?: Placement;
 };
 
-export type ExtButtonComponentArgs<O, Extra extends object = {}> = {
+type EmptyObject = Record<string, never>;
+
+export type ExtButtonComponentArgs<O, Extra extends object = EmptyObject> = {
     options: O;
     editor: Editor;
     buttonClassName: string;
 } & Extra;
 
-export type ExtDropdownComponentArgs<O, Extra extends object = {}> = {
+export type ExtDropdownComponentArgs<O, Extra extends object = EmptyObject> = {
     options: O;
     editor: Editor;
 } & Extra;
 
 export type ExtButtonOptions<
-    RootExtra extends object = {},
-    ComponentExtra extends object = {},
+    RootExtra extends object = EmptyObject,
+    ComponentExtra extends object = EmptyObject,
     Base extends object = ExtButtonBaseOptions
 > =
     Base &
@@ -47,8 +49,8 @@ export type ExtButtonOptions<
     };
 
 export type ExtDropdownOptions<
-    RootExtra extends object = {},
-    ComponentExtra extends object = {},
+    RootExtra extends object = EmptyObject,
+    ComponentExtra extends object = EmptyObject,
     Base extends object = ExtDropdownBaseOptions
 > =
     Base &
@@ -57,8 +59,8 @@ export type ExtDropdownOptions<
     };
 
 export type ExtWithoutActiveOptions<
-    RootExtra extends object = {},
-    ComponentExtra extends object = {}
+    RootExtra extends object = EmptyObject,
+    ComponentExtra extends object = EmptyObject
 > = ExtButtonOptions<
     RootExtra,
     ComponentExtra,

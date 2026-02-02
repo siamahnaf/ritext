@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import type { Editor } from "@tiptap/react";
 import type { Mark } from '@tiptap/pm/model';
 import InputComponent from "./InputComponent";
@@ -18,9 +18,6 @@ const LinkComponent = ({ editor, onClose, open }: Props) => {
         link: "",
         target: "_self"
     });
-
-    const textInputRef = useRef<HTMLInputElement>(null);
-    const linkInputRef = useRef<HTMLInputElement>(null);
 
     //Handler
     const onApply = () => {
@@ -89,14 +86,6 @@ const LinkComponent = ({ editor, onClose, open }: Props) => {
             }
 
             setForm({ link, text, target });
-
-            if (open) {
-                if (text === '') {
-                    textInputRef.current?.focus();
-                } else {
-                    linkInputRef.current?.focus();
-                }
-            }
         };
 
         updateForm();
@@ -113,9 +102,9 @@ const LinkComponent = ({ editor, onClose, open }: Props) => {
             <InputComponent
                 id="text"
                 label="Text"
+                placeholder="Your text..."
                 value={form.text}
                 onChange={(e) => setForm(prev => ({ ...prev, text: e.target.value }))}
-                ref={textInputRef}
             />
             <InputComponent
                 id="link"
@@ -123,7 +112,6 @@ const LinkComponent = ({ editor, onClose, open }: Props) => {
                 value={form.link}
                 onChange={(e) => setForm(prev => ({ ...prev, link: e.target.value }))}
                 placeholder="https://yourlink.com"
-                ref={linkInputRef}
                 containerClassName="ritext:mt-3 ritext:mb-2.5"
             />
             <CheckboxComponent

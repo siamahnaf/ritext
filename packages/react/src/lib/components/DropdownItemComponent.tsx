@@ -33,7 +33,7 @@ const DropdownItemComponent = ({ item, onSelect, activeClassName, itemClassName,
             {item.icon}
             <span className={twMerge("ritext:flex-1 ritext:text-base", spClass)} style={item.style}>{item.text}</span>
             {showKeyShortcutText && item.keyBind &&
-                <span className="ritext:ml-6 ritext:text-gray-400">{item.keyBind}</span>
+                <span className="ritext:ml-6 ritext:text-xs ritext:text-gray-400">{item.keyBind}</span>
             }
         </div>
     );

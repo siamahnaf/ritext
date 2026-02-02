@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, ReactNode } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 
 //Interface
 interface Props extends ComponentPropsWithRef<"input"> {

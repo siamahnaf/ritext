@@ -34,7 +34,7 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
     const [open, setOpen] = useState<boolean>(false);
 
     //Floating UI
-    const { x, y, refs, strategy, context, } = useFloating({
+    const { x, y, refs, strategy, context } = useFloating({
         open: open,
         onOpenChange: setOpen,
         placement: "bottom",
@@ -77,7 +77,7 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
                 "aria-controls": open ? listId : undefined,
             })}
             className={twMerge(
-                "ritext:p-1.5 ritext:rounded-md ritext:hover:bg-gray-100 ritext:items-center ritext:flex ritext:gap-x-0.5",
+                "ritext:p-1.5 ritext:rounded-md ritext:hover:bg-gray-100 ritext:items-center ritext:flex ritext:gap-x-0.5 ritext:focus:outline-none",
                 className
             )}
             style={style}

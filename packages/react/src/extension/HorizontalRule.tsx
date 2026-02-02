@@ -1,4 +1,4 @@
-import { HorizontalRule as TiptapHorizontalRule, HorizontalRuleOptions } from "@tiptap/extension-horizontal-rule";
+import { HorizontalRule as TiptapHorizontalRule, type HorizontalRuleOptions } from "@tiptap/extension-horizontal-rule";
 import type { Node } from "@tiptap/react";
 import { MinusIcon } from "../lib/icons";
 

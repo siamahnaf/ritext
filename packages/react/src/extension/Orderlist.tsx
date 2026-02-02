@@ -1,4 +1,4 @@
-import { OrderedList as TiptapOrderedList, OrderedListOptions } from "@tiptap/extension-list";
+import { OrderedList as TiptapOrderedList, type OrderedListOptions } from "@tiptap/extension-list";
 import type { Node } from "@tiptap/react";
 import { OrderListIcon } from "../lib/icons";
 

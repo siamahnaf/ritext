@@ -1,5 +1,5 @@
 "use client";
-import { CSSProperties, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { NodeViewProps } from "@tiptap/react";
 import { NodeViewWrapper } from "@tiptap/react";
 import { useFloating, autoUpdate, offset, flip, shift, useDismiss, useInteractions } from "@floating-ui/react";
@@ -82,7 +82,7 @@ export const ImageView = (props: NodeViewProps) => {
         middleware: [offset(14), flip({ padding: 10 }), shift({ padding: 8 })],
         onOpenChange: (open, ev) => {
             if (open) return;
-            const target = ((ev as any)?.target ?? null) as Node | null;
+            const target = (ev?.target ?? null) as Node | null;
             if (!target) return;
             const view = editor.view;
             if (view.dom.contains(target)) return;
@@ -197,7 +197,7 @@ export const ImageView = (props: NodeViewProps) => {
 
             const sel = state.selection;
             let imagePos: number | null = null;
-            let imageNode: any = null;
+            let imageNode = null;
 
             if (sel instanceof NodeSelection && sel.node.type.name === node.type.name) {
                 imagePos = sel.from;
@@ -264,7 +264,9 @@ export const ImageView = (props: NodeViewProps) => {
                 e.dataTransfer.effectAllowed = "move";
                 e.dataTransfer.dropEffect = "move";
                 e.dataTransfer.setData("text/plain", " ");
-            } catch { }
+            } catch (e) {
+                void e;
+            }
         } catch (e) {
             void e;
         }

@@ -1,6 +1,6 @@
 "use client"
 import { Fragment, useState } from "react";
-import { ImageUpload, ImageType } from "../_root/image";
+import { ImageUpload, type ImageType } from "../_root/image";
 import { CloseIcon, ImageIcon, FlipVertical, FlipHorizontal } from "../../icons";
 import Cropper from "react-easy-crop";
 import { getCroppedImg } from "../_root/image/utils";
@@ -14,7 +14,7 @@ import CheckboxComponent from "../CheckboxComponent";
 import RangeSlider from "./RangeSlider";
 
 //Interface
-import { ImageOptionsTypes } from "../../types/image.types";
+import type { ImageOptionsTypes } from "../../types/image.types";
 export interface Props {
     editor?: Editor;
     options?: ImageOptionsTypes;

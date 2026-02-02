@@ -4,7 +4,7 @@ interface IconCProps {
     fill?: string;
 }
 
-export const AlignLeft = ({ size = 17, className, ...props }: IconProps) => (
+export const AlignLeft = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -21,7 +21,7 @@ export const AlignLeft = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const AlignCenter = ({ size = 17, className, ...props }: IconProps) => (
+export const AlignCenter = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -38,7 +38,7 @@ export const AlignCenter = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const AlignRight = ({ size = 17, className, ...props }: IconProps) => (
+export const AlignRight = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -55,7 +55,7 @@ export const AlignRight = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const AlignJustify = ({ size = 17, className, ...props }: IconProps) => (
+export const AlignJustify = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -72,7 +72,7 @@ export const AlignJustify = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const ArrowIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const ArrowIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
@@ -83,14 +83,13 @@ export const ArrowIcon = ({ size = 17, className, ...props }: IconProps) => (
         strokeLinejoin="round"
         width={size}
         height={size}
-        className={className}
         {...props}
     >
         <path fill="currentColor" stroke="currentColor" strokeLinejoin="round" strokeWidth="4" d="M36 19L24 31L12 19z" />
     </svg>
 );
 
-export const BoldIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const BoldIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -101,14 +100,13 @@ export const BoldIcon = ({ size = 17, className, ...props }: IconProps) => (
         strokeLinejoin="round"
         width={size}
         height={size}
-        className={className}
         {...props}
     >
         <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
     </svg>
 );
 
-export const ClearIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const ClearIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -126,7 +124,7 @@ export const ClearIcon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const H1Icon = ({ size = 17, className, ...props }: IconProps) => (
+export const H1Icon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -146,7 +144,7 @@ export const H1Icon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const H2Icon = ({ size = 17, className, ...props }: IconProps) => (
+export const H2Icon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -166,7 +164,7 @@ export const H2Icon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const H3Icon = ({ size = 17, className, ...props }: IconProps) => (
+export const H3Icon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -187,7 +185,7 @@ export const H3Icon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const H4Icon = ({ size = 17, className, ...props }: IconProps) => (
+export const H4Icon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -208,7 +206,7 @@ export const H4Icon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const H5Icon = ({ size = 17, className, ...props }: IconProps) => (
+export const H5Icon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -229,7 +227,7 @@ export const H5Icon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const H6Icon = ({ size = 17, className, ...props }: IconProps) => (
+export const H6Icon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -250,7 +248,7 @@ export const H6Icon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const Pilcrow = ({ size = 17, className, ...props }: IconProps) => (
+export const Pilcrow = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -269,7 +267,7 @@ export const Pilcrow = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const Redo2 = ({ size = 17, className, ...props }: IconProps) => (
+export const Redo2 = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -280,7 +278,6 @@ export const Redo2 = ({ size = 17, className, ...props }: IconProps) => (
         strokeLinejoin="round"
         width={size}
         height={size}
-        className={className}
         {...props}
     >
         <path d="m15 14 5-5-5-5" />
@@ -288,7 +285,7 @@ export const Redo2 = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const Undo2 = ({ size = 17, className, ...props }: IconProps) => (
+export const Undo2 = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -299,7 +296,6 @@ export const Undo2 = ({ size = 17, className, ...props }: IconProps) => (
         strokeLinejoin="round"
         width={size}
         height={size}
-        className={className}
         {...props}
     >
         <path d="M9 14 4 9l5-5" />
@@ -384,7 +380,7 @@ export const BackgroundIcon = ({ fill }: IconCProps) => {
 
 
 
-export const Palette = ({ size = 17, className, ...props }: IconProps) => (
+export const Palette = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -401,7 +397,7 @@ export const Palette = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const IndentIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const IndentIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -418,7 +414,7 @@ export const IndentIcon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const OutdentIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const OutdentIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -436,7 +432,7 @@ export const OutdentIcon = ({ size = 17, className, ...props }: IconProps) => (
 );
 
 
-export const ItalicIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const ItalicIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -448,7 +444,6 @@ export const ItalicIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
             {...props}
         >
             <line x1="19" x2="10" y1="4" y2="4" />
@@ -469,7 +464,7 @@ export const FormatLineHeight = (props: SVGProps<SVGSVGElement>) => {
     );
 }
 
-export const BulletListIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const BulletListIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -486,7 +481,7 @@ export const BulletListIcon = ({ size = 17, className, ...props }: IconProps) =>
     </svg>
 );
 
-export const OrderListIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const OrderListIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -503,7 +498,7 @@ export const OrderListIcon = ({ size = 17, className, ...props }: IconProps) => 
     </svg>
 );
 
-export const TaskListIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const TaskListIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -520,7 +515,7 @@ export const TaskListIcon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const LinkIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const LinkIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -537,7 +532,7 @@ export const LinkIcon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const ImageUpIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const ImageUpIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -554,7 +549,7 @@ export const ImageUpIcon = ({ size = 17, className, ...props }: IconProps) => (
     </svg>
 );
 
-export const StrikeIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const StrikeIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -566,7 +561,7 @@ export const StrikeIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="M16 4H9a3 3 0 0 0-2.83 4" />
@@ -576,7 +571,7 @@ export const StrikeIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 };
 
-export const SubAndSupIcon = ({ size = 17, className, ...props }: IconProps) => (
+export const SubAndSupIcon = ({ size = 17, ...props }: IconProps) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -587,7 +582,6 @@ export const SubAndSupIcon = ({ size = 17, className, ...props }: IconProps) => 
         strokeLinejoin="round"
         width={size}
         height={size}
-        className={className}
         {...props}
     >
         <path d="M12 4v16" />
@@ -596,7 +590,7 @@ export const SubAndSupIcon = ({ size = 17, className, ...props }: IconProps) => 
     </svg>
 );
 
-export const SubIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const SubIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -608,7 +602,7 @@ export const SubIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="m4 5 8 8" />
@@ -619,7 +613,7 @@ export const SubIcon = ({ size = 17, className, ...props }: IconProps) => {
 };
 
 
-export const SupIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const SupIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -631,7 +625,7 @@ export const SupIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="m4 19 8-8" />
@@ -641,7 +635,7 @@ export const SupIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 };
 
-export const UnderIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const UnderIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -653,7 +647,7 @@ export const UnderIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="M6 4v6a6 6 0 0 0 12 0V4" />
@@ -662,7 +656,7 @@ export const UnderIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 };
 
-export const CloseIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const CloseIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -674,7 +668,7 @@ export const CloseIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="M18 6 6 18" /><path d="m6 6 12 12" />
@@ -682,7 +676,7 @@ export const CloseIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 };
 
-export const ImageIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const ImageIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -694,7 +688,7 @@ export const ImageIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <rect width="18" height="18" x="3" y="3" rx="2" ry="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
@@ -702,7 +696,7 @@ export const ImageIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 };
 
-export const FlipHorizontal = ({ size = 17, className, ...props }: IconProps) => {
+export const FlipHorizontal = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -714,7 +708,7 @@ export const FlipHorizontal = ({ size = 17, className, ...props }: IconProps) =>
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="m3 7 5 5-5 5V7" /><path d="m21 7-5 5 5 5V7" /><path d="M12 20v2" /><path d="M12 14v2" /><path d="M12 8v2" /><path d="M12 2v2" />
@@ -722,7 +716,7 @@ export const FlipHorizontal = ({ size = 17, className, ...props }: IconProps) =>
     );
 };
 
-export const FlipVertical = ({ size = 17, className, ...props }: IconProps) => {
+export const FlipVertical = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -734,7 +728,7 @@ export const FlipVertical = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="m17 3-5 5-5-5h10" /><path d="m17 21-5-5-5 5h10" /><path d="M4 12H2" /><path d="M10 12H8" /><path d="M16 12h-2" /><path d="M22 12h-2" />
@@ -742,7 +736,7 @@ export const FlipVertical = ({ size = 17, className, ...props }: IconProps) => {
     );
 };
 
-export const TrashIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const TrashIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -754,7 +748,7 @@ export const TrashIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="M10 11v6" /><path d="M14 11v6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
@@ -762,7 +756,7 @@ export const TrashIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 };
 
-export const BlockquoteLeft = ({ size = 17, className, ...props }: IconProps) => {
+export const BlockquoteLeft = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -783,7 +777,7 @@ export const BlockquoteLeft = ({ size = 17, className, ...props }: IconProps) =>
     );
 }
 
-export const MinusIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const MinusIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -795,7 +789,7 @@ export const MinusIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="M5 12h14" />
@@ -803,7 +797,7 @@ export const MinusIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 }
 
-export const TabelIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const TabelIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -815,7 +809,7 @@ export const TabelIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="M12 3v18" /><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18" /><path d="M3 15h18" />
@@ -823,7 +817,7 @@ export const TabelIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 }
 
-export const DragVerticalIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const DragVerticalIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -835,7 +829,6 @@ export const DragVerticalIcon = ({ size = 17, className, ...props }: IconProps) 
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
             {...props}
         >
             <circle cx="9" cy="12" r="1" /><circle cx="9" cy="5" r="1" /><circle cx="9" cy="19" r="1" /><circle cx="15" cy="12" r="1" /><circle cx="15" cy="5" r="1" /><circle cx="15" cy="19" r="1" />
@@ -843,7 +836,7 @@ export const DragVerticalIcon = ({ size = 17, className, ...props }: IconProps) 
     );
 }
 
-export const PlusIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const PlusIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -855,7 +848,6 @@ export const PlusIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
             {...props}
         >
             <path d="M5 12h14" /><path d="M12 5v14" />
@@ -863,7 +855,7 @@ export const PlusIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 }
 
-export const EmojiIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const EmojiIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -875,7 +867,6 @@ export const EmojiIcon = ({ size = 17, className, ...props }: IconProps) => {
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
             {...props}
         >
             <path d="M22 11v1a10 10 0 1 1-9-10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><line x1="9" x2="9.01" y1="9" y2="9" /><line x1="15" x2="15.01" y1="9" y2="9" /><path d="M16 5h6" /><path d="M19 2v6" />
@@ -883,7 +874,7 @@ export const EmojiIcon = ({ size = 17, className, ...props }: IconProps) => {
     );
 }
 
-export const HardBreakIcon = ({ size = 17, className, ...props }: IconProps) => {
+export const HardBreakIcon = ({ size = 17, ...props }: IconProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -895,7 +886,7 @@ export const HardBreakIcon = ({ size = 17, className, ...props }: IconProps) => 
             strokeLinejoin="round"
             width={size}
             height={size}
-            className={className}
+
             {...props}
         >
             <path d="m16 16-3 3 3 3" /><path d="M3 12h14.5a1 1 0 0 1 0 7H13" /><path d="M3 19h6" /><path d="M3 5h18" />

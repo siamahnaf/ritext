@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { Node } from "@tiptap/react";
-import { Heading as TiptapHeading, HeadingOptions } from "@tiptap/extension-heading";
+import { Heading as TiptapHeading, type HeadingOptions } from "@tiptap/extension-heading";
 import { isMacOS } from "@tiptap/react";
 import { H1Icon, H2Icon, H3Icon, H4Icon, H5Icon, H6Icon, Pilcrow } from "../lib/icons";
 

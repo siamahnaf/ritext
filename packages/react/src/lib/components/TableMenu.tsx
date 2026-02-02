@@ -200,7 +200,7 @@ export const TableMenu = ({ editor }: Props) => {
                             Apply background
                         </button>
 
-                        <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100" title="Clear" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", null as any).run())}>
+                        <button type="button" className="ritext:rounded-md ritext:px-2 ritext:py-1 ritext:hover:bg-gray-100" title="Clear" onClick={() => run((ed) => ed.chain().focus().setCellAttribute("backgroundColor", null).run())}>
                             ✕
                         </button>
                     </div>

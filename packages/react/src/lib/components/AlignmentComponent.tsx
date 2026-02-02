@@ -1,15 +1,14 @@
 "use client"
-import { JSX } from "react";
+import type { JSX } from "react";
 import { AlignLeft, AlignCenter, AlignRight, AlignJustify } from "../icons";
 
 //interface
 interface Props {
-    onSelect: () => void;
     onPick: (e: string) => void;
     items: string[];
 }
 
-const AlignmentComponent = ({ onSelect, onPick, items }: Props) => {
+const AlignmentComponent = ({ onPick, items }: Props) => {
     //Icon Mapping
     const iconMap: Record<string, JSX.Element> = {
         "left": <AlignLeft />,

@@ -1,4 +1,4 @@
-import { Subscript as TiptapSubscript, SubscriptExtensionOptions } from "@tiptap/extension-subscript";
+import { Subscript as TiptapSubscript, type SubscriptExtensionOptions } from "@tiptap/extension-subscript";
 import type { Mark } from "@tiptap/react";
 import { SubIcon } from "../lib/icons";
 

@@ -1,4 +1,4 @@
-import { Bold as TiptapBold, BoldOptions } from "@tiptap/extension-bold";
+import { Bold as TiptapBold, type BoldOptions } from "@tiptap/extension-bold";
 import type { Mark } from "@tiptap/react";
 import { BoldIcon } from "../lib/icons";
 

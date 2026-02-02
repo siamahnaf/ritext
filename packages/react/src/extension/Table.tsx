@@ -13,6 +13,7 @@ type ExtTableOptions = ExtDropdownOptions<TableKitOptions, { dropdownContainerCl
 export const Table: Extension<ExtTableOptions> = TableKit.extend<ExtTableOptions>({
     addExtensions() {
         const parentExts = this.parent?.() ?? [];
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         return parentExts.map((ext: any) => {
             if (ext?.name === "tableCell" || ext?.name === "tableHeader") {
                 return ext.extend({
@@ -24,6 +25,7 @@ export const Table: Extension<ExtTableOptions> = TableKit.extend<ExtTableOptions
                                 default: null,
                                 parseHTML: (el: HTMLElement) =>
                                     el.getAttribute("data-bg") || el.style.backgroundColor || null,
+                                /* eslint-disable @typescript-eslint/no-explicit-any */
                                 renderHTML: (attrs: any) => {
                                     if (!attrs.backgroundColor) return {};
                                     return {
