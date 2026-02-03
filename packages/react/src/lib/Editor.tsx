@@ -11,7 +11,22 @@ import { EditorProvider } from "./context/editor.context";
 //Types
 import type { EditorProps, EditorRef } from "./types/editor.types";
 
-const Editor = forwardRef<EditorRef, EditorProps>(({ children, extensions = [], dragHandler = true, showBubbleMenu = true, content, onContentChange, output, ...rest }, ref) => {
+const Editor = forwardRef<EditorRef, EditorProps>(({
+    children,
+    extensions = [],
+    dragHandler = true,
+    showBubbleMenu = true,
+    content,
+    onContentChange,
+    output,
+    className,
+
+    //Events
+    onFocus,
+    onBlur,
+    onClick,
+    onKeyDown
+}, ref) => {
     //Stable
     const stableExtensions = useMemo(() => extensions, [extensions]);
 
@@ -23,7 +38,21 @@ const Editor = forwardRef<EditorRef, EditorProps>(({ children, extensions = [], 
         onUpdate: ({ editor }) => {
             if (!onContentChange) return;
             const out = output === "json" ? editor.getJSON() : output === "text" ? editor.getText() : editor.getHTML();
-            onContentChange(out);
+            onContentChange({ editor, content: out });
+        },
+        onFocus: onFocus,
+        onBlur: onBlur,
+        editorProps: {
+            handleDOMEvents: {
+                click: (_view, event) => {
+                    if (editor) onClick?.({ editor, event: event as MouseEvent });
+                    return false;
+                },
+                keydown: (_view, event) => {
+                    if (editor) onKeyDown?.({ editor, event: event as KeyboardEvent });
+                    return false;
+                }
+            }
         }
     }, [stableExtensions]);
 
@@ -76,7 +105,7 @@ const Editor = forwardRef<EditorRef, EditorProps>(({ children, extensions = [], 
 
     return (
         <EditorProvider value={{ ...value, dragHandler }}>
-            <div {...rest}>
+            <div className={className}>
                 {children}
             </div>
             {value.editor && dragHandler &&
