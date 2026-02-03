@@ -11,7 +11,7 @@ import { EditorProvider } from "./context/editor.context";
 //Types
 import type { EditorProps, EditorRef } from "./types/editor.types";
 
-const Editor = forwardRef<EditorRef, EditorProps>(({ children, extensions = [], className, dragHandler = true, showBubbleMenu = true, content, onContentChange, output }, ref) => {
+const Editor = forwardRef<EditorRef, EditorProps>(({ children, extensions = [], dragHandler = true, showBubbleMenu = true, content, onContentChange, output, ...rest }, ref) => {
     //Stable
     const stableExtensions = useMemo(() => extensions, [extensions]);
 
@@ -76,7 +76,7 @@ const Editor = forwardRef<EditorRef, EditorProps>(({ children, extensions = [], 
 
     return (
         <EditorProvider value={{ ...value, dragHandler }}>
-            <div className={className}>
+            <div {...rest}>
                 {children}
             </div>
             {value.editor && dragHandler &&

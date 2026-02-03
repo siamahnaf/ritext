@@ -81,22 +81,8 @@ const extensions = [
 ]
 
 const RichEditor = () => {
-    const [content, setContent] = useState(`
-    <h2>
-  Hi there,
-</h2>
-<p>
-  this is a <em>basic</em> example of <strong>Tiptap</strong>. Sure, there are all kind of basic text styles you'd probably expect from a text editor. But wait until you see the lists:
-</p>
-<ul>
-  <li>
-    That's a bullet list with one …
-  </li>
-  <li>
-    … or two list items.
-  </li>
-</ul>    
-    `);
+    const [content, setContent] = useState(`<h2 style="text-align: left;">Welcome to Ritext ✨</h2><p style="text-align: left;">Ritext is a modern rich text editor built for React. It’s designed to feel simple at first, but powerful when you need structure.</p><p style="text-align: left;">Try selecting text to test inline formatting like <strong>bold</strong>, <em>italic</em>, <u>underline</u>, <s>strike</s>, and inline code.</p><blockquote><p style="text-align: left;">“Write clean content, then style it your way.”</p></blockquote><h3 style="text-align: left;">Quick demo checklist</h3><ul><li><p style="text-align: left;">Make a sentence <strong>bold</strong> and <em>italic</em></p></li><li><p style="text-align: left;">Turn this list into an ordered list</p></li><li><p style="text-align: left;">Add a link to <a target="_blank" rel="noopener noreferrer" class="link" href="https://ritext.vercel.app">ritext.vercel.app</a></p></li></ul><h3 style="text-align: left;">Image support</h3><p style="text-align: left;">Images can be inserted inline to enrich content. Here’s one sample image:<br></p><p style="text-align: center;"><img src="https://imagisum.vercel.app/api/image?id=18027445&amp;width=800&amp;height=600" alt="Ritext" data-width="517" data-height="388" data-inline="false" data-flip-x="false" data-flip-y="false" data-align="center" style="text-align: left;">A sample image inside the Ritext playground.</p><h3 style="text-align: left;">Try a nested list</h3><ul><li><p style="text-align: left;">Ritext basics</p><ul><li><p style="text-align: left;">Headings</p></li><li><p style="text-align: left;">Lists</p></li><li><p style="text-align: left;">Blockquotes</p></li></ul></li><li><p style="text-align: left;">Next steps</p><ul><li><p style="text-align: left;">Tables</p></li><li><p style="text-align: left;">Slash commands</p></li><li><p style="text-align: left;">Custom nodes</p></li></ul></li></ul><p style="text-align: left;">End of demo — now edit this content and make it yours 🚀</p>`);
+
 
     const ref = useRef<EditorRef>(null);
 

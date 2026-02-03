@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ComponentPropsWithRef } from "react";
 import type { Editor, JSONContent, Extensions } from "@tiptap/react";
 
 export type EditorContextType = {
@@ -20,10 +20,8 @@ export interface EditorRef {
 type OutputType = "html" | "json" | "text";
 type ContentValue = string | JSONContent;
 
-export type EditorProps = {
-    children?: ReactNode;
+export type EditorProps = ComponentPropsWithRef<"div"> & {
     extensions?: Extensions;
-    className?: string;
     dragHandler?: boolean;
     showBubbleMenu?: boolean;
     content?: ContentValue;
