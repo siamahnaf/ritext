@@ -154,6 +154,7 @@ export const TableMenu = ({ editor }: Props) => {
                         e.stopPropagation();
                     },
                 })}
+                data-ignore-outside-clicks
             >
                 <div className="ritext:grid ritext:gap-1 ritext:text-sm">
                     <div className="ritext:px-2 ritext:py-1 ritext:text-xs ritext:font-semibold ritext:text-gray-500">Columns</div>

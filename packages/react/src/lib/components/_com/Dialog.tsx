@@ -65,6 +65,7 @@ const Dialog = ({ open, onClose, children, backdropClassName, className }: Props
                             exit="unmount"
                             animate={open ? "mount" : "unmount"}
                             variants={animation}
+                            data-ignore-outside-clicks
                         >
                             {children}
                         </m.div>

@@ -23,13 +23,16 @@ const DropdownItemComponent = ({ item, onSelect, activeClassName, itemClassName,
     });
 
     return (
-        <div className={twMerge(
-            "ritext:flex ritext:items-center ritext:gap-x-2.5 ritext:transition-all ritext:duration-100 ritext:cursor-pointer ritext:select-none ritext:px-2 ritext:py-1.5 ritext:rounded-md",
-            _itemClassName,
-            editorState?.isActive ? "ritext:bg-gray-200/60" : "ritext:hover:bg-gray-100",
-            itemClassName,
-            editorState?.isActive ? activeClassName : "ritext:hover:bg-gray-100"
-        )} onClick={onSelect}>
+        <div
+            className={twMerge(
+                "ritext:flex ritext:items-center ritext:gap-x-2.5 ritext:transition-all ritext:duration-100 ritext:cursor-pointer ritext:select-none ritext:px-2 ritext:py-1.5 ritext:rounded-md",
+                _itemClassName,
+                editorState?.isActive ? "ritext:bg-gray-200/60" : "ritext:hover:bg-gray-100",
+                itemClassName,
+                editorState?.isActive ? activeClassName : "ritext:hover:bg-gray-100"
+            )}
+            onClick={onSelect}
+        >
             {item.icon}
             <span className={twMerge("ritext:flex-1 ritext:text-base", spClass)} style={item.style}>{item.text}</span>
             {showKeyShortcutText && item.keyBind &&

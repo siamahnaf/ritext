@@ -116,6 +116,7 @@ const DropdownComponent = ({ children, className, showArrow = true, content, dro
                             animate={animateMotion}
                             exit={initialMotion}
                             className={twMerge("ritext:bg-white ritext:border ritext:border-solid ritext:border-gray-200 ritext:p-2 ritext:space-y-1 ritext:rounded-lg ritext:shadow-sm ritext:shadow-gray-200/40 ritext:z-99999999 ritext:max-h-125 ritext:overflow-auto", _dropdownClassName, dropdownClassName)}
+                            data-ignore-outside-clicks
                         >
                             {enhancedChildren}
                         </motion.div>

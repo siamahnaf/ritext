@@ -364,6 +364,7 @@ export const ImageView = (props: NodeViewProps) => {
                         ref={setFloatingWrapEl}
                         style={floatingStyles as CSSProperties}
                         {...getFloatingProps()}
+                        data-ignore-outside-clicks
                     >
                         <motion.div
                             initial={{ opacity: 0, scale: 0.98, y: -4 }}

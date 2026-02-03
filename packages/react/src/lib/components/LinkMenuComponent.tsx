@@ -71,7 +71,7 @@ const LinkMenuComponent = () => {
     if (!editor || !pop.open) return null;
 
     return (
-        <div ref={refs.setFloating} style={floatingStyles as CSSProperties} {...getFloatingProps()} className="ritext:z-99999999 ritext:w-66 ritext:rounded-xl ritext:border ritext:border-gray-200 ritext:bg-white ritext:p-3 ritext:shadow-lg">
+        <div ref={refs.setFloating} style={floatingStyles as CSSProperties} {...getFloatingProps()} className="ritext:z-99999999 ritext:w-66 ritext:rounded-xl ritext:border ritext:border-gray-200 ritext:bg-white ritext:p-3 ritext:shadow-lg" data-ignore-outside-clicks>
             <InputComponent
                 id="link"
                 label="Link"
