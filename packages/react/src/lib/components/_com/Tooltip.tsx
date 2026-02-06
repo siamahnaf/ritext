@@ -94,7 +94,7 @@ const Tooltip = ({ placement = "top", children, content, className }: Props) => 
                             animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
                             exit={getExit()}
                             transition={{ type: "spring", stiffness: 420, damping: 30, mass: 0.6 }}
-                            className={twMerge("ritext:bg-white ritext:border ritext:border-solid ritext:border-gray-200/50 ritext:py-1 ritext:px-3 ritext:rounded-lg ritext:text-sm ritext:shadow-lg ritext:shadow-gray-50 ritext:text-center", className)}
+                            className={twMerge("ritext:bg-white ritext:border ritext:border-solid ritext:border-gray-200/50 ritext:py-1 ritext:px-3 ritext:rounded-lg ritext:text-sm ritext:shadow-lg ritext:shadow-gray-50 ritext:text-center z-999999", className)}
                         >
                             {content}
                         </motion.div>

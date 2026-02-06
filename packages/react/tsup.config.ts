@@ -37,4 +37,13 @@ export default defineConfig({
     dts: true,
     clean: true,
     outDir: "dist",
+    external: [
+        "react",
+        "react-dom",
+        "yjs",
+        "y-protocols",
+        "@tiptap/y-tiptap",
+        "@tiptap/extension-collaboration",
+        "@tiptap/extension-collaboration-cursor",
+    ]
 });

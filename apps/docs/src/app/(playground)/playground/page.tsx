@@ -15,7 +15,6 @@ const Page = () => {
                     Back to Home Page
                 </Link>
             </div>
-
         </div>
     );
 };
