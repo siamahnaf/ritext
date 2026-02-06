@@ -6,16 +6,12 @@ type Props = ComponentPropsWithoutRef<"div"> & {
     content?: string | null
 }
 
-const Renderer = ({ content, className = "", ...props }: Props) => {
+const Renderer = ({ content, ...props }: Props) => {
     //Return null
     if (!content) return null;
 
     return (
-        <div
-            className={`ProseMirror ${className}`}
-            dangerouslySetInnerHTML={{ __html: content }}
-            {...props}
-        />
+        <div dangerouslySetInnerHTML={{ __html: content }} {...props} />
     );
 };
 
