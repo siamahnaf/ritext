@@ -1,0 +1,48 @@
+---
+title: Block Quote
+description: Format content as a block quote.
+---
+
+The `BlockQuote` extension adds support for block-level quotes, rendered with a left border accent.
+
+## Import
+
+```tsx
+import { BlockQuote } from 'ritext/extension/blockquote';
+```
+
+## Usage
+
+```tsx
+const extensions = [BlockQuote];
+```
+
+## Options
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon.',
+      type: 'ReactNode',
+    },
+    activeClassName: {
+      description: 'CSS class when inside a blockquote.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcut
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Toggle Blockquote | `Ctrl+Shift+B` | `⌘+Shift+B` |

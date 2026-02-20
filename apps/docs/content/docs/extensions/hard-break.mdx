@@ -1,0 +1,54 @@
+---
+title: Hard Break
+description: Insert a line break within a paragraph.
+---
+
+The `HardBreak` extension adds a button for inserting a hard line break (`<br>`) within a paragraph, without creating a new block.
+
+## Import
+
+```tsx
+import { HardBreak } from 'ritext/extension/hardbreak';
+```
+
+## Usage
+
+```tsx
+const extensions = [HardBreak];
+```
+
+## Options
+
+<TypeTable
+  type={{
+    showInBubbleMenu: {
+      description: 'Show in the floating bubble menu.',
+      type: 'boolean',
+      default: 'true',
+    },
+    bubbleMenuPosition: {
+      description: 'Position in the bubble menu.',
+      type: 'number',
+      default: '10',
+    },
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon.',
+      type: 'ReactNode',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcut
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Insert Hard Break | `Shift+Enter` or `Ctrl+Enter` | `Shift+Return` or `⌘+Return` |

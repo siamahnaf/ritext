@@ -1,0 +1,64 @@
+---
+title: Clear Format
+description: Remove all inline formatting from selected text.
+---
+
+The `ClearFormat` extension adds a button that removes all inline formatting (bold, italic, color, font size, etc.) from the current selection. It also clears block-level formatting by resetting the node type to a paragraph.
+
+## Import
+
+```tsx
+import { ClearFormat } from 'ritext/extension/clearformat';
+```
+
+## Usage
+
+```tsx
+const extensions = [ClearFormat];
+```
+
+## Behavior
+
+Clicking the Clear Format button runs:
+- `editor.chain().focus().clearNodes().unsetAllMarks().run()`
+
+This removes:
+- All marks (bold, italic, underline, strike, color, background color, font family, font size, etc.)
+- Block-level formatting (headings → paragraph, etc.)
+
+## Options
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon.',
+      type: 'ReactNode',
+    },
+    style: {
+      description: 'Inline style for the button.',
+      type: 'CSSProperties',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+    tooltipClassName: {
+      description: 'CSS class for the tooltip.',
+      type: 'string',
+    },
+    tooltipPlacement: {
+      description: 'Tooltip placement.',
+      type: 'string',
+      default: '"bottom"',
+    },
+  }}
+/>
+
+<Callout type="info">
+  The Clear Format button has no active state — it always appears in its default style.
+</Callout>

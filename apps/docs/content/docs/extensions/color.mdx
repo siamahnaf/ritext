@@ -1,0 +1,88 @@
+---
+title: Color
+description: Apply a text color to selected content.
+---
+
+The `Color` extension adds a color picker dropdown to the toolbar for changing the text color of selected content.
+
+## Import
+
+```tsx
+import { Color } from 'ritext/extension/color';
+```
+
+## Requirements
+
+Requires `TextStyle` from base extensions.
+
+```tsx
+import { TextStyle } from 'ritext/extension/base';
+
+const extensions = [TextStyle, Color];
+```
+
+## Usage
+
+```tsx
+const extensions = [TextStyle, Color];
+```
+
+## Features
+
+- 70 preset colors organized in 7 groups
+- Recent colors panel (up to 10 colors, stored in `localStorage`)
+- Custom color picker via hex input
+
+## Custom Color List
+
+```tsx
+Color.configure({
+  colorLists: [
+    '#000000', '#ffffff', '#ff0000',
+    '#00ff00', '#0000ff', '#ffff00',
+    '#ff00ff', '#00ffff',
+  ],
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    colorLists: {
+      description: 'Array of preset color hex strings.',
+      type: 'string[]',
+    },
+    showInBubbleMenu: {
+      description: 'Show in the floating bubble menu.',
+      type: 'boolean',
+      default: 'true',
+    },
+    bubbleMenuPosition: {
+      description: 'Position in the bubble menu.',
+      type: 'number',
+      default: '6',
+    },
+    className: {
+      description: 'CSS class for the dropdown trigger button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the dropdown container.',
+      type: 'string',
+    },
+    itemClassName: {
+      description: 'CSS class for each color item.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>

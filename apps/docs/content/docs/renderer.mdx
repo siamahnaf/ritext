@@ -1,0 +1,85 @@
+---
+title: Renderer
+description: The Renderer component safely renders saved HTML content outside the editor.
+---
+
+The `Renderer` component renders saved HTML content from the editor in a read-only view. Use it to display editor output in articles, previews, or any non-editable context.
+
+## Import
+
+```tsx
+import { Renderer } from 'ritext';
+```
+
+## Usage
+
+```tsx
+import { Renderer } from 'ritext';
+import 'ritext/styles.css';
+
+export default function ArticleView({ html }: { html: string }) {
+  return (
+    <Renderer
+      content={html}
+      className="max-w-2xl mx-auto"
+    />
+  );
+}
+```
+
+## Props
+
+`Renderer` accepts all standard `<div>` props plus:
+
+<TypeTable
+  type={{
+    content: {
+      description: 'The HTML string to render. If null or undefined, nothing is rendered.',
+      type: 'string | null',
+    },
+    className: {
+      description: 'CSS class applied to the wrapper div.',
+      type: 'string',
+    },
+  }}
+/>
+
+## Styling
+
+Import `ritext/styles.css` to apply the same content styles used inside the editor — headings, lists, blockquotes, tables, etc.:
+
+```tsx
+import 'ritext/styles.css';
+```
+
+The styles target `.ProseMirror` elements, so you may want to add a custom class to scope them, or apply the styles globally.
+
+## Empty Content
+
+When `content` is `null`, `undefined`, or an empty string, `Renderer` returns `null` and renders nothing:
+
+```tsx
+// Renders nothing
+<Renderer content={null} />
+<Renderer content="" />
+
+// Renders the HTML
+<Renderer content="<p>Hello world</p>" />
+```
+
+## Security
+
+`Renderer` uses `dangerouslySetInnerHTML` internally. Only pass HTML content that originates from Ritext's own editor output. If you're storing user-generated content in a database, sanitize it on the server before passing it to `Renderer`.
+
+## Passing Other div Props
+
+Since `Renderer` extends `ComponentPropsWithoutRef<"div">`, you can pass any valid div attribute:
+
+```tsx
+<Renderer
+  content={html}
+  id="article-body"
+  data-testid="content-renderer"
+  onClick={() => console.log('clicked')}
+/>
+```

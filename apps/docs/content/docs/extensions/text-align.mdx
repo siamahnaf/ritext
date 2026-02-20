@@ -1,0 +1,63 @@
+---
+title: Text Align
+description: Align text left, center, right, or justify.
+---
+
+The `TextAlign` extension adds text alignment controls to the toolbar. It supports `left`, `center`, `right`, and `justify` alignments.
+
+## Import
+
+```tsx
+import { TextAlign } from 'ritext/extension/textalign';
+```
+
+## Usage
+
+```tsx
+const extensions = [TextAlign];
+```
+
+## Configuration
+
+```tsx
+TextAlign.configure({
+  showInBubbleMenu: true,
+  bubbleMenuPosition: 8,
+})
+```
+
+## Default Alignments
+
+All four alignments are enabled by default: `left`, `center`, `right`, `justify`.
+
+The extension applies to: `heading`, `paragraph`, `list_item`, `title`, `image`.
+
+## Options
+
+<TypeTable
+  type={{
+    showInBubbleMenu: {
+      description: 'Show in the floating bubble menu.',
+      type: 'boolean',
+      default: 'true',
+    },
+    bubbleMenuPosition: {
+      description: 'Position in the bubble menu.',
+      type: 'number',
+      default: '8',
+    },
+    className: {
+      description: 'CSS class for the alignment buttons.',
+      type: 'string',
+    },
+    activeClassName: {
+      description: 'CSS class when an alignment is active.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>

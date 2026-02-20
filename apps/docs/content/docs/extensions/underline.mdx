@@ -1,0 +1,70 @@
+---
+title: Underline
+description: Toggle underline formatting on selected text.
+---
+
+The `Underline` extension adds underline formatting. It renders a button in the toolbar and supports `Ctrl+U` / `⌘+U`.
+
+## Import
+
+```tsx
+import { Underline } from 'ritext/extension/underline';
+```
+
+## Usage
+
+```tsx
+const extensions = [
+  // ...base extensions
+  Underline,
+];
+```
+
+## Configuration
+
+```tsx
+Underline.configure({
+  tooltip: true,
+  activeClassName: 'text-blue-500',
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    showInBubbleMenu: {
+      description: 'Show in the floating bubble menu.',
+      type: 'boolean',
+      default: 'true',
+    },
+    bubbleMenuPosition: {
+      description: 'Position in the bubble menu.',
+      type: 'number',
+      default: '4',
+    },
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon.',
+      type: 'ReactNode',
+    },
+    activeClassName: {
+      description: 'CSS class when underline is active.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcut
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Toggle Underline | `Ctrl+U` | `⌘+U` |

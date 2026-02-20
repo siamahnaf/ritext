@@ -1,0 +1,188 @@
+---
+title: Quick Start
+description: Build a fully-featured rich text editor with Ritext in minutes.
+---
+
+This guide walks you through creating a complete rich text editor with a full toolbar, content area, and HTML output.
+
+## Full Editor Example
+
+```tsx
+"use client";
+import { useState, useRef } from "react";
+import { Editor, Toolbar, Content, type EditorRef } from "ritext";
+import "ritext/styles.css";
+
+// Base extensions (always required)
+import {
+  Document, Text, Paragraph, TextStyle,
+  ListItem, ListKeymap, Dropcursor, Gapcursor,
+  Placeholder, TrailingNode
+} from "ritext/extension/base";
+
+// Formatting extensions
+import { History } from "ritext/extension/history";
+import { Bold } from "ritext/extension/bold";
+import { Italic } from "ritext/extension/italic";
+import { Underline } from "ritext/extension/underline";
+import { Strike } from "ritext/extension/strike";
+import { Heading } from "ritext/extension/heading";
+import { Color } from "ritext/extension/color";
+import { BackgroundColor } from "ritext/extension/backgroundcolor";
+import { FontFamily } from "ritext/extension/font-family";
+import { FontSize } from "ritext/extension/font-size";
+import { BulletList } from "ritext/extension/bulletlist";
+import { OrderedList } from "ritext/extension/orderedlist";
+import { TaskList } from "ritext/extension/tasklist";
+import { TextAlign } from "ritext/extension/textalign";
+import { Links } from "ritext/extension/link";
+import { Image } from "ritext/extension/image";
+import { Table } from "ritext/extension/table";
+import { BlockQuote } from "ritext/extension/blockquote";
+import { HorizontalRule } from "ritext/extension/horizontalrule";
+import { Emoji } from "ritext/extension/emoji";
+
+const extensions = [
+  // Base (required for editor to function)
+  Document, Text, Paragraph, TextStyle,
+  ListItem, ListKeymap, TrailingNode,
+  Dropcursor.configure({ width: 4 }),
+  Gapcursor,
+  Placeholder.configure({ placeholder: "Start writing..." }),
+
+  // Features
+  History, Bold, Italic, Underline, Strike,
+  Heading, Color, BackgroundColor, FontFamily, FontSize,
+  BulletList, OrderedList, TaskList, TextAlign,
+  Links, Image, Table, BlockQuote, HorizontalRule, Emoji,
+];
+
+export default function MyEditor() {
+  const [content, setContent] = useState("");
+  const ref = useRef<EditorRef>(null);
+
+  return (
+    <div>
+      <Editor
+        ref={ref}
+        extensions={extensions}
+        content={content}
+        onContentChange={(e) => setContent(e.content as string)}
+        className="border border-gray-200 rounded-xl"
+      >
+        <Toolbar className="p-2 sticky top-0 border-b border-gray-200 bg-white rounded-t-xl" />
+        <Content />
+      </Editor>
+
+      <button onClick={() => ref.current?.clear()}>
+        Clear
+      </button>
+    </div>
+  );
+}
+```
+
+## Step-by-Step Breakdown
+
+<Steps>
+  <Step>
+    ### Install and import CSS
+
+    ```tsx
+    import 'ritext/styles.css';
+    ```
+
+    Import the stylesheet once to get proper editor content styles (headings, lists, tables, etc.).
+  </Step>
+
+  <Step>
+    ### Choose your extensions
+
+    Always start with the base extensions, then add the features you need:
+
+    ```tsx
+    import { Document, Text, Paragraph } from 'ritext/extension/base';
+    import { Bold } from 'ritext/extension/bold';
+    import { Italic } from 'ritext/extension/italic';
+    ```
+  </Step>
+
+  <Step>
+    ### Wrap with `<Editor>`
+
+    Pass your extensions array and optionally bind content state:
+
+    ```tsx
+    <Editor
+      extensions={extensions}
+      content={content}
+      onContentChange={(e) => setContent(e.content as string)}
+    >
+      ...
+    </Editor>
+    ```
+  </Step>
+
+  <Step>
+    ### Add `<Toolbar>` and `<Content>`
+
+    `<Toolbar>` renders all the toolbar buttons registered by your extensions. `<Content>` renders the editable area:
+
+    ```tsx
+    <Editor extensions={extensions}>
+      <Toolbar className="p-2 border-b" />
+      <Content />
+    </Editor>
+    ```
+  </Step>
+
+  <Step>
+    ### Access the editor imperatively (optional)
+
+    Use `EditorRef` to call methods like `insert`, `clear`, `getHTML`, or `setContent`:
+
+    ```tsx
+    const ref = useRef<EditorRef>(null);
+
+    // Later...
+    ref.current?.clear();
+    ref.current?.insert("<strong>Hello</strong>");
+    ```
+  </Step>
+</Steps>
+
+## Output Formats
+
+Control what format `onContentChange` returns via the `output` prop:
+
+```tsx
+// HTML (default)
+<Editor output="html" onContentChange={(e) => console.log(e.content)} />
+
+// JSON (ProseMirror document)
+<Editor output="json" onContentChange={(e) => console.log(e.content)} />
+
+// Plain text
+<Editor output="text" onContentChange={(e) => console.log(e.content)} />
+```
+
+## Rendering Saved Content
+
+Use the `<Renderer>` component to display saved HTML content outside the editor:
+
+```tsx
+import { Renderer } from 'ritext';
+import 'ritext/styles.css';
+
+export default function ArticleView({ html }: { html: string }) {
+  return <Renderer content={html} className="prose" />;
+}
+```
+
+## Next Steps
+
+<Cards>
+  <Card title="Editor API" href="/docs/editor" description="All props and configuration for the Editor component." icon="Settings" />
+  <Card title="EditorRef" href="/docs/editor-ref" description="Imperative methods available on the editor ref." icon="Terminal" />
+  <Card title="Extensions" href="/docs/extensions/overview" description="Browse all 20+ available extensions." icon="Blocks" />
+</Cards>

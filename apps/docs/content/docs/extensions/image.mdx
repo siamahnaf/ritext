@@ -1,0 +1,107 @@
+---
+title: Image
+description: Insert, resize, and align images in the editor.
+---
+
+The `Image` extension adds full image support: insertion via URL or file upload, resizing, flipping, and alignment.
+
+## Import
+
+```tsx
+import { Image } from 'ritext/extension/image';
+```
+
+## Usage
+
+```tsx
+const extensions = [Image];
+```
+
+## Features
+
+- Insert image via URL or file upload
+- Resize images by dragging
+- Flip horizontally or vertically
+- Align left, center, or right
+- Optional alt text field
+- Custom upload handler
+
+## Configuration
+
+```tsx
+Image.configure({
+  upload: async (file) => {
+    // Upload file to your server and return a URL
+    const formData = new FormData();
+    formData.append('file', file);
+    const res = await fetch('/api/upload', { method: 'POST', body: formData });
+    const { url } = await res.json();
+    return url;
+  },
+  maxSize: 5 * 1024 * 1024,  // 5MB
+  enableAlt: true,
+  defaultInline: false,
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    upload: {
+      description: 'Async function that receives a File and returns the uploaded image URL.',
+      type: '(file: File) => Promise<string>',
+    },
+    maxSize: {
+      description: 'Maximum allowed file size in bytes.',
+      type: 'number',
+    },
+    defaultInline: {
+      description: 'Whether images are inline by default.',
+      type: 'boolean',
+      default: 'false',
+    },
+    enableAlt: {
+      description: 'Show an alt text input field in the image dialog.',
+      type: 'boolean',
+      default: 'false',
+    },
+    aspect: {
+      description: 'Aspect ratio for the image crop preview.',
+      type: 'number',
+    },
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Image Attributes
+
+Images in the document store these attributes:
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `src` | `string` | Image URL |
+| `alt` | `string` | Alt text |
+| `width` | `number \| null` | Rendered width |
+| `height` | `number \| null` | Rendered height |
+| `inline` | `boolean` | Whether image is inline |
+| `flipX` | `boolean` | Flipped horizontally |
+| `flipY` | `boolean` | Flipped vertically |
+| `align` | `"left" \| "center" \| "right"` | Image alignment |
+
+## Without Upload
+
+If you omit the `upload` option, only URL-based image insertion is available:
+
+```tsx
+const extensions = [Image];
+// Users can only paste image URLs
+```

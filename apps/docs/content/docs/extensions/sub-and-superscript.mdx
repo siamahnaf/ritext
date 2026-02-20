@@ -1,0 +1,90 @@
+---
+title: Sub & Superscript
+description: A combined dropdown for subscript and superscript formatting.
+---
+
+The `SubAndSuperscript` extension renders a single dropdown button that contains both subscript and superscript options. It automatically loads the Tiptap subscript and superscript extensions.
+
+## Import
+
+```tsx
+import { SubAndSuperscript } from 'ritext/extension/subandsuperscript';
+```
+
+## Usage
+
+```tsx
+const extensions = [SubAndSuperscript];
+```
+
+<Callout type="info">
+  Do not use both `SubAndSuperscript` and individual `Subscript`/`Superscript` extensions at the same time. Choose one approach.
+</Callout>
+
+## Configuration
+
+```tsx
+SubAndSuperscript.configure({
+  subscript: 'Subscript',       // Label for the subscript option
+  superscript: 'Superscript',   // Label for the superscript option
+  showCommandText: true,        // Show keyboard shortcuts in dropdown
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    subscript: {
+      description: 'Label for the subscript item, or false to hide it.',
+      type: 'string | boolean',
+      default: '"Subscript"',
+    },
+    superscript: {
+      description: 'Label for the superscript item, or false to hide it.',
+      type: 'string | boolean',
+      default: '"Superscript"',
+    },
+    subscriptIcon: {
+      description: 'Custom icon for the subscript item.',
+      type: 'ReactNode',
+    },
+    superscriptIcon: {
+      description: 'Custom icon for the superscript item.',
+      type: 'ReactNode',
+    },
+    showCommandText: {
+      description: 'Show keyboard shortcut text next to each item.',
+      type: 'boolean',
+      default: 'false',
+    },
+    className: {
+      description: 'CSS class for the dropdown trigger button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow on the trigger button.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the dropdown container.',
+      type: 'string',
+    },
+    itemClassName: {
+      description: 'CSS class for each dropdown item.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcuts
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Toggle Subscript | `Ctrl+,` | `⌘+,` |
+| Toggle Superscript | `Ctrl+.` | `⌘+.` |

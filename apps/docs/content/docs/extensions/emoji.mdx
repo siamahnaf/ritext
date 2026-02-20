@@ -1,0 +1,66 @@
+---
+title: Emoji
+description: Insert emojis from a searchable picker.
+---
+
+The `Emoji` extension adds an emoji picker dropdown to the toolbar, allowing users to browse and insert emojis.
+
+## Import
+
+```tsx
+import { Emoji } from 'ritext/extension/emoji';
+```
+
+## Usage
+
+```tsx
+const extensions = [Emoji];
+```
+
+## Configuration
+
+```tsx
+Emoji.configure({
+  showInBubbleMenu: false,
+  openOnClick: false,
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    showInBubbleMenu: {
+      description: 'Show in the floating bubble menu.',
+      type: 'boolean',
+      default: 'false',
+    },
+    bubbleMenuPosition: {
+      description: 'Position in the bubble menu.',
+      type: 'number',
+      default: '11',
+    },
+    openOnClick: {
+      description: 'Open the emoji picker on click.',
+      type: 'boolean',
+      default: 'false',
+    },
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the emoji picker dropdown.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>

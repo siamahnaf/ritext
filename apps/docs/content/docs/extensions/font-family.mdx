@@ -1,0 +1,95 @@
+---
+title: Font Family
+description: Change the font family of selected text.
+---
+
+The `FontFamily` extension adds a dropdown to the toolbar for selecting the font family of selected text.
+
+## Import
+
+```tsx
+import { FontFamily } from 'ritext/extension/font-family';
+```
+
+## Requirements
+
+Requires `TextStyle` from base extensions.
+
+```tsx
+import { TextStyle } from 'ritext/extension/base';
+
+const extensions = [TextStyle, FontFamily];
+```
+
+## Usage
+
+```tsx
+const extensions = [TextStyle, FontFamily];
+```
+
+## Default Font Families
+
+The following fonts are available by default:
+
+- Default (unset)
+- Inter
+- Comic Sans MS
+- Serif
+- Cursive
+- Arial
+- Arial Black
+- Georgia
+- Impact
+- Tahoma
+- Times New Roman
+- Verdana
+- Courier New
+- Lucida Console
+- Monaco
+- Monospace
+
+## Custom Font List
+
+```tsx
+FontFamily.configure({
+  fontFamilyList: [
+    'Default',
+    'Inter',
+    'Georgia',
+    { label: 'Custom Font', value: '"My Custom Font", sans-serif' },
+    { label: 'Reset', value: null }, // null unsets the font
+  ],
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    fontFamilyList: {
+      description: 'List of font families. Each item can be a string or an object with label and value.',
+      type: '(string | { label: string, value?: string | null })[]',
+    },
+    className: {
+      description: 'CSS class for the dropdown trigger button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow on the trigger.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the dropdown container.',
+      type: 'string',
+    },
+    itemClassName: {
+      description: 'CSS class for each dropdown item.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>

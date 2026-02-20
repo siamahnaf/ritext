@@ -1,0 +1,77 @@
+---
+title: Font Size
+description: Change the font size of selected text.
+---
+
+The `FontSize` extension adds a dropdown to the toolbar for selecting the font size of selected text.
+
+## Import
+
+```tsx
+import { FontSize } from 'ritext/extension/font-size';
+```
+
+## Requirements
+
+Requires `TextStyle` from base extensions.
+
+```tsx
+import { TextStyle } from 'ritext/extension/base';
+
+const extensions = [TextStyle, FontSize];
+```
+
+## Default Font Sizes
+
+- Default (unset)
+- 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px, 48px, 72px
+
+## Custom Size List
+
+```tsx
+FontSize.configure({
+  fontSizeList: [
+    'Default',
+    '12px',
+    '14px',
+    '16px',
+    '18px',
+    '24px',
+    '32px',
+    { label: 'Large', value: '48px' },
+    { label: 'Reset', value: null },
+  ],
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    fontSizeList: {
+      description: 'List of font sizes. Each item can be a string or an object with label and value.',
+      type: '(string | { label: string, value?: string | null })[]',
+    },
+    className: {
+      description: 'CSS class for the dropdown trigger button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow on the trigger.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the dropdown container.',
+      type: 'string',
+    },
+    itemClassName: {
+      description: 'CSS class for each dropdown item.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>

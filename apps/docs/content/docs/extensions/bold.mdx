@@ -1,0 +1,83 @@
+---
+title: Bold
+description: Toggle bold formatting on selected text.
+---
+
+The `Bold` extension enables bold text formatting. It renders a button in the toolbar and supports the keyboard shortcut `Ctrl+B` / `⌘+B`.
+
+## Import
+
+```tsx
+import { Bold } from 'ritext/extension/bold';
+```
+
+## Usage
+
+```tsx
+const extensions = [
+  // ...base extensions
+  Bold,
+];
+```
+
+## Configuration
+
+```tsx
+Bold.configure({
+  tooltip: true,
+  activeClassName: 'bg-gray-200',
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    showInBubbleMenu: {
+      description: 'Whether to show Bold in the floating bubble menu.',
+      type: 'boolean',
+      default: 'true',
+    },
+    bubbleMenuPosition: {
+      description: 'Position of the button in the bubble menu (lower = first).',
+      type: 'number',
+      default: '2',
+    },
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon for the button.',
+      type: 'ReactNode',
+    },
+    style: {
+      description: 'Inline style for the button.',
+      type: 'CSSProperties',
+    },
+    activeClassName: {
+      description: 'CSS class when bold is active on selection.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+    tooltipClassName: {
+      description: 'CSS class for the tooltip.',
+      type: 'string',
+    },
+    tooltipPlacement: {
+      description: 'Tooltip placement.',
+      type: 'string',
+      default: '"bottom"',
+    },
+  }}
+/>
+
+## Keyboard Shortcut
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Toggle Bold | `Ctrl+B` | `⌘+B` |

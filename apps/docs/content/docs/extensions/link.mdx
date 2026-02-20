@@ -1,0 +1,85 @@
+---
+title: Link
+description: Insert and manage hyperlinks in the editor.
+---
+
+The `Links` extension adds a link button to the toolbar. It provides a UI for inserting, editing, and removing hyperlinks.
+
+## Import
+
+```tsx
+import { Links } from 'ritext/extension/link';
+```
+
+## Usage
+
+```tsx
+const extensions = [Links];
+```
+
+## Features
+
+- Toolbar button to insert/edit a link
+- Link edit menu appears on click
+- Supports opening links in a new tab
+- Parses links from pasted URLs automatically
+
+## Configuration
+
+```tsx
+Links.configure({
+  openOnClick: false,  // Don't navigate on click (default)
+  showInBubbleMenu: true,
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    showInBubbleMenu: {
+      description: 'Show in the floating bubble menu.',
+      type: 'boolean',
+      default: 'true',
+    },
+    bubbleMenuPosition: {
+      description: 'Position in the bubble menu.',
+      type: 'number',
+      default: '9',
+    },
+    openOnClick: {
+      description: 'Whether clicking a link in the editor navigates to it.',
+      type: 'boolean',
+      default: 'false',
+    },
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the link editor dropdown.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Rendered Output
+
+Links render as `<a>` tags with the `link` CSS class:
+
+```html
+<a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link">
+  Example
+</a>
+```
+
+The `.link` class is styled by `ritext/styles.css` as blue, bold, and underlined.

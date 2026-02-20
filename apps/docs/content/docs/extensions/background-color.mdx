@@ -1,0 +1,84 @@
+---
+title: Background Color
+description: Apply a background highlight color to selected text.
+---
+
+The `BackgroundColor` extension adds a color picker dropdown for applying background highlight colors to selected text.
+
+## Import
+
+```tsx
+import { BackgroundColor } from 'ritext/extension/backgroundcolor';
+```
+
+## Requirements
+
+Requires `TextStyle` from base extensions.
+
+```tsx
+import { TextStyle } from 'ritext/extension/base';
+
+const extensions = [TextStyle, BackgroundColor];
+```
+
+## Usage
+
+```tsx
+const extensions = [TextStyle, BackgroundColor];
+```
+
+## Features
+
+- Preset color palette
+- Recent colors panel (up to 10, stored in `localStorage`)
+- Custom color picker via hex input
+
+## Custom Color List
+
+```tsx
+BackgroundColor.configure({
+  colorLists: ['#ffff00', '#ff9900', '#ff0000', '#00ff00', '#0000ff'],
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    colorLists: {
+      description: 'Array of preset background color hex strings.',
+      type: 'string[]',
+    },
+    showInBubbleMenu: {
+      description: 'Show in the floating bubble menu.',
+      type: 'boolean',
+      default: 'true',
+    },
+    bubbleMenuPosition: {
+      description: 'Position in the bubble menu.',
+      type: 'number',
+      default: '7',
+    },
+    className: {
+      description: 'CSS class for the dropdown trigger button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the dropdown container.',
+      type: 'string',
+    },
+    itemClassName: {
+      description: 'CSS class for each color item.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>

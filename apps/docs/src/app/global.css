@@ -7,3 +7,43 @@
     --color-two: #534494;
     --color-three: #ffc4d4;
 }
+
+/* ─── Ritext brand theme for Fumadocs UI ─── */
+:root {
+    /* Main backgrounds */
+    --color-fd-background: #ffffff;
+    --color-fd-foreground: hsl(0, 0%, 4%);
+
+    /* Sidebar / card surfaces — light purple tint */
+    --color-fd-card: #f3f1fa;
+    --color-fd-card-foreground: hsl(0, 0%, 4%);
+
+    /* Muted areas (TOC, secondary panels) */
+    --color-fd-muted: #f0edf8;
+    --color-fd-muted-foreground: hsl(0, 0%, 42%);
+
+    /* Popovers & dropdowns */
+    --color-fd-popover: #ffffff;
+    --color-fd-popover-foreground: hsl(0, 0%, 12%);
+
+    /* Primary — purple, used for active nav items, links, tabs */
+    --color-fd-primary: #534494;
+    --color-fd-primary-foreground: #ffffff;
+
+    /* Secondary — soft purple tint */
+    --color-fd-secondary: rgba(83, 68, 148, 0.1);
+    --color-fd-secondary-foreground: #534494;
+
+    /* Accent — light purple for hover states */
+    --color-fd-accent: rgba(83, 68, 148, 0.1);
+    --color-fd-accent-foreground: #534494;
+
+    /* Borders — subtle purple tint */
+    --color-fd-border: rgba(83, 68, 148, 0.15);
+
+    /* Focus ring */
+    --color-fd-ring: rgba(83, 68, 148, 0.4);
+
+    /* Overlay (modals/sheets) */
+    --color-fd-overlay: rgba(83, 68, 148, 0.08);
+}

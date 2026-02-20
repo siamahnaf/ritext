@@ -1,0 +1,51 @@
+---
+title: Horizontal Rule
+description: Insert a horizontal divider line.
+---
+
+The `HorizontalRule` extension adds a button to insert a horizontal rule (`<hr>`) into the document.
+
+## Import
+
+```tsx
+import { HorizontalRule } from 'ritext/extension/horizontalrule';
+```
+
+## Usage
+
+```tsx
+const extensions = [HorizontalRule];
+```
+
+## Options
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon.',
+      type: 'ReactNode',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+    tooltipClassName: {
+      description: 'CSS class for the tooltip.',
+      type: 'string',
+    },
+    tooltipPlacement: {
+      description: 'Tooltip placement.',
+      type: 'string',
+      default: '"bottom"',
+    },
+  }}
+/>
+
+<Callout type="info">
+  The Horizontal Rule button has no active state — it always appears in its default style.
+</Callout>

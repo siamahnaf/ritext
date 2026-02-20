@@ -1,17 +1,98 @@
 ---
 title: Toolbar
-description: Toolbar
+description: The Toolbar component renders toolbar buttons registered by your extensions.
 ---
 
-## Code Block
+The `Toolbar` component automatically renders the toolbar UI for all extensions that provide a toolbar button. You never need to manually list which buttons to show — just add extensions and `Toolbar` handles the rest.
+
+## Import
 
 ```tsx
-console.log('Here goes code');
+import { Toolbar } from 'ritext';
 ```
 
-## Cards
+## Usage
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
-</Cards>
+```tsx
+import { Editor, Toolbar, Content } from 'ritext';
+
+<Editor extensions={extensions}>
+  <Toolbar className="p-2 border-b border-gray-200 bg-white" />
+  <Content />
+</Editor>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class applied to the toolbar wrapper element.',
+      type: 'string',
+    },
+    buttonClassName: {
+      description: 'CSS class applied to every individual button in the toolbar.',
+      type: 'string',
+    },
+    dropdownContainerClassName: {
+      description: 'CSS class applied to dropdown container elements in the toolbar.',
+      type: 'string',
+    },
+    dropdownItemClassName: {
+      description: 'CSS class applied to each item inside a dropdown.',
+      type: 'string',
+    },
+  }}
+/>
+
+## Styling Examples
+
+### Sticky Toolbar
+
+Make the toolbar stick to the top of the scroll container:
+
+```tsx
+<Toolbar className="p-2 sticky top-0 z-10 border-b border-gray-200 bg-white" />
+```
+
+### Rounded Toolbar
+
+Match the toolbar corners to a rounded editor container:
+
+```tsx
+<Editor className="border border-gray-200 rounded-xl">
+  <Toolbar className="p-2 border-b border-gray-200 bg-white rounded-t-xl" />
+  <Content />
+</Editor>
+```
+
+### Dark Toolbar
+
+```tsx
+<Toolbar
+  className="p-2 bg-gray-900"
+  buttonClassName="text-gray-300 hover:text-white hover:bg-gray-700"
+  dropdownContainerClassName="bg-gray-800 border-gray-700"
+  dropdownItemClassName="text-gray-200 hover:bg-gray-700"
+/>
+```
+
+## Button Order
+
+The order of buttons in the toolbar matches the order of extensions in your `extensions` array. To reorder buttons, change the order of extensions:
+
+```tsx
+// Bold will appear before Italic in the toolbar
+const extensions = [Bold, Italic, Underline];
+
+// Italic will appear before Bold
+const extensions = [Italic, Bold, Underline];
+```
+
+## How It Works
+
+Internally, `Toolbar` reads the editor's extension list and looks for extensions that expose a `component` option. It renders each component in order, passing the editor instance and options as props. This means every extension manages its own toolbar UI.
+
+<Callout type="info">
+  `Toolbar` must be a child of `Editor`. It uses React context internally to access the editor instance.
+</Callout>

@@ -1,0 +1,17 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "index",
+    "installation",
+    "quick-start",
+    "---",
+    "Core Components",
+    "editor",
+    "toolbar",
+    "editor-content",
+    "renderer",
+    "editor-ref",
+    "---",
+    "extensions"
+  ]
+}

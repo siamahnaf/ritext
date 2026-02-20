@@ -1,0 +1,70 @@
+---
+title: Italic
+description: Toggle italic formatting on selected text.
+---
+
+The `Italic` extension enables italic text formatting. It renders a button in the toolbar and supports `Ctrl+I` / `⌘+I`.
+
+## Import
+
+```tsx
+import { Italic } from 'ritext/extension/italic';
+```
+
+## Usage
+
+```tsx
+const extensions = [
+  // ...base extensions
+  Italic,
+];
+```
+
+## Configuration
+
+```tsx
+Italic.configure({
+  tooltip: true,
+  showInBubbleMenu: true,
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    showInBubbleMenu: {
+      description: 'Whether to show Italic in the floating bubble menu.',
+      type: 'boolean',
+      default: 'true',
+    },
+    bubbleMenuPosition: {
+      description: 'Position in the bubble menu.',
+      type: 'number',
+      default: '3',
+    },
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon for the button.',
+      type: 'ReactNode',
+    },
+    activeClassName: {
+      description: 'CSS class when italic is active.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcut
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Toggle Italic | `Ctrl+I` | `⌘+I` |

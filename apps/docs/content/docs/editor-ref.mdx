@@ -1,0 +1,134 @@
+---
+title: EditorRef
+description: Imperative methods available via the editor ref handle.
+---
+
+Attach a ref to the `<Editor>` component to access imperative methods for programmatic control of the editor.
+
+## Setup
+
+```tsx
+"use client";
+import { useRef } from 'react';
+import { Editor, Toolbar, Content, type EditorRef } from 'ritext';
+
+export default function MyEditor() {
+  const ref = useRef<EditorRef>(null);
+
+  return (
+    <div>
+      <Editor ref={ref} extensions={extensions}>
+        <Toolbar />
+        <Content />
+      </Editor>
+      <button onClick={() => ref.current?.clear()}>Clear</button>
+    </div>
+  );
+}
+```
+
+## Methods
+
+<TypeTable
+  type={{
+    editor: {
+      description: 'The underlying Tiptap editor instance. Access the full Tiptap API directly.',
+      type: 'Editor | null',
+    },
+    insert: {
+      description: 'Insert HTML or text content at the current cursor position.',
+      type: '(value: string) => void',
+    },
+    insertAtEnd: {
+      description: 'Insert content at the very end of the document.',
+      type: '(value: string) => void',
+    },
+    replaceSelection: {
+      description: 'Replace the current selection with the provided content.',
+      type: '(value: string) => void',
+    },
+    focus: {
+      description: 'Focus the editor.',
+      type: '() => void',
+    },
+    getHTML: {
+      description: 'Get the current content as an HTML string.',
+      type: '() => string',
+    },
+    setContent: {
+      description: 'Replace the entire editor content with the provided HTML string.',
+      type: '(value: string) => void',
+    },
+    clear: {
+      description: 'Clear all content from the editor.',
+      type: '() => void',
+    },
+  }}
+/>
+
+## Examples
+
+### Insert content at cursor
+
+```tsx
+ref.current?.insert('<strong>Hello, World!</strong>');
+```
+
+### Insert at the end
+
+```tsx
+ref.current?.insertAtEnd('<p>Appended paragraph</p>');
+```
+
+### Replace selected text
+
+```tsx
+// Replaces whatever the user has selected
+ref.current?.replaceSelection('<em>Replacement text</em>');
+```
+
+### Get HTML output
+
+```tsx
+const html = ref.current?.getHTML();
+console.log(html); // "<p>My content...</p>"
+```
+
+### Set content programmatically
+
+```tsx
+ref.current?.setContent('<h1>New Document</h1><p>Fresh content.</p>');
+```
+
+### Clear the editor
+
+```tsx
+ref.current?.clear();
+```
+
+### Focus the editor
+
+```tsx
+ref.current?.focus();
+```
+
+### Access the Tiptap editor directly
+
+For advanced use cases, access the underlying Tiptap `Editor` instance:
+
+```tsx
+const tiptapEditor = ref.current?.editor;
+
+if (tiptapEditor) {
+  // Use any Tiptap command
+  tiptapEditor.chain().focus().toggleBold().run();
+
+  // Read state
+  const isBold = tiptapEditor.isActive('bold');
+  const wordCount = tiptapEditor.storage.characterCount?.words();
+}
+```
+
+<Callout type="warn">
+  All ref methods are no-ops when the editor has not yet initialized (`editor` is `null`). Guard against this or use optional chaining: `ref.current?.clear()`.
+</Callout>

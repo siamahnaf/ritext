@@ -1,0 +1,79 @@
+---
+title: Line Height
+description: Change the line height of selected paragraphs.
+---
+
+The `LineHeight` extension adds a dropdown for controlling the line height (line spacing) of text.
+
+## Import
+
+```tsx
+import { LineHeight } from 'ritext/extension/lineheight';
+```
+
+## Requirements
+
+Requires `TextStyle` from base extensions.
+
+```tsx
+import { TextStyle } from 'ritext/extension/base';
+
+const extensions = [TextStyle, LineHeight];
+```
+
+## Usage
+
+```tsx
+const extensions = [TextStyle, LineHeight];
+```
+
+## Default Values
+
+- Default (unset)
+- 1.5
+- 2
+- 2.5
+- 3
+- 3.5
+- 4
+
+## Custom Line Heights
+
+```tsx
+LineHeight.configure({
+  lineHeights: ['Default', '1.2', '1.5', '1.8', '2', '2.5'],
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    lineHeights: {
+      description: 'Array of line height values. Use "Default" to include a reset option.',
+      type: 'string[]',
+      default: '["Default", "1.5", "2", "2.5", "3", "3.5", "4"]',
+    },
+    className: {
+      description: 'CSS class for the dropdown trigger button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the dropdown container.',
+      type: 'string',
+    },
+    itemClassName: {
+      description: 'CSS class for each dropdown item.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>

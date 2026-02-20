@@ -1,0 +1,84 @@
+---
+title: Installation
+description: Install Ritext and its peer dependencies into your React project.
+---
+
+## Requirements
+
+- React 19 or later
+- A project with Tailwind CSS v4
+
+## Install
+
+<Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+  <Tab value="npm">
+    ```bash
+    npm install ritext
+    ```
+  </Tab>
+  <Tab value="pnpm">
+    ```bash
+    pnpm add ritext
+    ```
+  </Tab>
+  <Tab value="yarn">
+    ```bash
+    yarn add ritext
+    ```
+  </Tab>
+  <Tab value="bun">
+    ```bash
+    bun add ritext
+    ```
+  </Tab>
+</Tabs>
+
+## Import CSS
+
+Ritext ships its own stylesheet for the editor content area. Import it once at your app's entry point or in your component:
+
+```tsx
+import 'ritext/styles.css';
+```
+
+<Callout type="info">
+  The stylesheet uses a `ritext:` Tailwind prefix to avoid conflicts with your own Tailwind utilities.
+</Callout>
+
+## Peer Dependencies
+
+Ritext requires `react` and `react-dom` as peer dependencies. These are usually already present in your project:
+
+```bash
+npm install react react-dom
+```
+
+## Tailwind CSS Setup
+
+Ritext components use Tailwind CSS classes. Make sure your project has Tailwind CSS v4 configured. No additional theme configuration is required — Ritext uses its own prefixed utilities.
+
+## TypeScript
+
+Ritext is fully typed. No additional `@types` packages are required.
+
+## Verify Installation
+
+Create a minimal editor to verify everything is working:
+
+```tsx
+import { Editor, Toolbar, Content } from 'ritext';
+import { Document, Text, Paragraph } from 'ritext/extension/base';
+import { Bold } from 'ritext/extension/bold';
+import 'ritext/styles.css';
+
+export default function TestEditor() {
+  return (
+    <Editor extensions={[Document, Text, Paragraph, Bold]}>
+      <Toolbar className="border-b p-2" />
+      <Content />
+    </Editor>
+  );
+}
+```
+
+You should see an editor with a single Bold button in the toolbar.

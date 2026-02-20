@@ -1,0 +1,52 @@
+---
+title: Subscript
+description: Toggle subscript formatting on selected text.
+---
+
+The `Subscript` extension adds subscript text formatting (e.g., H₂O). Supports `Ctrl+,` / `⌘+,`.
+
+## Import
+
+```tsx
+import { Subscript } from 'ritext/extension/subscript';
+```
+
+## Usage
+
+```tsx
+const extensions = [Subscript];
+```
+
+## Options
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon.',
+      type: 'ReactNode',
+    },
+    activeClassName: {
+      description: 'CSS class when subscript is active.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcut
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Toggle Subscript | `Ctrl+,` | `⌘+,` |
+
+<Callout type="info">
+  For a combined sub/superscript dropdown button, use the [Sub & Superscript](/docs/extensions/sub-and-superscript) extension instead.
+</Callout>

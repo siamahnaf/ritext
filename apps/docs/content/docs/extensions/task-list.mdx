@@ -1,0 +1,62 @@
+---
+title: Task List
+description: Create interactive checkbox task lists.
+---
+
+The `TaskList` extension adds interactive checkbox task lists. Each list item has a checkbox that can be toggled to mark it as done.
+
+## Import
+
+```tsx
+import { TaskList } from 'ritext/extension/tasklist';
+```
+
+## Requirements
+
+```tsx
+import { ListItem } from 'ritext/extension/base';
+
+const extensions = [ListItem, TaskList];
+```
+
+## Usage
+
+```tsx
+const extensions = [ListItem, TaskList];
+```
+
+## Features
+
+- Checkbox per list item
+- Checked items get a strikethrough style
+- Items use `data-checked` attribute for styling
+
+## Options
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon.',
+      type: 'ReactNode',
+    },
+    activeClassName: {
+      description: 'CSS class when inside a task list.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcut
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Toggle Task List | `Ctrl+Shift+9` | `⌘+Shift+9` |

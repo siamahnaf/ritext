@@ -1,0 +1,85 @@
+---
+title: Table
+description: Insert and edit tables with full row/column control.
+---
+
+The `Table` extension adds a full-featured table editor to the toolbar, including a visual grid picker for inserting new tables.
+
+## Import
+
+```tsx
+import { Table } from 'ritext/extension/table';
+```
+
+## Usage
+
+```tsx
+const extensions = [Table];
+```
+
+## Features
+
+- Visual grid picker for inserting tables
+- Resizable columns (drag to resize)
+- Add/remove rows and columns
+- Merge and split cells
+- Cell background color
+
+## Options
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the dropdown container.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Table Menu
+
+When the cursor is inside a table, a floating table menu appears with these options:
+
+- Add column before / after
+- Delete column
+- Add row before / after
+- Delete row
+- Merge cells
+- Split cell
+- Delete table
+
+## Rendered Output
+
+Tables render as standard HTML `<table>` elements:
+
+```html
+<table>
+  <tbody>
+    <tr>
+      <th>Header 1</th>
+      <th>Header 2</th>
+    </tr>
+    <tr>
+      <td>Cell 1</td>
+      <td>Cell 2</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Cell Background Color
+
+Cells can have a background color set via the table menu. The color is stored as a `data-bg` attribute and applied as an inline style.

@@ -1,0 +1,239 @@
+---
+title: Base Extensions
+description: The required base extensions that power the Ritext editor.
+---
+
+Base extensions provide the foundational building blocks the editor needs to function. You should always include at minimum `Document`, `Text`, and `Paragraph`.
+
+## Import
+
+```tsx
+import {
+  Document,
+  Text,
+  Paragraph,
+  TextStyle,
+  ListItem,
+  ListKeymap,
+  Dropcursor,
+  Gapcursor,
+  Placeholder,
+  TrailingNode,
+  CharacterCount,
+} from 'ritext/extension/base';
+```
+
+## Extensions
+
+### Document
+
+The root node of the ProseMirror document. **Required.**
+
+```tsx
+Document
+```
+
+---
+
+### Text
+
+The text node. **Required.**
+
+```tsx
+Text
+```
+
+---
+
+### Paragraph
+
+The basic paragraph node. **Required** to type text.
+
+```tsx
+Paragraph
+```
+
+---
+
+### TextStyle
+
+Enables inline text style marks (used by Color, BackgroundColor, FontFamily, FontSize, LineHeight). Required if you use any of those extensions.
+
+```tsx
+TextStyle
+```
+
+---
+
+### ListItem
+
+The list item node, required when using BulletList or OrderedList.
+
+```tsx
+ListItem
+```
+
+---
+
+### ListKeymap
+
+Adds keyboard shortcuts for list navigation (Tab, Shift+Tab inside lists).
+
+```tsx
+ListKeymap
+```
+
+---
+
+### Dropcursor
+
+Shows a visual cursor when dragging content over the editor.
+
+```tsx
+// Basic
+Dropcursor
+
+// With custom width
+Dropcursor.configure({ width: 4 })
+```
+
+**Options:**
+
+<TypeTable
+  type={{
+    color: {
+      description: 'Color of the drop cursor.',
+      type: 'string',
+      default: '"currentcolor"',
+    },
+    width: {
+      description: 'Width of the drop cursor in pixels.',
+      type: 'number',
+      default: '1',
+    },
+    class: {
+      description: 'CSS class applied to the drop cursor.',
+      type: 'string',
+    },
+  }}
+/>
+
+---
+
+### Gapcursor
+
+Allows placing the cursor in gaps around block nodes (e.g., after a table).
+
+```tsx
+Gapcursor
+```
+
+---
+
+### Placeholder
+
+Renders placeholder text when the editor is empty.
+
+```tsx
+Placeholder.configure({
+  placeholder: 'Start typing...',
+})
+```
+
+**Options:**
+
+<TypeTable
+  type={{
+    placeholder: {
+      description: 'Placeholder text to show when the editor is empty.',
+      type: 'string | ((props) => string)',
+      default: '"Write something …"',
+    },
+    emptyEditorClass: {
+      description: 'CSS class applied to the editor when empty.',
+      type: 'string',
+      default: '"is-editor-empty"',
+    },
+    emptyNodeClass: {
+      description: 'CSS class applied to empty nodes.',
+      type: 'string',
+      default: '"is-empty"',
+    },
+    showOnlyWhenEditable: {
+      description: 'Only show placeholder when editor is editable.',
+      type: 'boolean',
+      default: 'true',
+    },
+    showOnlyCurrent: {
+      description: 'Only show placeholder on the currently focused node.',
+      type: 'boolean',
+      default: 'true',
+    },
+  }}
+/>
+
+---
+
+### TrailingNode
+
+Ensures there is always an empty paragraph at the end of the document, so users can always click to place the cursor below any block.
+
+```tsx
+TrailingNode
+```
+
+---
+
+### CharacterCount
+
+Tracks character and word count. Access via `editor.storage.characterCount`.
+
+```tsx
+CharacterCount.configure({ limit: 1000 })
+
+// Access counts
+editor.storage.characterCount.characters() // number of characters
+editor.storage.characterCount.words()      // number of words
+```
+
+**Options:**
+
+<TypeTable
+  type={{
+    limit: {
+      description: 'Maximum number of characters allowed.',
+      type: 'number | null',
+      default: 'null',
+    },
+    mode: {
+      description: 'Counting mode.',
+      type: '"textSize" | "nodeSize"',
+      default: '"textSize"',
+    },
+  }}
+/>
+
+## Recommended Setup
+
+```tsx
+import {
+  Document, Text, Paragraph, TextStyle,
+  ListItem, ListKeymap, Dropcursor, Gapcursor,
+  Placeholder, TrailingNode
+} from 'ritext/extension/base';
+
+const extensions = [
+  Document,
+  Text,
+  Paragraph,
+  TextStyle,
+  ListItem,
+  ListKeymap,
+  TrailingNode,
+  Dropcursor.configure({ width: 4 }),
+  Gapcursor,
+  Placeholder.configure({ placeholder: 'Start writing...' }),
+
+  // ... your feature extensions
+];
+```

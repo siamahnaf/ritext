@@ -1,13 +1,55 @@
 ---
-title: Hello World
-description: Your first document
+title: Introduction
+description: Ritext is a modern WYSIWYG rich text editor built with Tailwind CSS and powered by Tiptap.
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+Ritext is a modern WYSIWYG rich text editor for React, built with **Tailwind CSS** and powered by **Tiptap**. It provides a clean composable API that lets you build your own editor UI — toolbars, controls, and layouts — without forcing any specific design on you.
 
-## What is Ritext?
+## Key Features
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+  <Card title="Headless & Composable" description="Design your own toolbar and editor layout using clean React components. No opinions, no forced UI." icon="Puzzle" />
+  <Card title="Tailwind CSS Powered" description="Every component is built with Tailwind CSS, making customization as simple as adding a class." icon="Palette" />
+  <Card title="Tiptap Foundation" description="Built on Tiptap v3 — the most popular headless rich text editor framework for React." icon="Zap" />
+  <Card title="20+ Extensions" description="A rich set of pre-built extensions covering text formatting, structure, media, and more." icon="Package" />
+  <Card title="TypeScript First" description="Full TypeScript support with complete type definitions for all components and extensions." icon="Code" />
+  <Card title="Zero Lock-in" description="No heavy UI framework dependencies beyond Tiptap. Bring your own styling system." icon="Unlock" />
+</Cards>
+
+## Architecture
+
+Ritext is split into two layers:
+
+- **Core components** — `Editor`, `Toolbar`, `Content`, and `Renderer` form the shell of your editor.
+- **Extensions** — Each formatting feature (bold, italic, heading, image, etc.) is a separate, opt-in extension. You assemble exactly the editor you need.
+
+```tsx
+import { Editor, Toolbar, Content } from 'ritext';
+import { Bold } from 'ritext/extension/bold';
+import { Italic } from 'ritext/extension/italic';
+import 'ritext/styles.css';
+
+export default function MyEditor() {
+  return (
+    <Editor extensions={[Bold, Italic]}>
+      <Toolbar />
+      <Content />
+    </Editor>
+  );
+}
+```
+
+## How It Works
+
+1. You pass an array of **extensions** to the `<Editor>` component.
+2. Each extension automatically registers its toolbar button inside `<Toolbar>`.
+3. `<Content>` renders the ProseMirror editable area.
+4. The order of extensions in your array determines the toolbar button order.
+
+## Next Steps
+
+<Cards>
+  <Card title="Installation" href="/docs/installation" description="Install Ritext and its peer dependencies." icon="Download" />
+  <Card title="Quick Start" href="/docs/quick-start" description="Build your first editor in under 5 minutes." icon="Rocket" />
+  <Card title="Extensions" href="/docs/extensions/overview" description="Browse all available extensions." icon="Blocks" />
 </Cards>

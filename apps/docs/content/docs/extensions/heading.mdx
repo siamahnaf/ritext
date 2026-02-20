@@ -1,0 +1,106 @@
+---
+title: Heading
+description: Add H1–H6 headings to your content.
+---
+
+The `Heading` extension adds a heading dropdown to the toolbar. It supports heading levels H1 through H6 and a "Paragraph" option to reset to body text.
+
+## Import
+
+```tsx
+import { Heading } from 'ritext/extension/heading';
+```
+
+## Usage
+
+```tsx
+const extensions = [Heading];
+```
+
+## Configuration
+
+```tsx
+Heading.configure({
+  showInBubbleMenu: true,
+  showKeyShortcutText: true,
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    showInBubbleMenu: {
+      description: 'Show in the floating bubble menu.',
+      type: 'boolean',
+      default: 'true',
+    },
+    bubbleMenuPosition: {
+      description: 'Position in the bubble menu.',
+      type: 'number',
+      default: '1',
+    },
+    level: {
+      description: 'Configure which heading levels to show and their labels/icons/shortcuts.',
+      type: '{ enable: boolean, icon?: ReactNode, text?: string, keyShortcuts?: string }[]',
+    },
+    showKeyShortcutText: {
+      description: 'Show keyboard shortcut text in the dropdown.',
+      type: 'boolean',
+      default: 'false',
+    },
+    className: {
+      description: 'CSS class for the dropdown trigger button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow on the trigger.',
+      type: 'boolean',
+    },
+    content: {
+      description: 'Custom content for the dropdown trigger.',
+      type: 'ReactNode',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the dropdown container.',
+      type: 'string',
+    },
+    itemClassName: {
+      description: 'CSS class for each dropdown item.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcuts
+
+| Heading | Windows / Linux | macOS |
+|---------|----------------|-------|
+| H1 | `Ctrl+Alt+1` | `⌘+⌥+1` |
+| H2 | `Ctrl+Alt+2` | `⌘+⌥+2` |
+| H3 | `Ctrl+Alt+3` | `⌘+⌥+3` |
+| H4 | `Ctrl+Alt+4` | `⌘+⌥+4` |
+| H5 | `Ctrl+Alt+5` | `⌘+⌥+5` |
+| H6 | `Ctrl+Alt+6` | `⌘+⌥+6` |
+
+## Custom Level Configuration
+
+Show only H1–H3 and customize their display:
+
+```tsx
+Heading.configure({
+  level: [
+    { enable: true, text: 'Heading 1', keyShortcuts: 'Ctrl+Alt+1' },
+    { enable: true, text: 'Heading 2', keyShortcuts: 'Ctrl+Alt+2' },
+    { enable: true, text: 'Heading 3', keyShortcuts: 'Ctrl+Alt+3' },
+    { enable: false }, // H4
+    { enable: false }, // H5
+    { enable: false }, // H6
+  ],
+})
+```

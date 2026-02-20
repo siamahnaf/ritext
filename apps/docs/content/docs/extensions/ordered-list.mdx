@@ -1,0 +1,56 @@
+---
+title: Ordered List
+description: Create numbered (ordered) lists.
+---
+
+The `OrderedList` extension adds support for numbered lists. Requires `ListItem` from base extensions.
+
+## Import
+
+```tsx
+import { OrderedList } from 'ritext/extension/orderedlist';
+```
+
+## Requirements
+
+```tsx
+import { ListItem } from 'ritext/extension/base';
+
+const extensions = [ListItem, OrderedList];
+```
+
+## Usage
+
+```tsx
+const extensions = [ListItem, OrderedList];
+```
+
+## Options
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon.',
+      type: 'ReactNode',
+    },
+    activeClassName: {
+      description: 'CSS class when inside an ordered list.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcut
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Toggle Ordered List | `Ctrl+Shift+7` | `⌘+Shift+7` |

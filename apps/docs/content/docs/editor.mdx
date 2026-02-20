@@ -1,17 +1,162 @@
 ---
-title: Editors
-description: Editors
+title: Editor
+description: The root Editor component that provides context for all child components.
 ---
 
-## Code Block
+The `Editor` component is the root wrapper for your rich text editor. It initializes the Tiptap editor instance, provides context to child components, and manages drag handling and the bubble menu.
+
+## Import
 
 ```tsx
-console.log('Here goes code');
+import { Editor } from 'ritext';
 ```
 
-## Cards
+## Usage
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
-</Cards>
+```tsx
+import { Editor, Toolbar, Content } from 'ritext';
+import { Document, Text, Paragraph } from 'ritext/extension/base';
+import { Bold } from 'ritext/extension/bold';
+import 'ritext/styles.css';
+
+export default function MyEditor() {
+  return (
+    <Editor
+      extensions={[Document, Text, Paragraph, Bold]}
+      className="border border-gray-200 rounded-xl"
+    >
+      <Toolbar className="p-2 border-b" />
+      <Content />
+    </Editor>
+  );
+}
+```
+
+## Props
+
+<TypeTable
+  type={{
+    extensions: {
+      description: 'Array of Tiptap extensions to load into the editor. Determines available features and toolbar buttons.',
+      type: 'Extensions',
+      default: '[]',
+    },
+    children: {
+      description: 'Editor children — typically <Toolbar /> and <Content />.',
+      type: 'ReactNode',
+    },
+    content: {
+      description: 'Initial or controlled content for the editor.',
+      type: 'string | JSONContent',
+    },
+    output: {
+      description: 'Format returned by onContentChange.',
+      type: '"html" | "json" | "text"',
+      default: '"html"',
+    },
+    onContentChange: {
+      description: 'Called whenever the editor content changes.',
+      type: '(e: { editor: Editor, content: string | JSONContent }) => void',
+    },
+    className: {
+      description: 'CSS class applied to the editor wrapper div.',
+      type: 'string',
+    },
+    dragHandler: {
+      description: 'Whether to show the drag-to-reorder handle on the left of each block.',
+      type: 'boolean',
+      default: 'true',
+    },
+    showBubbleMenu: {
+      description: 'Whether to show the floating bubble menu on text selection.',
+      type: 'boolean',
+      default: 'true',
+    },
+    onFocus: {
+      description: 'Called when the editor receives focus.',
+      type: '(e: { editor: Editor, event: FocusEvent }) => void',
+    },
+    onBlur: {
+      description: 'Called when the editor loses focus.',
+      type: '(e: { editor: Editor, event: FocusEvent }) => void',
+    },
+    onClick: {
+      description: 'Called on click inside the editor.',
+      type: '(e: { editor: Editor, event: MouseEvent }) => void',
+    },
+    onKeyDown: {
+      description: 'Called on key press inside the editor.',
+      type: '(e: { editor: Editor, event: KeyboardEvent }) => void',
+    },
+  }}
+/>
+
+## Controlled Content
+
+Pass `content` and `onContentChange` to keep the editor content in sync with your state:
+
+```tsx
+const [html, setHtml] = useState('<p>Hello world</p>');
+
+<Editor
+  content={html}
+  output="html"
+  onContentChange={(e) => setHtml(e.content as string)}
+  extensions={extensions}
+>
+  <Toolbar />
+  <Content />
+</Editor>
+```
+
+## Imperative Handle (Ref)
+
+Attach a ref to access imperative methods. See [EditorRef](/docs/editor-ref) for the full API.
+
+```tsx
+import { useRef } from 'react';
+import { type EditorRef } from 'ritext';
+
+const ref = useRef<EditorRef>(null);
+
+<Editor ref={ref} extensions={extensions}>
+  <Toolbar />
+  <Content />
+</Editor>
+
+// Use ref methods
+ref.current?.clear();
+ref.current?.insert('<strong>Hello</strong>');
+```
+
+## Drag Handler
+
+The drag handler shows a drag icon on the left edge of each block, allowing users to reorder content by dragging. It is enabled by default.
+
+```tsx
+// Disable drag handler
+<Editor dragHandler={false} extensions={extensions}>
+  <Toolbar />
+  <Content />
+</Editor>
+```
+
+## Bubble Menu
+
+The bubble menu appears as a floating toolbar when text is selected. It automatically shows buttons from extensions that have `showInBubbleMenu: true` set in their options.
+
+```tsx
+// Disable bubble menu
+<Editor showBubbleMenu={false} extensions={extensions}>
+  <Toolbar />
+  <Content />
+</Editor>
+```
+
+## Output Formats
+
+| Format | Description |
+|--------|-------------|
+| `"html"` | Serialized HTML string (default) |
+| `"json"` | ProseMirror JSON document |
+| `"text"` | Plain text content |

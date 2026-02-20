@@ -1,17 +1,93 @@
 ---
-title: Editor Content
-description: Editor Content
+title: Content
+description: The Content component renders the editable ProseMirror area.
 ---
 
-## Code Block
+The `Content` component renders the ProseMirror editable area where users type and edit content. It must be placed inside an `<Editor>` component.
+
+## Import
 
 ```tsx
-console.log('Here goes code');
+import { Content } from 'ritext';
 ```
 
-## Cards
+## Usage
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
-</Cards>
+```tsx
+import { Editor, Toolbar, Content } from 'ritext';
+
+<Editor extensions={extensions}>
+  <Toolbar />
+  <Content className="min-h-64 p-4" />
+</Editor>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class applied to the EditorContent wrapper element.',
+      type: 'string',
+    },
+  }}
+/>
+
+## Default Styles
+
+The `Content` component applies the following default inline styles:
+
+- **Padding:** `10px 20px` (or `10px 20px 10px 50px` when the drag handler is enabled, to leave room for the drag icon)
+- **Min-height:** `50px`
+
+You can override these via `className` or by targeting the `.ProseMirror` element in your CSS.
+
+## Content Styling
+
+Import `ritext/styles.css` to get styles for the editor's rendered content — headings, lists, tables, blockquotes, code blocks, and more:
+
+```tsx
+import 'ritext/styles.css';
+```
+
+These styles target `.ProseMirror` elements and are prefixed with `ritext:` to avoid conflicts.
+
+## Placeholder
+
+To add placeholder text, use the `Placeholder` extension from the base extensions:
+
+```tsx
+import { Placeholder } from 'ritext/extension/base';
+
+const extensions = [
+  // ...other extensions
+  Placeholder.configure({
+    placeholder: 'Start writing your content here...',
+  }),
+];
+```
+
+## Min Height
+
+To give the editor a minimum visible height:
+
+```tsx
+<Content className="min-h-64" />
+```
+
+## Full Height Editor
+
+To make the editor fill its container:
+
+```tsx
+<div className="flex flex-col h-96">
+  <Editor className="flex flex-col flex-1 overflow-auto" extensions={extensions}>
+    <Toolbar className="flex-shrink-0 p-2 border-b" />
+    <Content className="flex-1" />
+  </Editor>
+</div>
+```
+
+<Callout type="info">
+  `Content` must be a child of `Editor`. It accesses the editor instance via React context.
+</Callout>

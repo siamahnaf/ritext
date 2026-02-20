@@ -1,0 +1,51 @@
+---
+title: History
+description: Undo and redo editor changes.
+---
+
+The `History` extension adds Undo and Redo buttons to the toolbar. The buttons are automatically disabled when there is nothing to undo or redo.
+
+## Import
+
+```tsx
+import { History } from 'ritext/extension/history';
+```
+
+## Usage
+
+```tsx
+const extensions = [History];
+```
+
+## Features
+
+- Undo button (disabled when no history)
+- Redo button (disabled when no redo stack)
+- Uses `useEditorState` to reactively update button state
+
+## Options
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class for both Undo and Redo buttons.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+    tooltipClassName: {
+      description: 'CSS class for the tooltip.',
+      type: 'string',
+    },
+  }}
+/>
+
+## Keyboard Shortcuts
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Undo | `Ctrl+Z` | `⌘+Z` |
+| Redo | `Ctrl+Y` or `Ctrl+Shift+Z` | `⌘+Shift+Z` |

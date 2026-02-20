@@ -1,0 +1,137 @@
+---
+title: Extensions Overview
+description: Browse all available extensions for Ritext.
+---
+
+Ritext extensions are modular features you opt into. Each extension adds a formatting capability and automatically registers its toolbar button. Include only what you need.
+
+## Base Extensions
+
+Base extensions are required for the editor to function. Always include them.
+
+```tsx
+import {
+  Document, Text, Paragraph, TextStyle,
+  ListItem, ListKeymap, Dropcursor, Gapcursor,
+  Placeholder, TrailingNode, CharacterCount
+} from 'ritext/extension/base';
+```
+
+See [Base Extensions](/docs/extensions/base) for details.
+
+## All Extensions
+
+| Extension | Import Path | Description |
+|-----------|------------|-------------|
+| [Bold](/docs/extensions/bold) | `ritext/extension/bold` | Bold text formatting |
+| [Italic](/docs/extensions/italic) | `ritext/extension/italic` | Italic text formatting |
+| [Underline](/docs/extensions/underline) | `ritext/extension/underline` | Underline text |
+| [Strike](/docs/extensions/strike) | `ritext/extension/strike` | Strikethrough text |
+| [Clear Format](/docs/extensions/clear-format) | `ritext/extension/clearformat` | Remove all formatting |
+| [Subscript](/docs/extensions/subscript) | `ritext/extension/subscript` | Subscript text |
+| [Superscript](/docs/extensions/superscript) | `ritext/extension/superscript` | Superscript text |
+| [Sub & Superscript](/docs/extensions/sub-and-superscript) | `ritext/extension/subandsuperscript` | Combined sub/superscript dropdown |
+| [Heading](/docs/extensions/heading) | `ritext/extension/heading` | H1–H6 headings |
+| [Font Family](/docs/extensions/font-family) | `ritext/extension/font-family` | Change font family |
+| [Font Size](/docs/extensions/font-size) | `ritext/extension/font-size` | Change font size |
+| [Color](/docs/extensions/color) | `ritext/extension/color` | Text color picker |
+| [Background Color](/docs/extensions/background-color) | `ritext/extension/backgroundcolor` | Text background color |
+| [Line Height](/docs/extensions/line-height) | `ritext/extension/lineheight` | Line height control |
+| [Bullet List](/docs/extensions/bullet-list) | `ritext/extension/bulletlist` | Unordered list |
+| [Ordered List](/docs/extensions/ordered-list) | `ritext/extension/orderedlist` | Numbered list |
+| [Task List](/docs/extensions/task-list) | `ritext/extension/tasklist` | Checkbox task list |
+| [Block Quote](/docs/extensions/blockquote) | `ritext/extension/blockquote` | Block quote |
+| [Horizontal Rule](/docs/extensions/horizontal-rule) | `ritext/extension/horizontalrule` | Horizontal divider |
+| [Text Align](/docs/extensions/text-align) | `ritext/extension/textalign` | Left/Center/Right/Justify |
+| [Indent/Outdent](/docs/extensions/indent-outdent) | `ritext/extension/indentoutdent` | Text indentation |
+| [History](/docs/extensions/history) | `ritext/extension/history` | Undo/Redo |
+| [Hard Break](/docs/extensions/hard-break) | `ritext/extension/hardbreak` | Insert line break |
+| [Link](/docs/extensions/link) | `ritext/extension/link` | Hyperlinks |
+| [Image](/docs/extensions/image) | `ritext/extension/image` | Image insertion and editing |
+| [Table](/docs/extensions/table) | `ritext/extension/table` | Table insertion and editing |
+| [Emoji](/docs/extensions/emoji) | `ritext/extension/emoji` | Emoji picker |
+
+## Common Extension Pattern
+
+Every Ritext extension follows the same pattern:
+
+```tsx
+import { Bold } from 'ritext/extension/bold';
+
+// Use as-is
+const extensions = [Bold];
+
+// Or configure with options
+const extensions = [
+  Bold.configure({
+    className: 'my-button-class',
+    tooltip: true,
+  }),
+];
+```
+
+## Common Options
+
+All toolbar extensions share a set of common styling options:
+
+<TypeTable
+  type={{
+    className: {
+      description: 'CSS class applied to the toolbar button.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon to display in the button.',
+      type: 'ReactNode',
+    },
+    style: {
+      description: 'Inline style object for the button.',
+      type: 'CSSProperties',
+    },
+    activeClassName: {
+      description: 'CSS class applied to the button when the format is active.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Whether to show a tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+    tooltipClassName: {
+      description: 'CSS class for the tooltip element.',
+      type: 'string',
+    },
+    tooltipPlacement: {
+      description: 'Placement of the tooltip.',
+      type: 'string',
+      default: '"bottom"',
+    },
+  }}
+/>
+
+## Bubble Menu
+
+Many extensions support appearing in the floating bubble menu that shows when text is selected. Configure this per-extension:
+
+```tsx
+Bold.configure({
+  showInBubbleMenu: true,     // show in bubble menu (default: true for most)
+  bubbleMenuPosition: 2,      // position in bubble menu (lower = earlier)
+})
+```
+
+Default bubble menu positions:
+
+| Position | Extension |
+|----------|-----------|
+| 1 | Heading |
+| 2 | Bold |
+| 3 | Italic |
+| 4 | Underline |
+| 5 | Strike |
+| 6 | Color |
+| 7 | Background Color |
+| 8 | Text Align |
+| 9 | Link |
+| 10 | Hard Break |
+| 11 | Emoji |

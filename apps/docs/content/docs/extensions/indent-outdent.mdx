@@ -1,0 +1,74 @@
+---
+title: Indent / Outdent
+description: Increase or decrease text indentation.
+---
+
+The `IndentOutdent` extension adds indent and outdent buttons to the toolbar. Indentation is applied as `text-indent` CSS, with a configurable size and maximum level.
+
+## Import
+
+```tsx
+import { IndentOutdent } from 'ritext/extension/indentoutdent';
+```
+
+## Usage
+
+```tsx
+const extensions = [IndentOutdent];
+```
+
+## Configuration
+
+```tsx
+IndentOutdent.configure({
+  indentSize: 1,
+  maxIndent: 7,
+  types: ['paragraph', 'heading', 'blockquote'],
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    indentSize: {
+      description: 'How much to increment the indent level per click.',
+      type: 'number',
+      default: '1',
+    },
+    maxIndent: {
+      description: 'Maximum indent level.',
+      type: 'number',
+      default: '7',
+    },
+    types: {
+      description: 'Node types that support indentation.',
+      type: 'string[]',
+      default: '["paragraph", "heading", "blockquote"]',
+    },
+    className: {
+      description: 'CSS class for both indent/outdent buttons.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>
+
+## Keyboard Shortcuts
+
+| Action | Windows / Linux | macOS |
+|--------|----------------|-------|
+| Indent | `Tab` | `Tab` |
+| Outdent | `Shift+Tab` | `Shift+Tab` |
+
+<Callout type="info">
+  The Tab/Shift+Tab shortcuts only apply inside paragraphs, headings, and blockquotes — not inside lists. Inside lists, Tab/Shift+Tab control list nesting (via `ListKeymap`).
+</Callout>
+
+## How Indentation Works
+
+Each indent level adds `2em` of `text-indent`. The maximum is `7` levels (14em). The indent level is stored as a `data-indent` attribute on the node.
