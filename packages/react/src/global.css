@@ -176,7 +176,7 @@
     }
 
     /* Table */
-    .tableWrapper {
+    .ProseMirror .tableWrapper {
         overflow: hidden;
     }
 

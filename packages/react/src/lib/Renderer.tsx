@@ -12,7 +12,7 @@ const Renderer = ({ content, className = "", ...props }: Props) => {
 
     return (
         <div
-            className={`ProseMirror ${className}`}
+            className={`ProseMirror ritext ${className}`}
             dangerouslySetInnerHTML={{ __html: content }}
             {...props}
         />
