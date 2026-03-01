@@ -14,6 +14,7 @@ export const Superscript: Mark<ExtSuperScriptOptions> = TiptapSuperscript.extend
         const parent = this.parent?.();
         return {
             ...(parent as SuperscriptExtensionOptions ?? {}),
+            surface: { toolbar: true },
             component: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent

@@ -33,15 +33,15 @@ Bold.configure({
 
 <TypeTable
   type={{
-    showInBubbleMenu: {
-      description: 'Whether to show Bold in the floating bubble menu.',
-      type: 'boolean',
-      default: 'true',
+    surface: {
+      description: 'Controls which surfaces render this button. Set `toolbar: false` to hide from toolbar, `bubbleMenu: false` to hide from bubble menu.',
+      type: '{ toolbar?: boolean; bubbleMenu?: boolean }',
+      default: '{ toolbar: true, bubbleMenu: true }',
     },
-    bubbleMenuPosition: {
-      description: 'Position of the button in the bubble menu (lower = first).',
-      type: 'number',
-      default: '2',
+    order: {
+      description: 'Controls the position of this button in each surface. Lower numbers appear first.',
+      type: '{ bubbleMenu?: number }',
+      default: '{ bubbleMenu: 2 }',
     },
     className: {
       description: 'CSS class for the toolbar button.',

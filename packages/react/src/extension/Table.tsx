@@ -46,6 +46,7 @@ export const Table: Extension<ExtTableOptions> = TableKit.extend<ExtTableOptions
         const parent = this.parent?.();
         return {
             ...(parent as TableKitOptions ?? {}),
+            surface: { toolbar: true },
             table: {
                 resizable: true,
             },

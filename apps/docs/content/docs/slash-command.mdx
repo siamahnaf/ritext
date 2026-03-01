@@ -1,0 +1,167 @@
+---
+title: SlashCommand
+description: A slash-command menu that lets users insert blocks by typing / anywhere in the editor.
+---
+
+The `SlashCommand` component renders a floating command palette when the user types `/` at the start of an empty block. Select an item with the mouse or keyboard to insert content at that position.
+
+## Import
+
+```tsx
+import { SlashCommand, SlashItems } from 'ritext';
+```
+
+## Usage
+
+Place `SlashCommand` anywhere inside `<Editor>`. It reads the editor context automatically — no extra props required for basic usage.
+
+```tsx
+import { Editor, Toolbar, Content, SlashCommand } from 'ritext';
+import { Bold, Heading, BulletList } from 'ritext/extension/...';
+
+<Editor extensions={[Bold, Heading, BulletList, ...]}>
+  <Toolbar />
+  <Content />
+  <SlashCommand />
+</Editor>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    items: {
+      description: 'Mixed array of SlashCommandItem objects and plain strings. Strings act as group headers. Defaults to all built-in SlashItems in two groups: Format and Insert.',
+      type: 'Array<SlashCommandItem | string>',
+    },
+    className: {
+      description: 'CSS class applied to the floating dropdown container.',
+      type: 'string',
+    },
+    itemClassName: {
+      description: 'CSS class applied to every individual item button.',
+      type: 'string',
+    },
+    style: {
+      description: 'Inline styles applied to the floating dropdown container.',
+      type: 'CSSProperties',
+    },
+  }}
+/>
+
+## SlashItems
+
+`SlashItems` is a pre-built dictionary of ready-to-use command items. Each entry is a `SlashCommandItem` that you can include directly in the `items` prop.
+
+| Key | Extension required | Action |
+|-----|--------------------|--------|
+| `SlashItems.Paragraph` | `paragraph` (built-in) | Set block to paragraph |
+| `SlashItems.Heading1` – `Heading6` | `heading` | Toggle heading level 1–6 |
+| `SlashItems.BulletList` | `bulletList` | Toggle bullet list |
+| `SlashItems.OrderedList` | `orderedList` | Toggle ordered list |
+| `SlashItems.TaskList` | `taskList` | Toggle task list |
+| `SlashItems.BlockQuote` | `blockquote` | Toggle blockquote |
+| `SlashItems.Image` | `image` | Open the Image dialog |
+| `SlashItems.Table` | `table` | Insert a 3 × 3 table |
+| `SlashItems.HorizontalRule` | `horizontalRule` | Insert a horizontal rule |
+
+<Callout type="info">
+  If an extension required by a `SlashItem` is not registered on your `<Editor>`, that item is automatically filtered out and a `console.error` is logged with instructions.
+</Callout>
+
+## Grouping Items
+
+Pass a plain **string** anywhere in the `items` array to start a new named group. Every item that follows belongs to that group until the next string.
+
+```tsx
+import { SlashCommand, SlashItems } from 'ritext';
+
+<SlashCommand
+  items={[
+    'Headings',
+    SlashItems.Heading1,
+    SlashItems.Heading2,
+    SlashItems.Heading3,
+    'Lists',
+    SlashItems.BulletList,
+    SlashItems.OrderedList,
+  ]}
+/>
+```
+
+Items added before the first string header are rendered without a label.
+
+## Custom Items
+
+Build your own `SlashCommandItem` and mix it with built-in ones:
+
+```tsx
+import { SlashCommand, SlashItems, type SlashCommandItem } from 'ritext';
+import { CodeIcon } from 'lucide-react';
+
+const CodeBlock: SlashCommandItem = {
+  id: 'slash-code-block',
+  icon: <CodeIcon size={14} />,
+  title: 'Code Block',
+  description: 'Insert a fenced code block',
+  extensionName: 'codeBlock',         // optional — used for validation
+  command: (editor) => editor.chain().focus().toggleCodeBlock().run(),
+};
+
+<SlashCommand
+  items={[
+    'Format',
+    SlashItems.Paragraph,
+    SlashItems.Heading1,
+    SlashItems.Heading2,
+    CodeBlock,
+  ]}
+/>
+```
+
+## SlashCommandItem Type
+
+```ts
+type SlashCommandItem = {
+  id: string;
+  icon?: ReactNode;
+  title: string;
+  description?: string;
+  /** Extension name used to validate the item is registered. Filtered out with a warning if missing. */
+  extensionName?: string;
+  command: (editor: Editor) => void;
+  /** Optional sub-panel rendered instead of running command (e.g. ImageDialog). */
+  panel?: (args: { editor: Editor; onClose: () => void }) => ReactNode;
+  /** When true the panel manages its own UI (portal/dialog). No wrapper is rendered. */
+  panelAsDialog?: boolean;
+};
+```
+
+## Keyboard Navigation
+
+| Key | Action |
+|-----|--------|
+| `↓` | Move highlight down |
+| `↑` | Move highlight up |
+| `Enter` | Execute highlighted item |
+| `Escape` | Close the menu |
+
+The highlighted item scrolls into view automatically when navigating with the keyboard.
+
+## Filtering
+
+As the user types after `/`, the list is filtered in real time against item titles. Typing `/he` shows only Heading items; typing `/bu` shows BulletList, etc.
+
+## Positioning
+
+`SlashCommand` uses `@floating-ui/react` with `autoUpdate` to anchor the dropdown to the cursor position. The panel repositions automatically on scroll and window resize — no manual listeners needed.
+
+## How It Works
+
+1. On every editor `update` and `selectionUpdate`, `SlashCommand` checks whether the text from the start of the current block to the cursor begins with `/` and contains no spaces.
+2. If it does, the dropdown opens at the cursor position.
+3. When an item is selected, the slash text is removed and the block is normalised to a clean top-level paragraph before the item command runs, ensuring consistent insertion regardless of whether the slash was typed inside a heading, list, or blockquote.
+
+<Callout type="info">
+  `SlashCommand` must be a child of `<Editor>`. It uses React context to access the editor instance.
+</Callout>

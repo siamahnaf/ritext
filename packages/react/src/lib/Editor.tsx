@@ -2,8 +2,7 @@ import { forwardRef, useMemo, useImperativeHandle } from "react";
 import { useEditor } from "@tiptap/react";
 
 //Components
-import RiDragHandler from "./internal_com/RiDragHandler";
-import BubbleMenu from "./internal_com/BubbleMenu";
+import RiDragHandler from "./components/_internal/RiDragHandler";
 
 //Context
 import { EditorProvider } from "./context/editor.context";
@@ -15,7 +14,6 @@ const Editor = forwardRef<EditorRef, EditorProps>(({
     children,
     extensions = [],
     dragHandler = true,
-    showBubbleMenu = true,
     content,
     onContentChange,
     output,
@@ -111,11 +109,9 @@ const Editor = forwardRef<EditorRef, EditorProps>(({
             {value.editor && dragHandler &&
                 <RiDragHandler editor={value.editor} />
             }
-            {value.editor && showBubbleMenu &&
-                <BubbleMenu editor={value.editor} />
-            }
         </EditorProvider>
     );
 });
+
 Editor.displayName = "Editor";
 export default Editor;

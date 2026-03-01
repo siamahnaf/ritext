@@ -21,15 +21,15 @@ const extensions = [Strike];
 
 <TypeTable
   type={{
-    showInBubbleMenu: {
-      description: 'Show in the floating bubble menu.',
-      type: 'boolean',
-      default: 'true',
+    surface: {
+      description: 'Controls which surfaces render this button. Set `toolbar: false` to hide from toolbar, `bubbleMenu: false` to hide from bubble menu.',
+      type: '{ toolbar?: boolean; bubbleMenu?: boolean }',
+      default: '{ toolbar: true, bubbleMenu: true }',
     },
-    bubbleMenuPosition: {
-      description: 'Position in the bubble menu.',
-      type: 'number',
-      default: '5',
+    order: {
+      description: 'Controls the position of this button in each surface. Lower numbers appear first.',
+      type: '{ bubbleMenu?: number }',
+      default: '{ bubbleMenu: 5 }',
     },
     className: {
       description: 'CSS class for the toolbar button.',

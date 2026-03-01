@@ -21,6 +21,7 @@ export const LineHeight: Extension<ExtLineHeightOptions> = TiptapLineHeight.exte
         const parent = this.parent?.();
         return {
             ...(parent as TiptapLineHeightOptions),
+            surface: { toolbar: true },
             lineHeights: DEFAULT_LINE_HEIGHT_LIST,
             component: ({ options, editor, dropdownContainerClassName, }) => {
                 const list = options.lineHeights ?? DEFAULT_LINE_HEIGHT_LIST;

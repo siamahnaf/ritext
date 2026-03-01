@@ -6,18 +6,15 @@ import { BoldIcon } from "../lib/icons";
 import ButtonComponent from "../lib/components/ButtonComponent";
 import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
-type ExtBoldOptions = ExtButtonOptions<BoldOptions & {
-    showInBubbleMenu?: boolean;
-    bubbleMenuPosition?: number;
-}>;
+type ExtBoldOptions = ExtButtonOptions<BoldOptions>;
 
 export const Bold: Mark<ExtBoldOptions> = TiptapBold.extend<ExtBoldOptions>({
     addOptions() {
         const parent = this.parent?.();
         return {
             ...(parent as BoldOptions ?? {}),
-            showInBubbleMenu: true,
-            bubbleMenuPosition: 2,
+            surface: { bubbleMenu: true },
+            order: { bubbleMenu: 2 },
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonComponent

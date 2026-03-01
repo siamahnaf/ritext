@@ -2,6 +2,34 @@ import type { ReactNode, CSSProperties } from "react";
 import type { Placement } from "@floating-ui/react";
 import type { Editor } from "@tiptap/react";
 
+export type SlashCommandItem = {
+    id: string;
+    icon?: ReactNode;
+    title: string;
+    description?: string;
+    extensionName?: string;
+    command: (editor: Editor) => void;
+    /** Render a panel when this item is selected instead of running command. */
+    panel?: (args: { editor: Editor; onClose: () => void }) => ReactNode;
+    /** When true the panel portals itself (e.g. a full-screen dialog).
+     *  No wrapper box is rendered around it. Defaults to false (inline wrapper). */
+    panelAsDialog?: boolean;
+};
+
+export type SlashCommandGroup = {
+    label: string;
+    items: SlashCommandItem[];
+};
+
+export type ExtSurface = {
+    toolbar?: boolean;      // default: true
+    bubbleMenu?: boolean;   // default: false
+};
+
+export type ExtOrder = {
+    bubbleMenu?: number;
+};
+
 export type ExtButtonBaseOptions = {
     className?: string;
     activeClassName?: string;
@@ -10,6 +38,8 @@ export type ExtButtonBaseOptions = {
     tooltip?: boolean | string;
     tooltipClassName?: string;
     tooltipPlacement?: Placement;
+    surface?: ExtSurface;
+    order?: ExtOrder;
 };
 
 export type ExtDropdownBaseOptions = {
@@ -23,6 +53,8 @@ export type ExtDropdownBaseOptions = {
     tooltip?: boolean | string;
     tooltipClassName?: string;
     tooltipPlacement?: Placement;
+    surface?: ExtSurface;
+    order?: ExtOrder;
 };
 
 type EmptyObject = Record<string, never>;

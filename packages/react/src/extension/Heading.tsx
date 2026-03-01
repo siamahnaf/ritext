@@ -14,8 +14,6 @@ type ExtHeadingOptions = ExtDropdownOptions<
     HeadingOptions & {
         showKeyShortcutText?: boolean;
         level?: { enable: boolean, icon?: ReactNode, text?: string, keyShortcuts?: string }[];
-        showInBubbleMenu?: boolean;
-        bubbleMenuPosition?: number;
     }, {
         dropdownContainerClassName: string;
         dropdownItemClassName: string;
@@ -27,8 +25,8 @@ export const Heading: Node<ExtHeadingOptions> = TiptapHeading.extend<ExtHeadingO
         const parent = this.parent?.()
         return {
             ...(parent as HeadingOptions ?? {}),
-            showInBubbleMenu: true,
-            bubbleMenuPosition: 1,
+            surface: { bubbleMenu: true },
+            order: { bubbleMenu: 1 },
             component: ({ options, editor, dropdownContainerClassName, dropdownItemClassName }) => {
                 const macKey = isMacOS() ? "⌘ ⌥ " : "Ctrl ⌥ ";
 

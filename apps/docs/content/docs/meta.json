@@ -8,6 +8,8 @@
     "Core Components",
     "editor",
     "toolbar",
+    "bubble-menu",
+    "slash-command",
     "editor-content",
     "renderer",
     "editor-ref",

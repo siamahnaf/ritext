@@ -7,18 +7,15 @@ import ButtonComponent from "../lib/components/ButtonComponent";
 import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
 //Types
-type ExtUnderlineOptions = ExtButtonOptions<UnderlineOptions & {
-    showInBubbleMenu?: boolean;
-    bubbleMenuPosition?: number;
-}>;
+type ExtUnderlineOptions = ExtButtonOptions<UnderlineOptions>;
 
 export const Underline: Mark<ExtUnderlineOptions> = TiptapUnder.extend<ExtUnderlineOptions>({
     addOptions() {
         const parent = this.parent?.();
         return {
             ...(parent as UnderlineOptions ?? {}),
-            showInBubbleMenu: true,
-            bubbleMenuPosition: 4,
+            surface: { bubbleMenu: true },
+            order: { bubbleMenu: 4 },
             component: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent

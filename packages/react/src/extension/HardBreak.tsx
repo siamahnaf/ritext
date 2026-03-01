@@ -6,18 +6,15 @@ import { HardBreakIcon } from "../lib/icons";
 import ButtonWithoutActive from "../lib/components/ButtonWithoutActive";
 import type { ExtWithoutActiveOptions } from "../lib/types/tiptap-ext.type";
 
-type ExtBoldOptions = ExtWithoutActiveOptions<HardBreakOptions & {
-    showInBubbleMenu?: boolean;
-    bubbleMenuPosition?: number;
-}>;
+type ExtHardBreakOptions = ExtWithoutActiveOptions<HardBreakOptions>;
 
-export const HardBreak: Node<ExtBoldOptions> = TiptapHardBreak.extend<ExtBoldOptions>({
+export const HardBreak: Node<ExtHardBreakOptions> = TiptapHardBreak.extend<ExtHardBreakOptions>({
     addOptions() {
         const parent = this.parent?.();
         return {
             ...(parent as HardBreakOptions ?? {}),
-            showInBubbleMenu: true,
-            bubbleMenuPosition: 10,
+            surface: { bubbleMenu: true },
+            order: { bubbleMenu: 10 },
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonWithoutActive

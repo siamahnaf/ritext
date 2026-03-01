@@ -12,6 +12,7 @@ export const ClearFormat = Extension.create<ExtClearFormOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
+            surface: { toolbar: true },
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonWithoutActive

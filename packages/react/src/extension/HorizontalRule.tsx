@@ -14,6 +14,7 @@ export const HorizontalRule: Node<ExtHorizontalRules> = TiptapHorizontalRule.ext
         const parent = this.parent?.();
         return {
             ...(parent as HorizontalRuleOptions ?? {}),
+            surface: { toolbar: true },
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonWithoutActive

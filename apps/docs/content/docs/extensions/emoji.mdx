@@ -21,7 +21,7 @@ const extensions = [Emoji];
 
 ```tsx
 Emoji.configure({
-  showInBubbleMenu: false,
+  surface: { bubbleMenu: false },
   openOnClick: false,
 })
 ```
@@ -30,15 +30,15 @@ Emoji.configure({
 
 <TypeTable
   type={{
-    showInBubbleMenu: {
-      description: 'Show in the floating bubble menu.',
-      type: 'boolean',
-      default: 'false',
+    surface: {
+      description: 'Controls which surfaces render this button. Set `toolbar: false` to hide from toolbar, `bubbleMenu: true` to show in bubble menu.',
+      type: '{ toolbar?: boolean; bubbleMenu?: boolean }',
+      default: '{ toolbar: true, bubbleMenu: false }',
     },
-    bubbleMenuPosition: {
-      description: 'Position in the bubble menu.',
-      type: 'number',
-      default: '11',
+    order: {
+      description: 'Controls the position of this button in each surface. Lower numbers appear first.',
+      type: '{ bubbleMenu?: number }',
+      default: '{ bubbleMenu: 11 }',
     },
     openOnClick: {
       description: 'Open the emoji picker on click.',

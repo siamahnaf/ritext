@@ -1,0 +1,103 @@
+---
+title: BubbleMenu
+description: A floating toolbar that appears above selected text, powered by your extensions.
+---
+
+The `BubbleMenu` component renders a compact floating toolbar whenever the user selects text in the editor. Like `Toolbar`, it automatically reads from your registered extensions — only extensions that opt into `surface.bubbleMenu` are shown.
+
+## Import
+
+```tsx
+import { BubbleMenu } from 'ritext';
+```
+
+## Usage
+
+Place `BubbleMenu` anywhere inside `<Editor>`. No props are required.
+
+```tsx
+import { Editor, Toolbar, Content, BubbleMenu } from 'ritext';
+import { Bold, Italic, Underline, Color } from 'ritext/extension/...';
+
+<Editor extensions={[Bold, Italic, Underline, Color]}>
+  <Toolbar />
+  <Content />
+  <BubbleMenu />
+</Editor>
+```
+
+## Enabling Extensions in the Bubble Menu
+
+By default, extensions only appear in the `Toolbar`. To also show an extension in the bubble menu, set `surface.bubbleMenu: true` in its configuration:
+
+```tsx
+import { Bold } from 'ritext/extension/bold';
+import { Italic } from 'ritext/extension/italic';
+import { Color } from 'ritext/extension/color';
+
+const extensions = [
+  Bold.configure({
+    surface: { toolbar: true, bubbleMenu: true },
+  }),
+  Italic.configure({
+    surface: { toolbar: true, bubbleMenu: true },
+  }),
+  Color.configure({
+    surface: { toolbar: false, bubbleMenu: true }, // only in bubble menu
+  }),
+];
+```
+
+## Controlling Order
+
+Use `order.bubbleMenu` to control the position of each extension in the bubble menu. Lower numbers appear first. Extensions without an explicit order fall back to the order of the `extensions` array.
+
+```tsx
+Bold.configure({
+  surface: { toolbar: true, bubbleMenu: true },
+  order: { bubbleMenu: 1 },
+}),
+Italic.configure({
+  surface: { toolbar: true, bubbleMenu: true },
+  order: { bubbleMenu: 2 },
+}),
+```
+
+## Surface Options
+
+The `surface` option is available on every extension. It controls where the extension's button is rendered.
+
+<TypeTable
+  type={{
+    'surface.toolbar': {
+      description: 'Show this extension\'s button in the Toolbar.',
+      type: 'boolean',
+      default: 'true',
+    },
+    'surface.bubbleMenu': {
+      description: 'Show this extension\'s button in the BubbleMenu.',
+      type: 'boolean',
+      default: 'false',
+    },
+    'order.bubbleMenu': {
+      description: 'Numeric position in the BubbleMenu. Lower values appear first.',
+      type: 'number',
+    },
+  }}
+/>
+
+## Visibility Rules
+
+The bubble menu is shown when:
+- Text is selected (i.e. `from !== to`)
+- The editor is focused
+- The selection is not a node selection (e.g. a selected image)
+- The active node is not an image (image has its own floating toolbar)
+
+## How It Works
+
+Internally, `BubbleMenu` iterates over `editor.extensionManager.extensions`, filters those with `surface.bubbleMenu === true`, sorts them by `order.bubbleMenu` (then by extension array order as a tiebreaker), and renders each extension's `component` inside a floating container anchored above the selection.
+
+<Callout type="info">
+  `BubbleMenu` must be a child of `<Editor>`. It uses React context to access the editor instance.
+</Callout>

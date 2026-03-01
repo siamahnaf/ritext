@@ -1,40 +1,47 @@
+import { useRef } from "react";
 import DragHandle from "@tiptap/extension-drag-handle-react";
+import type { Node } from "@tiptap/pm/model";
 import type { Editor } from "@tiptap/react";
 import { TextSelection } from "@tiptap/pm/state";
-import { DragVerticalIcon, PlusIcon } from "../icons";
-import Tooltip from "../components/_com/Tooltip";
+import { DragVerticalIcon, PlusIcon } from "../../icons";
+import Tooltip from "../_com/Tooltip";
 
 interface Props { editor: Editor }
 
 const RiDragHandler = ({ editor }: Props) => {
+    const hoveredRef = useRef<{ node: Node; pos: number } | null>(null);
+
     const insertSlash = () => {
+        const hovered = hoveredRef.current;
+        if (!hovered) return;
+
+        const { node, pos } = hovered;
+
         editor.chain().focus().command(({ tr, state }) => {
-            const { $from } = state.selection;
-            let blockDepth = $from.depth;
-            while (blockDepth > 0 && !$from.node(blockDepth).isBlock) blockDepth--;
-
-            const blockNode = $from.node(blockDepth);
-            const isEmptyBlock = blockNode.isTextblock && blockNode.content.size === 0;
-
+            const isEmptyBlock = node.isTextblock && node.content.size === 0;
             if (isEmptyBlock) {
-                tr.insertText("/", state.selection.from, state.selection.to);
-                tr.setSelection(TextSelection.create(tr.doc, state.selection.from + 1));
+                const innerStart = pos + 1;
+                tr.insertText("/", innerStart);
+                tr.setSelection(TextSelection.create(tr.doc, innerStart + 1));
                 return true;
             }
-
-            const insertPos = $from.after(blockDepth);
+            const insertPos = pos + node.nodeSize;
             const paragraph = state.schema.nodes.paragraph;
-            const text = state.schema.text("/");
             if (!paragraph) return false;
 
-            tr.insert(insertPos, paragraph.create(null, text));
+            tr.insert(insertPos, paragraph.create(null, state.schema.text("/")));
             tr.setSelection(TextSelection.create(tr.doc, insertPos + 2));
             return true;
         }).run();
     };
 
     return (
-        <DragHandle editor={editor}>
+        <DragHandle
+            editor={editor}
+            onNodeChange={({ node, pos }) => {
+                hoveredRef.current = node ? { node, pos } : null;
+            }}
+        >
             <div className="ritext:flex ritext:gap-x-1.5 ritext:mt-1.5 ritext:-translate-x-1.5">
                 <Tooltip content="Insert Content">
                     <button

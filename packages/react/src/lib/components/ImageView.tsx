@@ -8,7 +8,7 @@ import { NodeSelection, TextSelection } from "@tiptap/pm/state";
 import Tooltip from "./_com/Tooltip";
 
 //Icons
-import { FlipHorizontal, FlipVertical, AlignLeft, AlignCenter, AlignRight, TrashIcon } from "../icons";
+import { FlipHorizontal, FlipVertical, AlignLeft, AlignCenter, AlignRight, TrashIcon, RoundedCornerIcon } from "../icons";
 
 
 //Types
@@ -36,6 +36,7 @@ export const ImageView = (props: NodeViewProps) => {
     const height = (node.attrs.height as number | null) ?? null;
     const flipX = !!node.attrs.flipX;
     const flipY = !!node.attrs.flipY;
+    const borderRadius = (node.attrs.borderRadius as number | null) ?? null;
 
     const transform = useMemo(() => {
         const sx = flipX ? -1 : 1;
@@ -68,6 +69,18 @@ export const ImageView = (props: NodeViewProps) => {
         keepSelected();
         updateAttributes({ flipY: !flipY });
         queueMicrotask(keepSelected);
+    };
+
+    const BORDER_RADIUS_PRESETS = [
+        { label: "S", value: 4 },
+        { label: "M", value: 8 },
+        { label: "L", value: 16 },
+        { label: "XL", value: 24 },
+        { label: "Full", value: 9999 },
+    ] as const;
+
+    const setBorderRadius = (v: number) => {
+        updateAttributes({ borderRadius: borderRadius === v ? null : v });
     };
 
     // Menu visibility
@@ -302,6 +315,7 @@ export const ImageView = (props: NodeViewProps) => {
         transform,
         userSelect: "none",
         opacity: dragging ? 0.7 : 1,
+        borderRadius: borderRadius ? `${borderRadius}px` : undefined,
     };
 
     return (
@@ -383,13 +397,13 @@ export const ImageView = (props: NodeViewProps) => {
                             }}
                         >
                             <Tooltip content="Flip Horizontal">
-                                <button type="button" onClick={toggleFlipX} style={{ borderRadius: 10, border: "1px solid #e5e7eb", background: "#fff", padding: "6px 8px", fontSize: 12, cursor: "pointer" }}>
+                                <button type="button" onClick={toggleFlipX} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 34, height: 32, borderRadius: 8, border: "1px solid #e5e7eb", background: "#fff", cursor: "pointer" }}>
                                     <FlipVertical />
                                 </button>
                             </Tooltip>
 
                             <Tooltip content="Flip Vertical">
-                                <button type="button" onClick={toggleFlipY} style={{ borderRadius: 10, border: "1px solid #e5e7eb", background: "#fff", padding: "6px 8px", fontSize: 12, cursor: "pointer" }}>
+                                <button type="button" onClick={toggleFlipY} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 34, height: 32, borderRadius: 8, border: "1px solid #e5e7eb", background: "#fff", cursor: "pointer" }}>
                                     <FlipHorizontal />
                                 </button>
                             </Tooltip>
@@ -397,20 +411,55 @@ export const ImageView = (props: NodeViewProps) => {
                             <span style={{ width: 1, height: 16, background: "#e5e7eb", margin: "0 6px" }} />
 
                             <Tooltip content="Left">
-                                <button type="button" onClick={() => setAlign("left")} style={{ borderRadius: 10, border: "1px solid #e5e7eb", background: "#fff", padding: "6px 8px", fontSize: 12, cursor: "pointer" }}>
+                                <button type="button" onClick={() => setAlign("left")} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 34, height: 32, borderRadius: 8, border: "1px solid #e5e7eb", background: "#fff", cursor: "pointer" }}>
                                     <AlignLeft />
                                 </button>
                             </Tooltip>
                             <Tooltip content="Center">
-                                <button type="button" onClick={() => setAlign("center")} style={{ borderRadius: 10, border: "1px solid #e5e7eb", background: "#fff", padding: "6px 8px", fontSize: 12, cursor: "pointer" }}>
+                                <button type="button" onClick={() => setAlign("center")} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 34, height: 32, borderRadius: 8, border: "1px solid #e5e7eb", background: "#fff", cursor: "pointer" }}>
                                     <AlignCenter />
                                 </button>
                             </Tooltip>
                             <Tooltip content="Right">
-                                <button type="button" onClick={() => setAlign("right")} style={{ borderRadius: 10, border: "1px solid #e5e7eb", background: "#fff", padding: "6px 8px", fontSize: 12, cursor: "pointer" }}>
+                                <button type="button" onClick={() => setAlign("right")} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 34, height: 32, borderRadius: 8, border: "1px solid #e5e7eb", background: "#fff", cursor: "pointer" }}>
                                     <AlignRight />
                                 </button>
                             </Tooltip>
+
+                            <span style={{ width: 1, height: 16, background: "#e5e7eb", margin: "0 6px" }} />
+
+                            <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", color: "#6b7280" }}>
+                                <RoundedCornerIcon />
+                            </span>
+
+                            {BORDER_RADIUS_PRESETS.map(({ label, value }) => {
+                                const active = borderRadius === value;
+                                return (
+                                    <Tooltip key={label} content={`Border Radius ${label}`}>
+                                        <button
+                                            type="button"
+                                            onClick={() => setBorderRadius(value)}
+                                            style={{
+                                                display: "inline-flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                width: 34,
+                                                height: 32,
+                                                borderRadius: 8,
+                                                border: active ? "1px solid #111827" : "1px solid #e5e7eb",
+                                                background: active ? "#111827" : "#fff",
+                                                color: active ? "#fff" : "#374151",
+                                                fontSize: 14,
+                                                cursor: "pointer",
+                                                fontWeight: active ? 600 : 400,
+                                                flexShrink: 0,
+                                            }}
+                                        >
+                                            {label}
+                                        </button>
+                                    </Tooltip>
+                                );
+                            })}
 
                             <span style={{ width: 1, height: 16, background: "#e5e7eb", margin: "0 6px" }} />
 
@@ -418,15 +467,7 @@ export const ImageView = (props: NodeViewProps) => {
                                 <button
                                     type="button"
                                     onClick={deleteNode}
-                                    style={{
-                                        borderRadius: 10,
-                                        border: "1px solid #fecaca",
-                                        background: "#fff",
-                                        padding: "6px 8px",
-                                        fontSize: 12,
-                                        cursor: "pointer",
-                                        color: "#dc2626",
-                                    }}
+                                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 34, height: 32, borderRadius: 8, border: "1px solid #fecaca", background: "#fff", cursor: "pointer", color: "#dc2626" }}
                                 >
                                     <TrashIcon />
                                 </button>

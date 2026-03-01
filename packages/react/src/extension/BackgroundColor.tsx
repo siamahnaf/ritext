@@ -14,8 +14,6 @@ import { DEFAULT_COLOR_LIST } from "./Color";
 type ExtBackgroundOptions = ExtDropdownOptions<
     TiptapBackgroundOption & {
         colorLists?: string[],
-        showInBubbleMenu?: boolean;
-        bubbleMenuPosition?: number;
     },
     { dropdownContainerClassName: string }
 >;
@@ -58,8 +56,8 @@ export const BackgroundColor: Extension<ExtBackgroundOptions> = TiptapBackground
         return {
             ...parent,
             types: ["textStyle"],
-            showInBubbleMenu: true,
-            bubbleMenuPosition: 7,
+            surface: { bubbleMenu: true },
+            order: { bubbleMenu: 7 },
             colorLists: DEFAULT_COLOR_LIST,
             component: ({ options, editor, dropdownContainerClassName }) => {
                 const items = options.colorLists ?? DEFAULT_COLOR_LIST;

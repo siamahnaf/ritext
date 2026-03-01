@@ -13,6 +13,7 @@ export const BlockQuote: Node<ExtBlockQuoteOptions> = TiptapBlockquote.extend<Ex
         const parent = this.parent?.();
         return {
             ...(parent as BlockquoteOptions ?? {}),
+            surface: { toolbar: true },
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonComponent

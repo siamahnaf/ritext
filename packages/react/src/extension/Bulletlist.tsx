@@ -13,6 +13,7 @@ export const BulletList: Node<ExtBulletListOptions> = TiptapBulletList.extend<Ex
         const parent = this.parent?.();
         return {
             ...(parent as BulletListOptions ?? {}),
+            surface: { toolbar: true },
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonComponent

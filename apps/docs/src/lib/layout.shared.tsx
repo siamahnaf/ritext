@@ -9,15 +9,6 @@ export function baseOptions(): BaseLayoutProps {
     githubUrl: 'https://github.com/siamahnaf/ritext',
     links: [
       {
-        url: '/docs',
-        text: 'Docs',
-        active: 'nested-url',
-      },
-      {
-        url: '/playground',
-        text: 'Playground',
-      },
-      {
         type: 'icon',
         url: 'https://www.npmjs.com/package/ritext',
         text: 'npm',

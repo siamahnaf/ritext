@@ -29,6 +29,7 @@ export const FontFamily: Extension<ExtFontFamilyOptions> = TiptapFontFamily.exte
 
         return {
             ...(parent as TiptapFontFamilyOptions ?? {}),
+            surface: { toolbar: true },
             types: ["textStyle"],
             fontFamilyList: DEFAULT_FONT_FAMILY_LIST,
             component: ({ options, editor, dropdownContainerClassName, dropdownItemClassName }) => {

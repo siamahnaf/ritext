@@ -29,6 +29,7 @@ export const SubAndSuperscript = Extension.create<ExtSubAndSupOptions>({
     addOptions() {
         return {
             ...this.parent?.(),
+            surface: { toolbar: true },
             component: ({ options, editor, dropdownContainerClassName, dropdownItemClassName }) => {
                 const list: ExtDropdownItemProps[] = [];
 

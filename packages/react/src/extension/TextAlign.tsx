@@ -9,10 +9,7 @@ import type { ExtDropdownOptions } from "../lib/types/tiptap-ext.type";
 
 //Types
 type ExtTextAlignmentOptions = ExtDropdownOptions<
-    TextAlignOptions & {
-        showInBubbleMenu?: boolean;
-        bubbleMenuPosition?: number;
-    },
+    TextAlignOptions,
     { dropdownContainerClassName: string; }
 >;
 
@@ -24,8 +21,8 @@ export const TextAlign: Extension<ExtTextAlignmentOptions> = TiptapTextAlign.ext
             types: ["heading", "paragraph", "list_item", "title", "image"],
             alignments: ["left", "center", "right", "justify"],
             defaultAlignment: "left",
-            showInBubbleMenu: true,
-            bubbleMenuPosition: 8,
+            surface: { bubbleMenu: true },
+            order: { bubbleMenu: 8 },
             component: ({ options, editor, dropdownContainerClassName }) => {
                 const items = options.alignments;
                 return (

@@ -7,18 +7,15 @@ import ButtonComponent from "../lib/components/ButtonComponent";
 import type { ExtButtonOptions } from "../lib/types/tiptap-ext.type";
 
 //Types
-export type ExtStrikeOptions = ExtButtonOptions<StrikeOptions & {
-    showInBubbleMenu?: boolean;
-    bubbleMenuPosition?: number;
-}>;
+export type ExtStrikeOptions = ExtButtonOptions<StrikeOptions>;
 
 export const Strike: Mark<ExtStrikeOptions> = TiptapStrike.extend<ExtStrikeOptions>({
     addOptions() {
         const parent = this.parent?.();
         return {
             ...(parent as StrikeOptions ?? {}),
-            showInBubbleMenu: true,
-            bubbleMenuPosition: 5,
+            surface: { bubbleMenu: true },
+            order: { bubbleMenu: 5 },
             component: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent

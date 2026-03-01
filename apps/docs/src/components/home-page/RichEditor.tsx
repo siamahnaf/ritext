@@ -1,6 +1,6 @@
 "use client"
 import { useState, useRef } from "react";
-import { Editor, Toolbar, Content, EditorRef } from "ritext";
+import { Editor, Toolbar, Content, EditorRef, BubbleMenu, SlashCommand, SlashItems } from "ritext";
 
 //Extensions
 import { Document, Text, Paragraph, TextStyle, ListItem, ListKeymap, Dropcursor, Gapcursor, Placeholder, TrailingNode } from "ritext/extension/base";
@@ -48,7 +48,7 @@ const extensions = [
     }),
     Gapcursor,
     Placeholder.configure({
-        placeholder: "Type your content here..."
+        placeholder: "Type '/' for commands"
     }),
 
 
@@ -82,7 +82,7 @@ const extensions = [
 ]
 
 const RichEditor = () => {
-    const [content, setContent] = useState(`<h2 style="text-align: left;">Welcome to Ritext ✨</h2><p style="text-align: left;">Ritext is a modern rich text editor built for React. It’s designed to feel simple at first, but powerful when you need structure.</p><p style="text-align: left;">Try selecting text to test inline formatting like <strong>bold</strong>, <em>italic</em>, <u>underline</u>, <s>strike</s>, and inline code.</p><blockquote><p style="text-align: left;"><span style="color: rgb(226, 102, 82);">“Write clean content, then style it your way.”</span></p></blockquote><h3 style="text-align: left;">Quick demo checklist</h3><ul><li><p style="text-align: left;">Make a sentence <strong>bold</strong> and <em>italic</em></p></li><li><p style="text-align: left;">Turn this list into an ordered list</p></li><li><p style="text-align: left;">Add a link to <a target="_blank" rel="noopener noreferrer" class="link" href="https://ritext.vercel.app">ritext.vercel.app</a></p></li></ul><h3 style="text-align: left;">Image support</h3><p style="text-align: left;">Images can be inserted inline to enrich content. Here’s one sample image:<br></p><p style="text-align: center;"><img src="https://imagisum.vercel.app/image?id=18027445&amp;width=800&amp;height=600" alt="Ritext" data-width="517" data-height="388" data-inline="false" data-flip-x="false" data-flip-y="false" data-align="center" style="text-align: left;">A sample image inside the Ritext playground.</p><h3 style="text-align: left;">Try a nested list</h3><ul><li><p style="text-align: left;">Ritext basics</p><ul><li><p style="text-align: left;">Headings</p></li><li><p style="text-align: left;">Lists</p></li><li><p style="text-align: left;">Blockquotes</p></li></ul></li><li><p style="text-align: left;">Next steps</p><ul><li><p style="text-align: left;">Tables</p></li><li><p style="text-align: left;">Slash commands</p></li><li><p style="text-align: left;">Custom nodes</p></li></ul></li></ul><p style="text-align: left;">End of demo — now edit this content and make it yours 🚀</p>`);
+    const [content, setContent] = useState(`<h2 style="text-align: left;">Welcome to Ritext ✨</h2><p style="text-align: left;">Ritext is a modern rich text editor built for React. It’s designed to feel simple at first, but powerful when you need structure.</p><p style="text-align: left;">Try selecting text to test inline formatting like <strong>bold</strong>, <em>italic</em>, <u>underline</u>, <s>strike</s>, and inline code.</p><blockquote><p style="text-align: left;"><span style="color: rgb(226, 102, 82);">“Write clean content, then style it your way.”</span></p></blockquote><h3 style="text-align: left;">Quick demo checklist</h3><ul><li><p style="text-align: left;">Make a sentence <strong>bold</strong> and <em>italic</em></p></li><li><p style="text-align: left;">Turn this list into an ordered list</p></li><li><p style="text-align: left;">Add a link to <a target="_blank" rel="noopener noreferrer" class="link" href="https://ritext.vercel.app">ritext.vercel.app</a></p></li></ul><h3 style="text-align: left;">Image support</h3><p style="text-align: left;">Images can be inserted inline to enrich content. Here’s one sample image:<br></p><p style="text-align: center;"><img src="https://imagisum.vercel.app/image?id=18027445&amp;width=800&amp;height=600" alt="Ritext" data-width="517" data-height="388" data-inline="false" data-flip-x="false" data-flip-y="false" data-align="center" data-border-radius="24" style="text-align: left; border-radius: 24px;">A sample image inside the Ritext playground.</p><h3 style="text-align: left;">Try a nested list</h3><ul><li><p style="text-align: left;">Ritext basics</p><ul><li><p style="text-align: left;">Headings</p></li><li><p style="text-align: left;">Lists</p></li><li><p style="text-align: left;">Blockquotes</p></li></ul></li><li><p style="text-align: left;">Next steps</p><ul><li><p style="text-align: left;">Tables</p></li><li><p style="text-align: left;">Slash commands</p></li><li><p style="text-align: left;">Custom nodes</p></li></ul></li></ul><p style="text-align: left;">End of demo — now edit this content and make it yours 🚀</p>`);
 
 
     const ref = useRef<EditorRef>(null);
@@ -96,8 +96,10 @@ const RichEditor = () => {
                 onContentChange={(e) => setContent(e.content as string)}
                 className="border border-solid bg-white border-gray-200 rounded-xl"
             >
-                <Toolbar className="p-2 sticky rounded-t-xl top-0 border-b border-solid border-gray-200 bg-white z-99" />
+                <Toolbar className="p-2 sticky rounded-t-xl top-0 border-b border-solid border-gray-200 bg-white z-9" />
                 <Content />
+                <BubbleMenu />
+                <SlashCommand />
             </Editor>
 
             <div className="flex gap-x-4 items-center mt-4 ">

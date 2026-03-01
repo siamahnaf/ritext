@@ -24,7 +24,6 @@ export type EditorProps = {
     children?: ReactNode;
     extensions?: Extensions;
     dragHandler?: boolean;
-    showBubbleMenu?: boolean;
     content?: ContentValue;
     output?: OutputType;
     onContentChange?: (e: { editor: Editor, content: string | JSONContent }) => void;

@@ -21,16 +21,20 @@ const Toolbar = ({ className, buttonClassName, dropdownContainerClassName, dropd
                 /* eslint-disable @typescript-eslint/no-explicit-any */
                 (anyExt.options?.component as undefined | ((args: any) => React.ReactNode))
 
-            return renderButton
-                ? {
-                    name: anyExt.name as string,
-                    renderButton,
-                    options: anyExt.options,
-                    buttonClassName: anyExt.buttonClassName,
-                    dropdownContainerClassName: anyExt.dropdownContainerClassName,
-                    dropdownItemClassName: anyExt.dropdownItemClassName,
-                }
-                : null;
+            if (!renderButton) return null;
+
+            // surface.toolbar defaults to true; only hide if explicitly set to false
+            const surface = anyExt.options?.surface;
+            if (surface?.toolbar === false) return null;
+
+            return {
+                name: anyExt.name as string,
+                renderButton,
+                options: anyExt.options,
+                buttonClassName: anyExt.buttonClassName,
+                dropdownContainerClassName: anyExt.dropdownContainerClassName,
+                dropdownItemClassName: anyExt.dropdownItemClassName,
+            };
         })
         .filter(Boolean) as Array<{
             name: string;

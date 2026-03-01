@@ -9,22 +9,18 @@ import EmojiComponent from "../lib/components/EmojiComponent";
 import type { ExtDropdownOptions } from "../lib/types/tiptap-ext.type";
 
 //Types
-type ExtLinkOptions = ExtDropdownOptions<
-    EmojiOptions & {
-        showInBubbleMenu?: boolean;
-        bubbleMenuPosition?: number;
-    },
+type ExtEmojiOptions = ExtDropdownOptions<
+    EmojiOptions,
     { dropdownContainerClassName: string }
 >
 
-export const Emoji: Node<ExtLinkOptions> = TiptapEmoji.extend<ExtLinkOptions>({
+export const Emoji: Node<ExtEmojiOptions> = TiptapEmoji.extend<ExtEmojiOptions>({
     addOptions() {
         const parent = this.parent?.();
         return {
             ...(parent as EmojiOptions ?? {}),
             openOnClick: false,
-            showInBubbleMenu: false,
-            bubbleMenuPosition: 11,
+            surface: { toolbar: true },
             component: ({ options, editor, dropdownContainerClassName }) => {
                 return (
                     <Fragment>

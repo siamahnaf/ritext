@@ -13,6 +13,7 @@ export const TaskList: Node<ExtTaskListOptions> = TiptapTaskList.extend<ExtTaskL
     addOptions() {
         return {
             ...this.parent?.(),
+            surface: { toolbar: true },
             HTMLAttributes: {
                 class: "task-list",
             },

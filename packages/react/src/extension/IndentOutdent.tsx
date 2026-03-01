@@ -36,6 +36,7 @@ export const IndentOutdent = Extension.create<ExtIndentOptions>({
 
         return {
             ...parent,
+            surface: { toolbar: true },
             indentSize: 1,
             maxIndent: 7,
             types: ["paragraph", "heading", "blockquote"],

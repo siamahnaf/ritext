@@ -14,6 +14,7 @@ export const Subscript: Mark<ExtSubscriptOptions> = TiptapSubscript.extend<ExtSu
         const parent = this.parent?.();
         return {
             ...(parent as SubscriptExtensionOptions ?? {}),
+            surface: { toolbar: true },
             component: ({ options, editor, buttonClassName }) => {
                 return (
                     <ButtonComponent

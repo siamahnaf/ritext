@@ -12,10 +12,7 @@ import type { ExtDropdownOptions } from "../lib/types/tiptap-ext.type";
 
 //Types
 type ExtLinkOptions = ExtDropdownOptions<
-    LinkOptions & {
-        showInBubbleMenu?: boolean;
-        bubbleMenuPosition?: number;
-    },
+    LinkOptions,
     { dropdownContainerClassName: string }
 >
 
@@ -42,8 +39,8 @@ export const Links: Mark<ExtLinkOptions> = TiptapLink.extend<ExtLinkOptions>({
         return {
             ...(parent as LinkOptions ?? {}),
             openOnClick: false,
-            showInBubbleMenu: true,
-            bubbleMenuPosition: 9,
+            surface: { bubbleMenu: true },
+            order: { bubbleMenu: 9 },
             component: ({ options, editor, dropdownContainerClassName }) => {
                 return (
                     <Fragment>

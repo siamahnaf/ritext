@@ -14,6 +14,7 @@ export const OrderedList: Node<ExtOrderListOptions> = TiptapOrderedList.extend<E
         const parent = this.parent?.();
         return {
             ...(parent as OrderedListOptions ?? {}),
+            surface: { toolbar: true },
             component: ({ editor, options, buttonClassName }) => {
                 return (
                     <ButtonComponent

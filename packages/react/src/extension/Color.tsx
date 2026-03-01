@@ -11,8 +11,6 @@ import type { ExtDropdownOptions } from "../lib/types/tiptap-ext.type";
 type ExtColorOptions = ExtDropdownOptions<
     TiptapColorOption & {
         colorLists?: string[],
-        showInBubbleMenu?: boolean;
-        bubbleMenuPosition?: number;
     },
     { dropdownContainerClassName: string }
 >;
@@ -56,8 +54,8 @@ export const Color: Extension<ExtColorOptions> = TiptapColor.extend<ExtColorOpti
             ...parent,
             types: ["textStyle"],
             colorLists: DEFAULT_COLOR_LIST,
-            showInBubbleMenu: true,
-            bubbleMenuPosition: 6,
+            surface: { bubbleMenu: true },
+            order: { bubbleMenu: 6 },
             component: ({ options, editor, dropdownContainerClassName }) => {
                 const items = options.colorLists ?? DEFAULT_COLOR_LIST;
 

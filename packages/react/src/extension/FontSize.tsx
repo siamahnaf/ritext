@@ -29,6 +29,7 @@ export const FontSize: Extension<ExtFontSizeOptions> = TiptapFontSize.extend<Ext
 
         return {
             ...parent,
+            surface: { toolbar: true },
             types: ["textStyle"],
             fontSizeList: DEFAULT_FONT_SIZE_LIST,
             component: ({ options, editor, dropdownContainerClassName, dropdownItemClassName }) => {

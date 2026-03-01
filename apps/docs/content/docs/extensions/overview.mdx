@@ -109,21 +109,35 @@ All toolbar extensions share a set of common styling options:
   }}
 />
 
-## Bubble Menu
+## Surface & Bubble Menu
 
-Many extensions support appearing in the floating bubble menu that shows when text is selected. Configure this per-extension:
+Every extension supports a `surface` option that controls where its button is rendered, and an `order` option that controls its position inside each surface.
 
 ```tsx
 Bold.configure({
-  showInBubbleMenu: true,     // show in bubble menu (default: true for most)
-  bubbleMenuPosition: 2,      // position in bubble menu (lower = earlier)
+  surface: {
+    toolbar: true,      // show in Toolbar (default: true)
+    bubbleMenu: true,   // show in BubbleMenu (default: false for most)
+  },
+  order: {
+    bubbleMenu: 2,      // position inside BubbleMenu — lower = earlier
+  },
 })
 ```
 
-Default bubble menu positions:
+To hide a button from the toolbar but keep it in the bubble menu:
 
-| Position | Extension |
-|----------|-----------|
+```tsx
+Color.configure({
+  surface: { toolbar: false, bubbleMenu: true },
+  order: { bubbleMenu: 6 },
+})
+```
+
+Default bubble menu positions (extensions that opt in by default):
+
+| Order | Extension |
+|-------|-----------|
 | 1 | Heading |
 | 2 | Bold |
 | 3 | Italic |
@@ -135,3 +149,5 @@ Default bubble menu positions:
 | 9 | Link |
 | 10 | Hard Break |
 | 11 | Emoji |
+
+See [BubbleMenu](/docs/bubble-menu) for full component documentation.

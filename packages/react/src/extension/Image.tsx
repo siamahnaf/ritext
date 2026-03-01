@@ -41,6 +41,7 @@ export const Image: Node<ExtImageOptions> = TiptapImage.extend<ExtImageOptions>(
         const parent = this.parent?.();
         return {
             ...(parent as ImageOptions ?? {}),
+            surface: { toolbar: true },
             defaultInline: false,
             component: ({ editor, options, buttonClassName }) => {
                 const Wrapper = () => {
@@ -117,6 +118,20 @@ export const Image: Node<ExtImageOptions> = TiptapImage.extend<ExtImageOptions>(
                 default: "left",
                 parseHTML: (el) => el.getAttribute("data-align") || "left",
                 renderHTML: (attrs) => ({ "data-align": attrs.align || "left" }),
+            },
+            borderRadius: {
+                default: null,
+                parseHTML: (el) => {
+                    const v = el.getAttribute("data-border-radius");
+                    return v ? Number(v) : null;
+                },
+                renderHTML: (attrs) => {
+                    if (!attrs.borderRadius) return {};
+                    return {
+                        "data-border-radius": String(attrs.borderRadius),
+                        style: `border-radius: ${attrs.borderRadius}px`,
+                    };
+                },
             },
         };
     },

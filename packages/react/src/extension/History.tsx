@@ -66,6 +66,7 @@ export const History: Extension<ExtHistoryOptions> = UndoRedo.extend<ExtHistoryO
         const parent = this.parent?.();
         return {
             ...(parent as UndoRedoOptions ?? {}),
+            surface: { toolbar: true },
             component: ({ editor, options, buttonClassName }) => (
                 <HistoryButtons editor={editor} options={options} buttonClassName={buttonClassName} />
             ),
