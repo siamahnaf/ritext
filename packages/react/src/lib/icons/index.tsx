@@ -926,3 +926,20 @@ export const YoutubeIcon = ({ size = 17, ...props }: IconProps) => (
         <rect x="2" y="4" width="20" height="16" rx="5" /><path d="m10 8.5 5.5 3.5-5.5 3.5z" />
     </svg>
 );
+
+export const DetailsIcon = ({ size = 17, ...props }: IconProps) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        width={size}
+        height={size}
+        {...props}
+    >
+        <path d="M3 5h8" /><path d="M3 12h8" /><path d="M3 19h8" /><path d="m15 5 3 3 3-3" /><path d="m15 19 3-3 3 3" />
+    </svg>
+);

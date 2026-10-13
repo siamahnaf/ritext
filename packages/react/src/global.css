@@ -109,6 +109,57 @@
         @apply ritext:outline-3 ritext:outline-gray-400 ritext:transition-[outline];
     }
 
+    /* Details */
+    .ProseMirror div[data-type="details"] {
+        @apply ritext:flex ritext:gap-1 ritext:my-3 ritext:p-2 ritext:border ritext:border-gray-200 ritext:rounded-lg;
+    }
+
+    .ProseMirror div[data-type="details"] > button {
+        @apply ritext:flex ritext:items-center ritext:justify-center ritext:shrink-0 ritext:w-6 ritext:h-6 ritext:rounded-md ritext:text-gray-500 ritext:hover:bg-gray-100;
+    }
+
+    .ProseMirror div[data-type="details"] > button::before {
+        content: "";
+        border-top: 0.3rem solid transparent;
+        border-bottom: 0.3rem solid transparent;
+        border-left: 0.45rem solid currentColor;
+        transition: transform 0.15s;
+    }
+
+    .ProseMirror div[data-type="details"]:has(> div > div[data-type="detailsContent"]:not([hidden])) > button::before {
+        transform: rotate(90deg);
+    }
+
+    .ProseMirror div[data-type="details"] > div {
+        @apply ritext:flex ritext:flex-col ritext:gap-2 ritext:w-full ritext:min-w-0 ritext:pt-0.5;
+    }
+
+    .ProseMirror div[data-type="details"] summary {
+        @apply ritext:font-semibold ritext:list-none;
+    }
+
+    .ProseMirror div[data-type="details"] summary:has(> br:only-child)::before {
+        content: "Summary";
+        @apply ritext:float-left ritext:h-0 ritext:font-normal ritext:text-[#adb5bd] ritext:pointer-events-none;
+    }
+
+    .ProseMirror div[data-type="detailsContent"] > :last-child,
+    .ProseMirror details > div[data-type="detailsContent"] > :last-child {
+        @apply ritext:mb-0;
+    }
+
+    .ProseMirror details {
+        @apply ritext:my-3 ritext:py-2 ritext:px-3 ritext:border ritext:border-gray-200 ritext:rounded-lg;
+    }
+
+    .ProseMirror details > summary {
+        @apply ritext:font-semibold ritext:cursor-pointer;
+    }
+
+    .ProseMirror details > div[data-type="detailsContent"] {
+        @apply ritext:mt-2;
+    }
+
     /* Block Quote */
     .ProseMirror blockquote {
         @apply ritext:border-l-4 ritext:text-black ritext:border-l-neutral-700 ritext:py-2 ritext:px-4 ritext:rounded-lg ritext:rounded-tl-none ritext:rounded-bl-none;

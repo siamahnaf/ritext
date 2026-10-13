@@ -1,0 +1,101 @@
+---
+title: Details
+description: Collapsible sections with a summary and hidden content.
+---
+
+The `Details` extension adds collapsible sections. Clicking the toolbar button wraps the current block in a details box with a summary line. Click the button again while inside a details box to remove it.
+
+## Import
+
+```tsx
+import { Details } from 'ritext/extension/details';
+```
+
+## Usage
+
+```tsx
+const extensions = [Details];
+```
+
+`DetailsSummary` and `DetailsContent` are included automatically. Don't add them separately.
+
+## Configuration
+
+```tsx
+Details.configure({
+  persist: true,
+  openClassName: 'is-open',
+  HTMLAttributes: {
+    class: 'my-details',
+  },
+  renderToggleButton: ({ element, isOpen, node }) => {
+    element.setAttribute('aria-label', `${isOpen ? 'Collapse' : 'Expand'} ${node.textContent || 'details'}`);
+  },
+})
+```
+
+## Commands
+
+```tsx
+editor.commands.setDetails()
+editor.commands.unsetDetails()
+```
+
+## Output
+
+Saved HTML uses the native `<details>` element, so it opens and closes in the `Renderer` without JavaScript.
+
+```html
+<details>
+  <summary>Summary</summary>
+  <div data-type="detailsContent"><p>Hidden content</p></div>
+</details>
+```
+
+## Options
+
+<TypeTable
+  type={{
+    surface: {
+      description: 'Controls which surfaces render this button. Set `toolbar: false` to hide from toolbar, `bubbleMenu: true` to show in bubble menu.',
+      type: '{ toolbar?: boolean; bubbleMenu?: boolean }',
+      default: '{ toolbar: true, bubbleMenu: false }',
+    },
+    persist: {
+      description: 'Save the open state in the document, so a section stays open after reload.',
+      type: 'boolean',
+      default: 'false',
+    },
+    openClassName: {
+      description: 'CSS class added to the details box in the editor while it is open.',
+      type: 'string',
+      default: "'is-open'",
+    },
+    renderToggleButton: {
+      description: 'Customize the toggle button, e.g. its aria-label.',
+      type: '({ element, isOpen, node }) => void',
+    },
+    HTMLAttributes: {
+      description: 'Extra HTML attributes for the details element.',
+      type: 'Record<string, any>',
+      default: '{}',
+    },
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    activeClassName: {
+      description: 'CSS class for the toolbar button when the cursor is inside a details box.',
+      type: 'string',
+    },
+    icon: {
+      description: 'Custom icon for the toolbar button.',
+      type: 'ReactNode',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean | string',
+      default: 'true',
+    },
+  }}
+/>

@@ -34,6 +34,7 @@ export default defineConfig({
         "extension/hardbreak": "src/extension/HardBreak.tsx",
         "extension/youtube": "src/extension/Youtube.tsx",
         "extension/charactercount": "src/extension/CharacterCount.tsx",
+        "extension/details": "src/extension/Details.tsx",
     },
     format: ["esm", "cjs"],
     dts: true,
