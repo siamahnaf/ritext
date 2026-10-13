@@ -1,0 +1,171 @@
+---
+title: Character Count
+description: Count characters and words, and optionally limit them.
+---
+
+The `CharacterCount` extension counts the characters and words in the editor and can enforce a character limit. It is headless: it adds nothing to the toolbar. Use the `useCharacterCount` hook to build your own UI, or drop in the ready-made `CharacterCountUI` component.
+
+## Import
+
+```tsx
+import { CharacterCount, useCharacterCount, CharacterCountUI } from 'ritext/extension/charactercount';
+```
+
+## Usage
+
+```tsx
+const extensions = [
+  CharacterCount.configure({ limit: 280 }),
+];
+
+<Editor extensions={extensions}>
+  <Toolbar />
+  <Content />
+  <CharacterCountUI />
+</Editor>
+```
+
+## Configuration
+
+```tsx
+CharacterCount.configure({
+  limit: 280,
+  mode: 'textSize',
+  autoTrim: true,
+  textCounter: (text) => [...new Intl.Segmenter().segment(text)].length,
+  wordCounter: (text) => text.split(/\s+/).filter((word) => word !== '').length,
+})
+```
+
+## Options
+
+<TypeTable
+  type={{
+    limit: {
+      description: 'Maximum number of characters. Leave empty for no limit.',
+      type: 'number | null',
+      default: 'null',
+    },
+    mode: {
+      description: 'Count the document text (`textSize`) or the node size (`nodeSize`).',
+      type: "'textSize' | 'nodeSize'",
+      default: "'textSize'",
+    },
+    autoTrim: {
+      description: 'Trim content that is set programmatically and goes over the limit.',
+      type: 'boolean',
+      default: 'true',
+    },
+    textCounter: {
+      description: 'Custom function to count characters.',
+      type: '(text: string) => number',
+      default: '(text) => text.length',
+    },
+    wordCounter: {
+      description: 'Custom function to count words.',
+      type: '(text: string) => number',
+    },
+  }}
+/>
+
+## useCharacterCount
+
+Returns the live counts. Use it inside `<Editor>` to build your own counter.
+
+```tsx
+const MyCounter = () => {
+  const { charactersCount, wordsCount, percentage, limit } = useCharacterCount();
+  return <span>{charactersCount} / {limit} ({percentage}%)</span>;
+};
+```
+
+<TypeTable
+  type={{
+    charactersCount: {
+      description: 'Number of characters in the editor.',
+      type: 'number',
+    },
+    wordsCount: {
+      description: 'Number of words in the editor.',
+      type: 'number',
+    },
+    percentage: {
+      description: 'Share of the limit used, from 0 to 100. Always 0 when there is no limit.',
+      type: 'number',
+    },
+    limit: {
+      description: 'The configured limit, or `null`.',
+      type: 'number | null',
+    },
+  }}
+/>
+
+## CharacterCountUI
+
+A ready-made counter with a progress ring. Place it anywhere inside `<Editor>`. The ring only shows when a limit is set, and turns to the warning color once the limit is reached.
+
+```tsx
+<CharacterCountUI
+  color="#2563eb"
+  warningColor="#dc2626"
+  trackColor="#e5e7eb"
+  size={24}
+  showWords={false}
+  className="ritext:mt-2"
+/>
+```
+
+Replace the text with your own content:
+
+```tsx
+<CharacterCountUI
+  content={({ charactersCount, limit }) => <span>{(limit ?? 0) - charactersCount} left</span>}
+/>
+```
+
+<TypeTable
+  type={{
+    color: {
+      description: 'Progress ring color.',
+      type: 'string',
+      default: "'#6a00f5'",
+    },
+    warningColor: {
+      description: 'Ring and text color when the limit is reached.',
+      type: 'string',
+      default: "'#ef4444'",
+    },
+    trackColor: {
+      description: 'Background color of the ring.',
+      type: 'string',
+      default: "'#e9ecef'",
+    },
+    size: {
+      description: 'Ring size in pixels.',
+      type: 'number',
+      default: '20',
+    },
+    showChart: {
+      description: 'Show the progress ring.',
+      type: 'boolean',
+      default: 'true',
+    },
+    showWords: {
+      description: 'Show the word count.',
+      type: 'boolean',
+      default: 'true',
+    },
+    content: {
+      description: 'Render your own text instead of the default.',
+      type: '(state: CharacterCountState) => ReactNode',
+    },
+    className: {
+      description: 'CSS class for the wrapper.',
+      type: 'string',
+    },
+    style: {
+      description: 'Inline styles for the wrapper.',
+      type: 'CSSProperties',
+    },
+  }}
+/>

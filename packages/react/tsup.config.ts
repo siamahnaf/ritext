@@ -33,6 +33,7 @@ export default defineConfig({
         "extension/emoji": "src/extension/Emoji.tsx",
         "extension/hardbreak": "src/extension/HardBreak.tsx",
         "extension/youtube": "src/extension/Youtube.tsx",
+        "extension/charactercount": "src/extension/CharacterCount.tsx",
     },
     format: ["esm", "cjs"],
     dts: true,

@@ -1,6 +1,6 @@
 "use client"
 import { useState, useRef } from "react";
-import { Editor, Toolbar, Content, EditorRef, BubbleMenu, SlashCommand, SlashItems } from "ritext";
+import { Editor, Toolbar, Content, EditorRef, BubbleMenu, SlashCommand } from "ritext";
 
 //Extensions
 import { Document, Text, Paragraph, TextStyle, ListItem, ListKeymap, Dropcursor, Gapcursor, Placeholder, TrailingNode } from "ritext/extension/base";
@@ -31,6 +31,7 @@ import { Table } from "ritext/extension/table";
 import { Emoji } from "ritext/extension/emoji";
 import { HardBreak } from "ritext/extension/hardbreak";
 import { Youtube } from "ritext/extension/youtube";
+import { CharacterCount, CharacterCountUI } from "ritext/extension/charactercount";
 
 //CSS
 import "ritext/styles.css";
@@ -50,6 +51,9 @@ const extensions = [
     Gapcursor,
     Placeholder.configure({
         placeholder: "Type '/' for commands"
+    }),
+    CharacterCount.configure({
+        limit: 2000
     }),
 
 
@@ -103,6 +107,7 @@ const RichEditor = () => {
                 <Content />
                 <BubbleMenu />
                 <SlashCommand />
+                <CharacterCountUI className="px-6 py-5 border-t border-solid border-gray-100" />
             </Editor>
 
             <div className="flex gap-x-4 items-center mt-4 ">
