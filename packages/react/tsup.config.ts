@@ -32,6 +32,7 @@ export default defineConfig({
         "extension/table": "src/extension/Table.tsx",
         "extension/emoji": "src/extension/Emoji.tsx",
         "extension/hardbreak": "src/extension/HardBreak.tsx",
+        "extension/youtube": "src/extension/Youtube.tsx",
     },
     format: ["esm", "cjs"],
     dts: true,

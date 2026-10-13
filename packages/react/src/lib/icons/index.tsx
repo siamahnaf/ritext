@@ -909,3 +909,20 @@ export const RoundedCornerIcon = ({ size = 17, ...props }: IconProps) => (
         <path d="M3 21V9a6 6 0 0 1 6-6h12" />
     </svg>
 );
+
+export const YoutubeIcon = ({ size = 17, ...props }: IconProps) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        width={size}
+        height={size}
+        {...props}
+    >
+        <rect x="2" y="4" width="20" height="16" rx="5" /><path d="m10 8.5 5.5 3.5-5.5 3.5z" />
+    </svg>
+);

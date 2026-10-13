@@ -1,0 +1,185 @@
+---
+title: YouTube
+description: Embed YouTube videos in the editor.
+---
+
+The `Youtube` extension adds a YouTube button to the toolbar. Clicking it opens a dropdown where users can paste a video URL and set the width, height, controls, autoplay and loop for that video. Select an embedded video and open the dropdown again to update it.
+
+## Import
+
+```tsx
+import { Youtube } from 'ritext/extension/youtube';
+```
+
+## Usage
+
+```tsx
+const extensions = [Youtube];
+```
+
+## Configuration
+
+Width, height, controls, autoplay and loop set the defaults shown in the dropdown. All other player options are configured in code.
+
+```tsx
+Youtube.configure({
+  width: 640,
+  height: 360,
+  controls: true,
+  nocookie: true,
+  modestBranding: true,
+  ccLanguage: 'en',
+  progressBarColor: 'white',
+})
+```
+
+## Alignment
+
+Videos can be aligned left, center or right from the YouTube dropdown. If the [Text Align](/docs/extensions/text-align) extension is installed, its toolbar button also aligns a selected video. Click the space above or below the video to select it.
+
+## Commands
+
+```tsx
+editor.commands.setYoutubeVideo({
+  src: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  width: 640,
+  height: 480,
+})
+
+editor.commands.setTextAlign('center') // with a video selected
+```
+
+## Options
+
+<TypeTable
+  type={{
+    surface: {
+      description: 'Controls which surfaces render this button. Set `toolbar: false` to hide from toolbar, `bubbleMenu: true` to show in bubble menu.',
+      type: '{ toolbar?: boolean; bubbleMenu?: boolean }',
+      default: '{ toolbar: true, bubbleMenu: false }',
+    },
+    width: {
+      description: 'Default video width.',
+      type: 'number | string',
+      default: '640',
+    },
+    height: {
+      description: 'Default video height.',
+      type: 'number | string',
+      default: '480',
+    },
+    controls: {
+      description: 'Default for showing player controls.',
+      type: 'boolean',
+      default: 'true',
+    },
+    autoplay: {
+      description: 'Default for autoplaying the video.',
+      type: 'boolean',
+      default: 'false',
+    },
+    loop: {
+      description: 'Default for looping the video.',
+      type: 'boolean',
+      default: 'false',
+    },
+    inline: {
+      description: 'Render the video as an inline node.',
+      type: 'boolean',
+      default: 'false',
+    },
+    allowFullscreen: {
+      description: 'Allow the player to go fullscreen.',
+      type: 'boolean',
+      default: 'true',
+    },
+    nocookie: {
+      description: 'Load videos from youtube-nocookie.com.',
+      type: 'boolean',
+      default: 'false',
+    },
+    addPasteHandler: {
+      description: 'Embed YouTube links automatically when pasted.',
+      type: 'boolean',
+      default: 'true',
+    },
+    ccLanguage: {
+      description: 'Caption language, e.g. `en`.',
+      type: 'string',
+    },
+    ccLoadPolicy: {
+      description: 'Show captions by default.',
+      type: 'boolean',
+    },
+    disableKBcontrols: {
+      description: 'Disable keyboard controls.',
+      type: 'boolean',
+      default: 'false',
+    },
+    enableIFrameApi: {
+      description: 'Enable the YouTube IFrame Player API.',
+      type: 'boolean',
+      default: 'false',
+    },
+    origin: {
+      description: 'Your domain, used with the IFrame API.',
+      type: 'string',
+      default: "''",
+    },
+    endTime: {
+      description: 'Stop playback after this many seconds.',
+      type: 'number',
+      default: '0',
+    },
+    interfaceLanguage: {
+      description: 'Player interface language, e.g. `en`.',
+      type: 'string',
+    },
+    ivLoadPolicy: {
+      description: 'Set to `3` to hide video annotations.',
+      type: 'number',
+      default: '0',
+    },
+    modestBranding: {
+      description: 'Show a smaller YouTube logo.',
+      type: 'boolean',
+      default: 'false',
+    },
+    playlist: {
+      description: 'Comma-separated video IDs to play after the current video.',
+      type: 'string',
+      default: "''",
+    },
+    progressBarColor: {
+      description: 'Progress bar color, `red` or `white`.',
+      type: 'string',
+    },
+    rel: {
+      description: 'Set to `0` to limit related videos to the same channel.',
+      type: 'number',
+      default: '1',
+    },
+    HTMLAttributes: {
+      description: 'Extra HTML attributes for the iframe.',
+      type: 'Record<string, any>',
+      default: '{}',
+    },
+    className: {
+      description: 'CSS class for the toolbar button.',
+      type: 'string',
+    },
+    showArrow: {
+      description: 'Show a dropdown arrow.',
+      type: 'boolean',
+    },
+    dropdownClassName: {
+      description: 'CSS class for the dropdown.',
+      type: 'string',
+    },
+    tooltip: {
+      description: 'Show tooltip on hover.',
+      type: 'boolean',
+      default: 'false',
+    },
+  }}
+/>

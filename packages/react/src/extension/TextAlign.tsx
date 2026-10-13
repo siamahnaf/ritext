@@ -18,7 +18,7 @@ export const TextAlign: Extension<ExtTextAlignmentOptions> = TiptapTextAlign.ext
         const parent = this.parent?.();
         return {
             ...parent,
-            types: ["heading", "paragraph", "list_item", "title", "image"],
+            types: ["heading", "paragraph", "list_item", "title", "image", "youtube"],
             alignments: ["left", "center", "right", "justify"],
             defaultAlignment: "left",
             surface: { bubbleMenu: true },

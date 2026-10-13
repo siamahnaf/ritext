@@ -96,6 +96,19 @@
         @apply ritext:w-full ritext:mt-2 ritext:rounded-sm ritext:h-full ritext:border ritext:border-gray-200;
     }
 
+    /* Youtube */
+    .ProseMirror div[data-youtube-video] {
+        @apply ritext:cursor-move ritext:py-2 ritext:my-1;
+    }
+
+    .ProseMirror div[data-youtube-video] iframe {
+        @apply ritext:inline-block ritext:align-top ritext:max-w-full ritext:mt-0 ritext:outline-0 ritext:outline-transparent;
+    }
+
+    .ProseMirror div[data-youtube-video].ProseMirror-selectednode iframe {
+        @apply ritext:outline-3 ritext:outline-gray-400 ritext:transition-[outline];
+    }
+
     /* Block Quote */
     .ProseMirror blockquote {
         @apply ritext:border-l-4 ritext:text-black ritext:border-l-neutral-700 ritext:py-2 ritext:px-4 ritext:rounded-lg ritext:rounded-tl-none ritext:rounded-bl-none;

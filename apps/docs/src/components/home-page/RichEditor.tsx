@@ -30,6 +30,7 @@ import { HorizontalRule } from "ritext/extension/horizontalrule";
 import { Table } from "ritext/extension/table";
 import { Emoji } from "ritext/extension/emoji";
 import { HardBreak } from "ritext/extension/hardbreak";
+import { Youtube } from "ritext/extension/youtube";
 
 //CSS
 import "ritext/styles.css";
@@ -76,9 +77,11 @@ const extensions = [
     Image,
     BlockQuote,
     HorizontalRule,
+    Youtube,
     Table,
     Emoji,
-    HardBreak
+    HardBreak,
+
 ]
 
 const RichEditor = () => {
