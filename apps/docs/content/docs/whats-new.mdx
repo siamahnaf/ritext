@@ -1,0 +1,66 @@
+---
+title: What's New
+description: The latest extensions and updates in Ritext.
+---
+
+Three new extensions join Ritext in this release, along with an upgrade to the latest Tiptap 3.
+
+<Cards>
+  <Card title="YouTube" href="/docs/extensions/youtube" description="Embed YouTube videos with size, alignment, controls, autoplay and loop." icon="Youtube" />
+  <Card title="Details" href="/docs/extensions/details" description="Collapsible sections with a summary line and hidden content." icon="ListCollapse" />
+  <Card title="Character Count" href="/docs/extensions/character-count" description="Headless character and word counter with an optional ready-made UI." icon="Hash" />
+</Cards>
+
+## YouTube
+
+Click the YouTube button in the toolbar, paste a link, and choose the width, height, alignment, controls, autoplay and loop. Select a video and open the dropdown again to edit it.
+
+```tsx
+import { Youtube } from 'ritext/extension/youtube';
+
+const extensions = [
+  Youtube.configure({
+    nocookie: true,
+    modestBranding: true,
+  }),
+];
+```
+
+If the [Text Align](/docs/extensions/text-align) extension is installed, its toolbar button aligns a selected video too.
+
+## Details
+
+The Details button wraps the current block in a collapsible section. Click it again inside a section to remove it. Saved HTML uses the native `<details>` element, so it opens and closes in the [Renderer](/docs/renderer) without JavaScript.
+
+```tsx
+import { Details } from 'ritext/extension/details';
+
+const extensions = [
+  Details.configure({ persist: true }),
+];
+```
+
+## Character Count
+
+`CharacterCount` is headless: it adds nothing to the toolbar. Read the counts with `useCharacterCount`, or drop in `CharacterCountUI` anywhere inside `<Editor>`.
+
+```tsx
+import { CharacterCount, CharacterCountUI } from 'ritext/extension/charactercount';
+
+const extensions = [CharacterCount.configure({ limit: 280 })];
+
+<Editor extensions={extensions}>
+  <Toolbar />
+  <Content />
+  <CharacterCountUI color="#2563eb" />
+</Editor>
+```
+
+## Other changes
+
+- Tiptap packages upgraded to `3.31.4`.
+- `motion`, `react-easy-crop`, `@floating-ui/react`, `tailwind-merge` and `yjs` updated to their latest versions.
+
+<Callout type="info">
+  No changes to existing APIs. Add the new extensions to your `extensions` array to start using them.
+</Callout>

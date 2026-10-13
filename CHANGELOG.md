@@ -4,7 +4,26 @@ All notable changes to **ritext** are documented here.
 
 ---
 
-## [Unreleased]
+## [2.1.0]
+
+### Added
+
+- **`Youtube` extension** (`ritext/extension/youtube`) — toolbar dropdown to embed a YouTube video with URL, width, height, alignment, controls, autoplay, and loop. Select a video and reopen the dropdown to edit it. Every other player option (`nocookie`, `ccLanguage`, `progressBarColor`, `rel`, `playlist`, etc.) is available through `.configure()`.
+  - `controls`, `autoplay`, `loop`, and `textAlign` are stored per video (Tiptap applies them editor-wide) and are read back from saved HTML.
+  - Loop works on single videos (`playlist=<id>` is added automatically), and `youtu.be` links keep their player parameters.
+- **`CharacterCount` extension** (`ritext/extension/charactercount`) — headless character/word counter with all Tiptap options (`limit`, `mode`, `autoTrim`, `textCounter`, `wordCounter`). Ships with:
+  - **`useCharacterCount()`** — returns `{ charactersCount, wordsCount, percentage, limit }`.
+  - **`CharacterCountUI`** — progress ring and counter text, usable anywhere inside `<Editor>`. Customizable via `color`, `warningColor`, `trackColor`, `size`, `showChart`, `showWords`, and a `content` render prop.
+- **`Details` extension** (`ritext/extension/details`) — collapsible sections. The toolbar button wraps the current block in a details box, or removes it when the cursor is already inside one. `DetailsSummary` and `DetailsContent` are included automatically. Supports `persist`, `openClassName`, `renderToggleButton`, and `HTMLAttributes`. Saved HTML uses native `<details>`, so it works in `Renderer` without JavaScript.
+
+### Changed
+
+- **`TextAlign`** now also aligns a selected YouTube video.
+- **Dependencies** — Tiptap packages upgraded from `^3.20.0` to `^3.31.4`; `motion` to `^14.1.0`, `react-easy-crop` to `^6.2.4`, `@floating-ui/react` to `^0.27.20`, `tailwind-merge` to `^3.7.0`, `yjs` to `^13.6.33`.
+
+---
+
+## [2.0.0]
 
 ### Added
 
